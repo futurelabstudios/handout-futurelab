@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deloitte India Second Brain Architecture</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ccircle cx='46' cy='44' r='8' fill='%2386BC25'/%3E%3Ctext x='14' y='40' font-size='30' font-family='Arial' font-weight='700' fill='white'%3ED%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --green: #86bc25;
+      --black: #000000;
+      --ink: #0f0f0f;
+      --charcoal: #1d1d1d;
+      --paper: #f7f8f6;
+      --mist: #eff0ef;
+      --line: #d8dad7;
+      --muted: #53564f;
+      --blue: #6087ce;
+      --teal: #4ea099;
+      --yellow: #fec530;
+      --navy: #132738;
+      --violet: #7254c9;
+      --rose: #c94f7c;
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(134, 188, 37, 0.12) 0 10px, transparent 10px 100%),
+        linear-gradient(135deg, #ffffff 0%, #f7f8f6 46%, #edf5f7 100%);
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 0;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 22px;
+      color: white;
+      background: var(--black);
+      border-bottom: 4px solid var(--green);
+      width: 100%;
+      max-width: 100vw;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 260px;
+    }
+
+    .wordmark {
+      color: white;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .wordmark::after {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-left: 3px;
+      border-radius: 50%;
+      background: var(--green);
+      vertical-align: baseline;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.08;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 4px;
+      color: #dbe0dc;
+      font-size: 12px;
+    }
+
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .action {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid rgba(134, 188, 37, 0.55);
+      border-radius: 8px;
+      padding: 9px 12px;
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      background: #101010;
+    }
+
+    .action.secondary {
+      border-color: rgba(255, 255, 255, 0.22);
+      color: #e7ebe8;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1420px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    .hero {
+      min-height: calc(100vh - 94px);
+      display: grid;
+      grid-template-columns: minmax(310px, 0.88fr) minmax(0, 1.42fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .intro {
+      display: grid;
+      align-content: space-between;
+      gap: 18px;
+      padding: 28px;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(19, 39, 56, 0.96), rgba(15, 15, 15, 0.98)),
+        radial-gradient(circle at 85% 15%, rgba(134, 188, 37, 0.28), transparent 28%);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 720px;
+      font-size: clamp(36px, 5.4vw, 76px);
+      line-height: 0.94;
+      overflow-wrap: break-word;
+    }
+
+    .lead {
+      margin: 18px 0 0;
+      max-width: 620px;
+      color: #dce4de;
+      font-size: 18px;
+      line-height: 1.48;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat {
+      min-height: 92px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .stat b {
+      display: block;
+      color: white;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 10px;
+      color: #cfd7d1;
+      font-size: 13px;
+    }
+
+    .map-stage {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .modebar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.88);
+    }
+
+    .modebar button {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      min-height: 36px;
+      padding: 8px 11px;
+      background: white;
+      color: var(--ink);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .modebar button.active {
+      color: white;
+      border-color: var(--black);
+      background: var(--black);
+      box-shadow: inset 0 -4px 0 var(--green);
+    }
+
+    .architecture {
+      position: relative;
+      min-height: 660px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(15, 15, 15, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 15, 15, 0.035) 1px, transparent 1px),
+        linear-gradient(135deg, #ffffff, #f4f7f4);
+      background-size: 48px 48px, 48px 48px, auto;
+      box-shadow: var(--shadow);
+    }
+
+    .lane {
+      position: absolute;
+      inset: 18px auto 18px 18px;
+      width: calc((100% - 72px) / 4);
+      border: 1px dashed rgba(83, 86, 79, 0.34);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    .lane:nth-child(2) {
+      left: calc(18px + (100% - 72px) / 4 + 12px);
+    }
+
+    .lane:nth-child(3) {
+      left: calc(18px + ((100% - 72px) / 4 + 12px) * 2);
+    }
+
+    .lane:nth-child(4) {
+      left: calc(18px + ((100% - 72px) / 4 + 12px) * 3);
+    }
+
+    .lane-label {
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      z-index: 2;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .node {
+      position: absolute;
+      z-index: 3;
+      width: min(220px, calc((100% - 92px) / 4));
+      min-height: 124px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 14px 30px rgba(15, 15, 15, 0.1);
+      transition: transform 160ms ease, border-color 160ms ease, opacity 160ms ease;
+    }
+
+    .node:hover {
+      transform: translateY(-3px);
+      border-color: rgba(134, 188, 37, 0.8);
+    }
+
+    .node.dim {
+      opacity: 0.35;
+    }
+
+    .node .kicker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .node .kicker::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent, var(--green));
+    }
+
+    .node h2 {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.18;
+    }
+
+    .node p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .node code {
+      color: var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .raw {
+      --accent: var(--blue);
+      left: 34px;
+      top: 80px;
+    }
+
+    .scanner {
+      --accent: var(--teal);
+      left: 34px;
+      top: 244px;
+    }
+
+    .inbox {
+      --accent: var(--yellow);
+      left: calc(34px + (100% - 72px) / 4 + 12px);
+      top: 142px;
+    }
+
+    .promotion {
+      --accent: var(--rose);
+      left: calc(34px + (100% - 72px) / 4 + 12px);
+      top: 330px;
+    }
+
+    .wiki {
+      --accent: var(--green);
+      left: calc(34px + ((100% - 72px) / 4 + 12px) * 2);
+      top: 90px;
+    }
+
+    .schema {
+      --accent: var(--violet);
+      left: calc(34px + ((100% - 72px) / 4 + 12px) * 2);
+      top: 274px;
+    }
+
+    .reader {
+      --accent: var(--navy);
+      left: calc(34px + ((100% - 72px) / 4 + 12px) * 3);
+      top: 120px;
+    }
+
+    .automation {
+      --accent: var(--green);
+      left: calc(34px + ((100% - 72px) / 4 + 12px) * 3);
+      top: 320px;
+    }
+
+    .flow-svg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .flow-svg path {
+      fill: none;
+      stroke: var(--black);
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-dasharray: 7 8;
+      opacity: 0.46;
+    }
+
+    .flow-svg path.hot {
+      stroke: var(--green);
+      stroke-width: 4;
+      opacity: 0.92;
+      stroke-dasharray: none;
+    }
+
+    .flow-svg text {
+      fill: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      margin-top: 22px;
+    }
+
+    .section {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 12px 30px rgba(15, 15, 15, 0.08);
+    }
+
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: start;
+      min-height: 72px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--black);
+      background: rgba(134, 188, 37, 0.24);
+      font-weight: 800;
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .step span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .matrix {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+    }
+
+    table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+    }
+
+    th {
+      padding: 11px;
+      color: white;
+      background: #101010;
+      text-align: left;
+      font-size: 12px;
+    }
+
+    td {
+      padding: 11px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+      vertical-align: top;
+    }
+
+    td:first-child {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .legend-item {
+      min-height: 84px;
+      padding: 13px;
+      border-radius: 8px;
+      color: white;
+      background: var(--navy);
+    }
+
+    .legend-item:nth-child(2) {
+      background: var(--teal);
+    }
+
+    .legend-item:nth-child(3) {
+      color: var(--ink);
+      background: var(--yellow);
+    }
+
+    .legend-item:nth-child(4) {
+      background: #365f2c;
+    }
+
+    .legend-item b {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    .legend-item span {
+      display: block;
+      font-size: 12px;
+      line-height: 1.36;
+      opacity: 0.92;
+    }
+
+    @media (max-width: 1120px) {
+      .hero,
+      .details {
+        grid-template-columns: 1fr;
+      }
+
+      .architecture {
+        min-height: 860px;
+      }
+
+      .lane {
+        width: calc((100% - 54px) / 2);
+        height: calc((100% - 54px) / 2);
+      }
+
+      .lane:nth-child(2) {
+        left: calc(30px + (100% - 54px) / 2);
+      }
+
+      .lane:nth-child(3) {
+        left: 18px;
+        top: calc(30px + (100% - 54px) / 2);
+      }
+
+      .lane:nth-child(4) {
+        left: calc(30px + (100% - 54px) / 2);
+        top: calc(30px + (100% - 54px) / 2);
+      }
+
+      .node {
+        width: min(260px, calc((100% - 92px) / 2));
+      }
+
+      .raw,
+      .scanner {
+        left: 34px;
+      }
+
+      .inbox,
+      .promotion {
+        left: calc(46px + (100% - 54px) / 2);
+      }
+
+      .wiki,
+      .schema {
+        left: 34px;
+        top: 520px;
+      }
+
+      .schema {
+        top: 690px;
+      }
+
+      .reader,
+      .automation {
+        left: calc(46px + (100% - 54px) / 2);
+        top: 520px;
+      }
+
+      .automation {
+        top: 690px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      html,
+      body,
+      .shell {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .topbar {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand {
+        min-width: 0;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      .wordmark {
+        font-size: 26px;
+      }
+
+      .brand-text {
+        min-width: 0;
+      }
+
+      .brand-text strong,
+      .brand-text span {
+        overflow-wrap: anywhere;
+      }
+
+      .top-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .action {
+        min-width: 0;
+        padding-inline: 8px;
+      }
+
+      main {
+        width: 100vw;
+        max-width: 100vw;
+        padding: 12px;
+        overflow: hidden;
+      }
+
+      .hero,
+      .intro,
+      .map-stage,
+      .section,
+      .legend {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .intro {
+        padding: 22px;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: clamp(34px, 10vw, 42px);
+        line-height: 1.02;
+      }
+
+      .lead {
+        max-width: 100%;
+        font-size: 16px;
+        overflow-wrap: anywhere;
+      }
+
+      .eyebrow {
+        overflow-wrap: anywhere;
+      }
+
+      .stats,
+      .legend {
+        grid-template-columns: 1fr;
+      }
+
+      .architecture {
+        min-height: 1200px;
+      }
+
+      .lane {
+        position: static;
+        display: none;
+      }
+
+      .flow-svg {
+        display: none;
+      }
+
+      .node {
+        position: static;
+        width: auto;
+        margin: 14px;
+      }
+
+      .modebar {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="wordmark" aria-label="Deloitte">Deloitte</div>
+        <div class="brand-text">
+          <strong>Second Brain Architecture</strong>
+          <span>Living knowledge system for Deloitte India teams</span>
+        </div>
+      </div>
+      <nav class="top-actions" aria-label="Architecture links">
+        <a class="action" href="index.html">Open Wiki</a>
+        <a class="action secondary" href="README.md">README</a>
+        <a class="action secondary" href="AGENTS.md">Schema</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Architecture overview">
+        <div class="intro">
+          <div>
+            <p class="eyebrow">Karpathy LLM Wiki x Garry Tan GBrain</p>
+            <h1>How the Deloitte India brain stays alive.</h1>
+            <p class="lead">The system turns public internet signals into sourced Markdown synthesis, then publishes a readable wiki while a 6-hour radar keeps the inbox warm for review and promotion.</p>
+          </div>
+          <div class="stats" aria-label="Current system stats">
+            <div class="stat"><b>4</b><span>Core layers: raw, wiki, schema, reader</span></div>
+            <div class="stat"><b>6h</b><span>Recurring internet radar cadence</span></div>
+            <div class="stat"><b>18</b><span>Wiki pages in Markdown</span></div>
+            <div class="stat"><b>1</b><span>Generated HTML reader from source pages</span></div>
+          </div>
+        </div>
+
+        <div class="map-stage">
+          <div class="modebar" aria-label="Highlight architecture layer">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="ingest">Ingest</button>
+            <button data-filter="curate">Curate</button>
+            <button data-filter="publish">Publish</button>
+            <button data-filter="govern">Govern</button>
+          </div>
+
+          <div class="architecture" id="architecture">
+            <div class="lane"><span class="lane-label">Internet and raw inputs</span></div>
+            <div class="lane"><span class="lane-label">Triage and promotion</span></div>
+            <div class="lane"><span class="lane-label">Compiled brain</span></div>
+            <div class="lane"><span class="lane-label">Interfaces and jobs</span></div>
+
+            <svg class="flow-svg" viewBox="0 0 1000 660" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#0f0f0f"></path>
+                </marker>
+                <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#86bc25"></path>
+                </marker>
+              </defs>
+              <path class="hot" marker-end="url(#arrowGreen)" d="M190 170 C260 170, 280 210, 340 210"></path>
+              <path marker-end="url(#arrow)" d="M190 330 C260 340, 280 235, 340 230"></path>
+              <path class="hot" marker-end="url(#arrowGreen)" d="M460 230 C540 220, 560 170, 640 170"></path>
+              <path marker-end="url(#arrow)" d="M460 395 C545 400, 560 350, 640 340"></path>
+              <path class="hot" marker-end="url(#arrowGreen)" d="M760 180 C820 185, 830 200, 880 205"></path>
+              <path marker-end="url(#arrow)" d="M760 345 C820 345, 835 390, 875 395"></path>
+              <path marker-end="url(#arrow)" d="M890 410 C880 555, 210 560, 150 385"></path>
+              <text x="256" y="150">fetch and score</text>
+              <text x="512" y="196">promote durable signals</text>
+              <text x="790" y="162">build reader</text>
+              <text x="454" y="554">6-hour refresh loop</text>
+            </svg>
+
+            <article class="node raw" data-layer="ingest">
+              <div class="kicker">Raw layer</div>
+              <h2>Public Sources</h2>
+              <p><code>raw/sources/</code> stores seed provenance. <code>raw/news/</code> stores unreviewed captures from internet radar runs.</p>
+            </article>
+
+            <article class="node scanner" data-layer="ingest">
+              <div class="kicker">Signal scanner</div>
+              <h2>Internet Radar</h2>
+              <p><code>tools/scan_news.py</code> queries RSS, scores Deloitte India relevance, deduplicates URLs, and updates the inbox.</p>
+            </article>
+
+            <article class="node inbox" data-layer="curate">
+              <div class="kicker">Triage</div>
+              <h2>Radar Inbox</h2>
+              <p><code>wiki/00-inbox/radar.md</code> catches fresh signals before they become durable wiki knowledge.</p>
+            </article>
+
+            <article class="node promotion" data-layer="curate govern">
+              <div class="kicker">Human review</div>
+              <h2>Promotion Rules</h2>
+              <p>Credible, material, source-backed items move into topic pages. Weak or duplicate items stay in the inbox.</p>
+            </article>
+
+            <article class="node wiki" data-layer="publish curate">
+              <div class="kicker">Compiled truth</div>
+              <h2>Markdown Wiki</h2>
+              <p><code>wiki/</code> holds briefing-sized pages with frontmatter, wikilinks, source links, and update history.</p>
+            </article>
+
+            <article class="node schema" data-layer="govern">
+              <div class="kicker">Operating manual</div>
+              <h2>Agent Schema</h2>
+              <p><code>AGENTS.md</code> tells future maintenance agents how to ingest, cite, link, lint, and rebuild.</p>
+            </article>
+
+            <article class="node reader" data-layer="publish">
+              <div class="kicker">Reader</div>
+              <h2>HTML Wiki</h2>
+              <p><code>tools/build_html.py</code> compiles Markdown into <code>index.html</code> with search, backlinks, and source panels.</p>
+            </article>
+
+            <article class="node automation" data-layer="ingest govern">
+              <div class="kicker">Recurring job</div>
+              <h2>6-Hour Refresh</h2>
+              <p>The active automation scans, rebuilds, reviews new items, and logs material updates for the team.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="legend" aria-label="Architecture principles">
+        <div class="legend-item"><b>Raw stays raw</b><span>Captured source notes preserve provenance and avoid rewriting the evidence layer.</span></div>
+        <div class="legend-item"><b>Wiki compiles truth</b><span>Topic pages absorb durable signals so people brief from synthesis, not search results.</span></div>
+        <div class="legend-item"><b>Schema governs agents</b><span>The maintenance rules keep citations, links, folders, and review quality consistent.</span></div>
+        <div class="legend-item"><b>Radar keeps motion</b><span>Every 6 hours the system scans for market, regulatory, AI, cyber, tax, and sector signals.</span></div>
+      </section>
+
+      <section class="details" aria-label="Architecture details">
+        <div class="section">
+          <h2>Refresh Loop</h2>
+          <div class="timeline">
+            <div class="step"><div><b>Scan</b><span>RSS and public news searches run against Deloitte India relevant queries.</span></div></div>
+            <div class="step"><div><b>Score</b><span>Keywords and source quality weight the candidate list so the radar stays focused.</span></div></div>
+            <div class="step"><div><b>Capture</b><span>New items become small raw news notes with title, URL, source, date, score, and review note.</span></div></div>
+            <div class="step"><div><b>Triage</b><span>The inbox shows the latest items and suggests which durable topic page should absorb them.</span></div></div>
+            <div class="step"><div><b>Promote</b><span>Credible items update Markdown pages, source links, wikilinks, and the log.</span></div></div>
+            <div class="step"><div><b>Publish</b><span>The builder regenerates the reader so the team sees the current compiled brain.</span></div></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Ownership Matrix</h2>
+          <div class="matrix">
+            <table>
+              <thead>
+                <tr>
+                  <th>Layer</th>
+                  <th>Files</th>
+                  <th>Purpose</th>
+                  <th>Change rule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Raw</td>
+                  <td><code>raw/</code></td>
+                  <td>Preserve source trails and scanner captures.</td>
+                  <td>Add new captures; avoid rewriting evidence.</td>
+                </tr>
+                <tr>
+                  <td>Wiki</td>
+                  <td><code>wiki/</code></td>
+                  <td>Compiled synthesis for people and agents.</td>
+                  <td>Edit actively, cite claims, keep pages brief.</td>
+                </tr>
+                <tr>
+                  <td>Schema</td>
+                  <td><code>AGENTS.md</code></td>
+                  <td>Operating rules for future maintenance.</td>
+                  <td>Change only when the workflow changes.</td>
+                </tr>
+                <tr>
+                  <td>Reader</td>
+                  <td><code>index.html</code></td>
+                  <td>Searchable browser view over Markdown.</td>
+                  <td>Regenerate from <code>tools/build_html.py</code>.</td>
+                </tr>
+                <tr>
+                  <td>Radar</td>
+                  <td><code>tools/scan_news.py</code></td>
+                  <td>Internet scanning and inbox updates.</td>
+                  <td>Tune queries, keywords, caps, and source weights.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-filter]');
+    const nodes = document.querySelectorAll('.node');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        buttons.forEach((item) => item.classList.toggle('active', item === button));
+        nodes.forEach((node) => {
+          const layers = (node.dataset.layer || '').split(/\s+/);
+          node.classList.toggle('dim', filter !== 'all' && !layers.includes(filter));
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,2408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge Handout for Deloitte USI by Futurelab Studios</title>
+  <link rel="icon" href="assets/logos/deloitte-dot.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --ink: #000000;
+      --near: #111111;
+      --charcoal: #2e2e2e;
+      --graphite: #53565a;
+      --line: #d0d4d0;
+      --line-soft: #e5e8e3;
+      --mist: #f4f6f3;
+      --white: #ffffff;
+      --green: #86bc25;
+      --electric: #a4d65e;
+      --cyan: #00a3e0;
+      --teal: #00abab;
+      --yellow: #ffcd00;
+      --orange: #f58220;
+      --magenta: #d0006f;
+      --purple: #6e267b;
+      --font: Inter, Aptos, "Helvetica Neue", Arial, sans-serif;
+      --radius: 8px;
+      --shadow: 0 16px 44px rgba(0, 0, 0, 0.08);
+      color-scheme: light;
+      font-family: var(--font);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ink);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--mist);
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: 292px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .rail {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 24px;
+      padding: 24px 24px 22px;
+      overflow-y: auto;
+      background: var(--ink);
+      color: var(--white);
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .brand {
+      display: grid;
+      gap: 14px;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      display: block;
+      width: 132px;
+      height: auto;
+    }
+
+    .mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .mark::after {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 8px rgba(134, 188, 37, 0.14);
+    }
+
+    .kicker,
+    .mini-label {
+      margin: 0;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .brand h1 {
+      margin: 0;
+      max-width: 230px;
+      font-size: 25px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .brand-copy {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+    }
+
+    .accent-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+      min-height: 2px;
+    }
+
+    .accent-strip span {
+      background: var(--accent, var(--green));
+      border-radius: 0;
+    }
+
+    .rail-meta {
+      display: grid;
+      gap: 9px;
+      padding: 14px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .rail-meta-row {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 11px;
+    }
+
+    .rail-meta-row b {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .nav {
+      display: grid;
+      align-content: start;
+      gap: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .nav-button {
+      width: 100%;
+      min-height: 62px;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: start;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 0;
+      padding: 13px 0 13px 10px;
+      background: transparent;
+      color: var(--white);
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .nav-button > span:first-child {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(134, 188, 37, 0.48);
+      background: transparent;
+      color: var(--green);
+      font-size: 11px;
+    }
+
+    .nav-title {
+      display: block;
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 13px;
+      line-height: 1.15;
+    }
+
+    .nav-desc {
+      display: block;
+      margin-top: 5px;
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+
+    .nav-button:hover,
+    .nav-button.is-active {
+      background: transparent;
+      box-shadow: inset 3px 0 0 var(--green);
+      padding-left: 10px;
+    }
+
+    .nav-button.is-active > span:first-child {
+      background: var(--green);
+      color: var(--ink);
+      border-color: var(--green);
+    }
+
+    .nav-button.is-active .nav-title {
+      color: var(--white);
+    }
+
+    .nav-button.is-active .nav-desc {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .rail-actions {
+      display: grid;
+      gap: 10px;
+      padding-top: 2px;
+    }
+
+    .rail-note {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 11px;
+    }
+
+    .rail-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 11px;
+    }
+
+    .rail-links a {
+      border-bottom: 1px solid rgba(134, 188, 37, 0.55);
+    }
+
+    .button {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--ink);
+      border-radius: 4px;
+      padding: 0 13px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      box-shadow: 0 0 0 3px rgba(134, 188, 37, 0.24);
+      outline: none;
+    }
+
+    .button[data-variant="green"] {
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--ink);
+    }
+
+    .button[data-variant="ghost"] {
+      border-color: var(--line);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .rail .button[data-variant="ghost"],
+    .band-dark .button[data-variant="ghost"],
+    .intelligence-visual .button[data-variant="ghost"] {
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+    }
+
+    .content {
+      min-width: 0;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.022) 1px, transparent 1px),
+        linear-gradient(rgba(0, 0, 0, 0.022) 1px, transparent 1px),
+        var(--mist);
+      background-size: 44px 44px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 12;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 64px;
+      padding: 14px clamp(18px, 3vw, 34px);
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .crumb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      color: var(--graphite);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .crumb::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .progress-chip {
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 11px;
+      background: var(--white);
+      color: var(--graphite);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .progress-chip::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .page {
+      display: none;
+      min-height: calc(100vh - 64px);
+      padding: clamp(22px, 4vw, 52px);
+    }
+
+    .page.is-active {
+      display: block;
+    }
+
+    .page-shell {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.46fr);
+      gap: clamp(24px, 4vw, 56px);
+      align-items: stretch;
+      margin-bottom: 32px;
+    }
+
+    .hero-main {
+      min-height: 436px;
+      display: grid;
+      align-content: space-between;
+      gap: 28px;
+      padding: clamp(28px, 4vw, 46px);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    h2,
+    h3,
+    h4,
+    p {
+      margin-top: 0;
+    }
+
+    .page-title {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(40px, 5.2vw, 74px);
+      line-height: 0.98;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 0.32em;
+      height: 0.32em;
+      margin-left: 0.05em;
+      border-radius: 50%;
+      background: var(--green);
+      vertical-align: baseline;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--graphite);
+      font-size: clamp(17px, 1.7vw, 22px);
+      line-height: 1.48;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+    }
+
+    .meta-item {
+      padding: 18px 18px 0 0;
+      border-right: 1px solid var(--line);
+    }
+
+    .meta-item:last-child {
+      border-right: 0;
+    }
+
+    .meta-item b {
+      display: block;
+      color: var(--green);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .meta-item span {
+      display: block;
+      margin-top: 8px;
+      color: var(--graphite);
+      font-size: 13px;
+    }
+
+    .intelligence-visual {
+      min-height: 436px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-content: space-between;
+      gap: 18px;
+      padding: 26px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .intelligence-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+      background-size: 34px 34px;
+      opacity: 0.42;
+    }
+
+    .intelligence-visual > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .signal-label {
+      color: var(--electric);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .network {
+      min-height: 238px;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .node {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: var(--size, 64px);
+      height: var(--size, 64px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .node[data-core="true"] {
+      background: var(--green);
+      color: var(--ink);
+      border-color: var(--green);
+      box-shadow: 0 0 0 14px rgba(134, 188, 37, 0.16);
+    }
+
+    .line {
+      position: absolute;
+      height: 1px;
+      transform-origin: left center;
+      background: rgba(164, 214, 94, 0.62);
+    }
+
+    .visual-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .visual-stat {
+      min-height: 82px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .visual-stat b {
+      display: block;
+      color: var(--green);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .visual-stat span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 11px;
+    }
+
+    .band {
+      margin: 0 0 28px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .band-dark {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    .band-dark .section-note,
+    .band-dark .card p,
+    .band-dark .timeline-card p,
+    .band-dark .small-copy {
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(280px, 0.48fr);
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(28px, 3.6vw, 48px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      margin: 0;
+      color: var(--graphite);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(248px, 100%), 1fr));
+      gap: 14px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card,
+    .timeline-card,
+    .resource-card,
+    .reading-card {
+      min-height: 150px;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .band-dark .card,
+    .band-dark .timeline-card {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .card b,
+    .timeline-card b,
+    .resource-card b,
+    .reading-card b {
+      color: var(--green);
+      font-size: 13px;
+    }
+
+    .card h3,
+    .timeline-card h3,
+    .resource-card h3,
+    .reading-card h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.15;
+    }
+
+    .card p,
+    .timeline-card p,
+    .resource-card p,
+    .reading-card p,
+    .small-copy {
+      margin: 0;
+      color: var(--graphite);
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .timeline-card {
+      min-height: 210px;
+      border-top: 0;
+      border-left: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .timeline-card h3 {
+      margin-top: 28px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(320px, 0.5fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 8px;
+    }
+
+    .check-item {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line-soft);
+      color: var(--graphite);
+      font-size: 14px;
+    }
+
+    .check-item input {
+      width: 17px;
+      height: 17px;
+      margin: 2px 0 0;
+      accent-color: var(--green);
+    }
+
+    .check-item strong {
+      color: var(--ink);
+    }
+
+    .prompt-panel {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .prompt-controls {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .input,
+    .select,
+    .textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--white);
+      color: var(--ink);
+      padding: 10px 11px;
+      font-size: 13px;
+    }
+
+    .textarea {
+      min-height: 118px;
+      resize: vertical;
+      line-height: 1.45;
+    }
+
+    .prompt-output {
+      min-height: 260px;
+      overflow: auto;
+      white-space: pre-wrap;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      background: #101010;
+      color: #f2f5ee;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 9px;
+      background: var(--white);
+      color: var(--graphite);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent, var(--green));
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 1.05fr repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .matrix > div {
+      min-height: 92px;
+      padding: 14px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--graphite);
+      font-size: 13px;
+    }
+
+    .matrix .head {
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .matrix b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .matrix .head b {
+      color: var(--green);
+    }
+
+    .resource-card,
+    .reading-card {
+      position: relative;
+      min-height: 196px;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .resource-card:hover,
+    .reading-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .resource-card[data-pending="true"] {
+      border-style: dashed;
+    }
+
+    .status {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: var(--mist);
+      color: var(--graphite);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .status.ready {
+      background: rgba(134, 188, 37, 0.18);
+      color: var(--ink);
+    }
+
+    .resource-card .button,
+    .reading-card .button {
+      align-self: end;
+      justify-self: start;
+      margin-top: 8px;
+    }
+
+    .brain-snapshot {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.42fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .selector {
+      display: grid;
+      gap: 8px;
+    }
+
+    .selector button {
+      min-height: 54px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      background: var(--white);
+      color: var(--ink);
+      text-align: left;
+      font-weight: 800;
+    }
+
+    .selector button.is-active {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+      box-shadow: inset 5px 0 0 var(--green);
+    }
+
+    .snapshot-panel {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .snapshot-title {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1.08;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .flow-step {
+      min-height: 154px;
+      padding: 14px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .flow-step b {
+      display: block;
+      color: var(--green);
+      font-size: 13px;
+    }
+
+    .flow-step h3 {
+      margin: 26px 0 8px;
+      font-size: 17px;
+    }
+
+    .flow-step p {
+      margin: 0;
+      color: var(--graphite);
+      font-size: 12px;
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 40;
+      max-width: 360px;
+      transform: translateY(16px);
+      opacity: 0;
+      pointer-events: none;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .mobile-nav {
+      display: none;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 9px;
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 10mm;
+    }
+
+    @media print {
+      html,
+      body {
+        background: var(--white);
+      }
+
+      .app {
+        display: block;
+      }
+
+      .rail,
+      .topbar,
+      .toast,
+      .button,
+      .mobile-nav {
+        display: none !important;
+      }
+
+      .content {
+        background: var(--white);
+      }
+
+      .page {
+        display: none !important;
+        min-height: auto;
+        padding: 0;
+      }
+
+      .page.is-active,
+      body.print-all .page {
+        display: block !important;
+        page-break-after: always;
+      }
+
+      .page-shell {
+        max-width: none;
+      }
+
+      .hero {
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .hero-main,
+      .intelligence-visual,
+      .band,
+      .card,
+      .timeline-card,
+      .resource-card,
+      .reading-card,
+      .snapshot-panel,
+      .prompt-panel {
+        box-shadow: none !important;
+      }
+
+      .hero-main,
+      .intelligence-visual {
+        min-height: 260px;
+        padding: 18px;
+      }
+
+      .page-title {
+        font-size: 44px;
+      }
+
+      .lead {
+        font-size: 14px;
+      }
+
+      .band {
+        margin-bottom: 10px;
+        padding: 14px;
+      }
+
+      .section-head {
+        margin-bottom: 10px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .card,
+      .timeline-card {
+        min-height: 120px;
+        padding: 12px;
+      }
+
+      .prompt-output {
+        max-height: 220px;
+      }
+    }
+
+    @media (max-width: 1120px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      .rail {
+        position: relative;
+        height: auto;
+        grid-template-rows: auto;
+        padding: 18px;
+      }
+
+      .brand {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .brand h1 {
+        max-width: none;
+      }
+
+      .nav {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        border-top: 0;
+        padding: 2px 0 6px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+      }
+
+      .nav-button {
+        min-width: 190px;
+        min-height: 62px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 4px;
+        padding: 10px;
+        scroll-snap-align: start;
+      }
+
+      .nav-button:hover,
+      .nav-button.is-active {
+        padding-left: 10px;
+      }
+
+      .nav-desc {
+        white-space: normal;
+      }
+
+      .mobile-nav {
+        display: none;
+      }
+
+      .rail-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .topbar {
+        top: 0;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .section-head,
+      .split,
+      .brain-snapshot {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid.two,
+      .grid.three {
+        grid-template-columns: 1fr;
+      }
+
+      .matrix {
+        grid-template-columns: 1fr;
+      }
+
+      .matrix > div {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .rail {
+        gap: 18px;
+      }
+
+      .rail-meta {
+        display: none;
+      }
+
+      .nav {
+        display: grid;
+        grid-template-columns: 1fr;
+        overflow: visible;
+        padding: 0;
+        scroll-snap-type: none;
+      }
+
+      .nav-button {
+        min-width: 0;
+        min-height: 46px;
+        grid-template-columns: 24px 1fr;
+        gap: 8px;
+        padding: 9px;
+      }
+
+      .nav-button > span:first-child {
+        width: 22px;
+        height: 22px;
+        font-size: 10px;
+      }
+
+      .nav-title {
+        font-size: 12px;
+        line-height: 1.2;
+      }
+
+      .nav-desc {
+        display: none;
+      }
+
+      .top-actions,
+      .rail-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        padding: 16px;
+      }
+
+      .hero-main,
+      .intelligence-visual,
+      .band {
+        padding: 18px;
+      }
+
+      .page-title {
+        font-size: 36px;
+      }
+
+      .hero-meta,
+      .visual-stats,
+      .prompt-controls {
+        grid-template-columns: 1fr;
+      }
+
+      .meta-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 14px 0;
+      }
+
+      .timeline,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-card,
+      .flow-step {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="rail" aria-label="Knowledge handout navigation">
+      <div class="brand">
+        <div class="brand-lockup">
+          <img class="logo" src="assets/logos/deloitte-official.svg" alt="Deloitte">
+          <span class="mark" aria-hidden="true"></span>
+        </div>
+        <div>
+          <p class="kicker">Platform</p>
+          <h1>Knowledge Handout for Deloitte USI by Futurelab Studios</h1>
+        </div>
+        <p class="brand-copy">A concise operating guide for prompting, second-brain setup, office workflows, and prototype building.</p>
+      </div>
+
+      <div class="accent-strip" aria-hidden="true">
+        <span style="--accent: var(--green)"></span>
+      </div>
+
+      <div class="rail-meta" aria-label="Guide metadata">
+        <div class="rail-meta-row">
+          <b>Format</b>
+          <span>Executive field guide</span>
+        </div>
+        <div class="rail-meta-row">
+          <b>Focus</b>
+          <span>Prompting, Codex, prototypes</span>
+        </div>
+        <div class="rail-meta-row">
+          <b>Use</b>
+          <span>Read, apply, revisit</span>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav" aria-label="Pages"></nav>
+
+      <div class="rail-actions">
+        <select class="mobile-nav" id="mobileNav" aria-label="Open page"></select>
+        <button class="button" data-variant="green" id="printButton" type="button">Print active page</button>
+        <p class="rail-note">External links, prompt assets, and readings are collected in the closing resource pages.</p>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div class="crumb" id="crumb">Field guide</div>
+        <div class="top-actions">
+          <span class="progress-chip" id="progressChip">01 / 07</span>
+        </div>
+      </header>
+
+      <section class="page is-active" id="field-guide" data-title="Field guide">
+        <div class="page-shell">
+          <div class="hero">
+            <div class="hero-main">
+              <div>
+                <p class="kicker">One-page knowledge handout</p>
+                <h2 class="page-title">Build a simplified second brain in Codex<span class="dot" aria-hidden="true"></span></h2>
+                <p class="lead">Use Codex as a working memory system: capture sources, compile them into a living wiki, turn repeated tasks into prompts, and let scheduled reviews keep the system fresh.</p>
+              </div>
+              <div class="hero-meta" aria-label="Core model">
+                <div class="meta-item">
+                  <b>LLM Wiki</b>
+                  <span>Raw sources, wiki pages, and instructions that update the knowledge base.</span>
+                </div>
+                <div class="meta-item">
+                  <b>GBrain</b>
+                  <span>Readable brain repo, typed links, source register, and recurring agent jobs.</span>
+                </div>
+                <div class="meta-item">
+                  <b>Codex</b>
+                  <span>Local workspace where agents read, edit, verify, and document work.</span>
+                </div>
+              </div>
+            </div>
+
+            <aside class="intelligence-visual" aria-label="Second brain visual">
+              <div>
+                <span class="signal-label">Operating pattern</span>
+                <h3 style="margin: 10px 0 0; font-size: 30px; line-height: 1.05;">Source -> synthesis -> action</h3>
+              </div>
+              <div class="network" aria-hidden="true">
+                <span class="line" style="left: 29%; top: 49%; width: 38%; transform: rotate(-25deg);"></span>
+                <span class="line" style="left: 30%; top: 51%; width: 34%; transform: rotate(20deg);"></span>
+                <span class="line" style="left: 50%; top: 49%; width: 30%; transform: rotate(148deg);"></span>
+                <span class="line" style="left: 50%; top: 50%; width: 32%; transform: rotate(33deg);"></span>
+                <span class="node" style="--size: 76px; left: calc(50% - 38px); top: calc(50% - 38px);" data-core="true">Codex<br>Brain</span>
+                <span class="node" style="left: 8%; top: 12%;">Raw<br>notes</span>
+                <span class="node" style="left: 72%; top: 13%;">Wiki<br>pages</span>
+                <span class="node" style="left: 9%; top: 68%;">Prompt<br>library</span>
+                <span class="node" style="left: 72%; top: 68%;">Decision<br>logs</span>
+              </div>
+              <div class="visual-stats">
+                <div class="visual-stat">
+                  <b>01</b>
+                  <span>Capture context</span>
+                </div>
+                <div class="visual-stat">
+                  <b>02</b>
+                  <span>Compile truth</span>
+                </div>
+                <div class="visual-stat">
+                  <b>03</b>
+                  <span>Act with review</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <section class="band">
+            <div class="section-head">
+              <div>
+                <p class="kicker">Six-step setup</p>
+                <h2 class="section-title">From scattered notes to a living system.</h2>
+              </div>
+              <p class="section-note">The goal is not to store more material. The goal is to make useful synthesis easier to find, reuse, and improve after every real assignment.</p>
+            </div>
+            <div class="timeline" aria-label="Second brain setup steps">
+              <article class="timeline-card">
+                <b>01</b>
+                <h3>Open a workspace</h3>
+                <p>Create a Codex folder for one domain, team, client issue, or personal workflow. Keep the scope narrow enough to maintain.</p>
+              </article>
+              <article class="timeline-card">
+                <b>02</b>
+                <h3>Create the map</h3>
+                <p>Add folders for raw sources, wiki pages, prompts, decisions, runs, templates, and reading notes.</p>
+              </article>
+              <article class="timeline-card">
+                <b>03</b>
+                <h3>Seed sources</h3>
+                <p>Drop in workshop notes, public reports, meeting summaries, spreadsheets, and useful links. Do not mix in confidential material unless approved.</p>
+              </article>
+              <article class="timeline-card">
+                <b>04</b>
+                <h3>Compile pages</h3>
+                <p>Ask Codex to create concise wiki pages for entities, concepts, issues, decisions, and reusable methods.</p>
+              </article>
+              <article class="timeline-card">
+                <b>05</b>
+                <h3>Add prompts</h3>
+                <p>Turn repeated requests into named prompts with inputs, rules, output schema, and a quality gate.</p>
+              </article>
+              <article class="timeline-card">
+                <b>06</b>
+                <h3>Review weekly</h3>
+                <p>Ask Codex to find stale claims, missing links, contradictions, and high-value updates. Promote only what survives human review.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="split">
+            <div class="band">
+              <div class="section-head" style="grid-template-columns: 1fr; gap: 10px;">
+                <div>
+                  <p class="kicker">Minimum folder structure</p>
+                  <h2 class="section-title">A simple brain repo.</h2>
+                </div>
+              </div>
+              <div class="prompt-output" id="folderStructure">/raw
+  /sources          source files, links, transcripts, PDFs, exports
+  /notes            rough workshop notes and personal notes
+/wiki
+  index.md          map of the brain
+  concepts/         prompting, AI agents, second brain patterns
+  clients/          approved client or sector pages
+  decisions/        decision logs and rationale
+/prompts
+  library.md        reusable prompt library
+  json-prompts.md   structured prompts for tools and generation
+/runs
+  YYYY-MM-DD.md     what Codex changed, checked, and could not verify
+/templates
+  brief.md          brief template
+  review.md         quality review template</div>
+            </div>
+
+            <aside class="band">
+              <p class="kicker">Adoption checklist</p>
+              <h2 class="section-title" style="font-size: 30px;">Start with one useful ritual.</h2>
+              <div class="checklist" id="fieldChecklist">
+                <label class="check-item"><input type="checkbox"><span><strong>Pick one workstream.</strong> Avoid building a universal brain on day one.</span></label>
+                <label class="check-item"><input type="checkbox"><span><strong>Write the north star.</strong> What should this brain help you answer faster?</span></label>
+                <label class="check-item"><input type="checkbox"><span><strong>Add five source files.</strong> Notes, reports, and decks are enough to begin.</span></label>
+                <label class="check-item"><input type="checkbox"><span><strong>Create three wiki pages.</strong> Start with issue, stakeholder, and decision pages.</span></label>
+                <label class="check-item"><input type="checkbox"><span><strong>Save three prompts.</strong> One for summary, one for action tracker, one for quality review.</span></label>
+                <label class="check-item"><input type="checkbox"><span><strong>Schedule weekly review.</strong> Freshness is what keeps the brain trustworthy.</span></label>
+              </div>
+            </aside>
+          </section>
+        </div>
+      </section>
+
+      <section class="page" id="second-brain" data-title="Second brain snapshot">
+        <div class="page-shell">
+          <div class="hero">
+            <div class="hero-main">
+              <div>
+                <p class="kicker">Deloitte second brain snapshot</p>
+                <h2 class="page-title">A memory layer for people, teams, and the firm<span class="dot" aria-hidden="true"></span></h2>
+                <p class="lead">A second brain becomes relevant when it maps to actual Deloitte work: pursuits, delivery, knowledge reuse, risk visibility, sector intelligence, and client-ready output.</p>
+              </div>
+              <div class="pill-row">
+                <span class="pill" style="--accent: var(--green)">Compiled truth pages</span>
+                <span class="pill" style="--accent: var(--cyan)">Source register</span>
+                <span class="pill" style="--accent: var(--yellow)">Decision log</span>
+                <span class="pill" style="--accent: var(--magenta)">Reusable prompts</span>
+                <span class="pill" style="--accent: var(--orange)">Review cadence</span>
+              </div>
+            </div>
+
+            <aside class="intelligence-visual">
+              <div>
+                <span class="signal-label">Architecture cue</span>
+                <h3 style="margin: 10px 0 0; font-size: 30px; line-height: 1.05;">A living wiki with agent discipline.</h3>
+              </div>
+              <div class="flow" style="border-color: rgba(255,255,255,0.16);">
+                <div class="flow-step" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.16);">
+                  <b>01</b><h3 style="color: white;">Sources</h3><p style="color: rgba(255,255,255,0.72);">Reports, notes, logs</p>
+                </div>
+                <div class="flow-step" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.16);">
+                  <b>02</b><h3 style="color: white;">Ingest</h3><p style="color: rgba(255,255,255,0.72);">Summarize and classify</p>
+                </div>
+                <div class="flow-step" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.16);">
+                  <b>03</b><h3 style="color: white;">Compile</h3><p style="color: rgba(255,255,255,0.72);">Update wiki pages</p>
+                </div>
+                <div class="flow-step" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.16);">
+                  <b>04</b><h3 style="color: white;">Query</h3><p style="color: rgba(255,255,255,0.72);">Answer with context</p>
+                </div>
+                <div class="flow-step" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.16);">
+                  <b>05</b><h3 style="color: white;">Govern</h3><p style="color: rgba(255,255,255,0.72);">Review and log</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <section class="band">
+            <div class="brain-snapshot">
+              <div class="selector" id="brainSelector" aria-label="Snapshot scope"></div>
+              <div class="snapshot-panel">
+                <p class="kicker" id="snapshotKicker">Individual</p>
+                <h2 class="snapshot-title" id="snapshotTitle"></h2>
+                <p class="section-note" id="snapshotCopy"></p>
+                <div class="grid three" id="snapshotGrid"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="band-dark band">
+            <div class="section-head">
+              <div>
+                <p class="kicker">Reference pattern</p>
+                <h2 class="section-title">Karpathy LLM Wiki plus Garry Tan GBrain.</h2>
+              </div>
+              <p class="section-note">The practical takeaway is simple: do not make AI reread everything from scratch. Let it maintain a durable, readable knowledge layer that people can inspect.</p>
+            </div>
+            <div class="grid two">
+              <article class="card">
+                <b>LLM Wiki</b>
+                <h3>Compile knowledge into pages.</h3>
+                <p>Keep immutable raw sources, update wiki pages, add cross-links, and run lint checks for stale or contradictory claims.</p>
+              </article>
+              <article class="card">
+                <b>GBrain</b>
+                <h3>Make the brain operational.</h3>
+                <p>Use typed links, source registers, recurring jobs, and skills so the knowledge base supports real workflows rather than passive storage.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="page" id="prompting" data-title="Prompting">
+        <div class="page-shell">
+          <div class="hero">
+            <div class="hero-main">
+              <div>
+                <p class="kicker">Prompting and meta prompting</p>
+                <h2 class="page-title">Prompting is task design, not magic wording<span class="dot" aria-hidden="true"></span></h2>
+                <p class="lead">Good prompts define the role, context, constraints, workflow, output format, and quality gate. Meta prompting makes the model improve the prompt before doing the work.</p>
+              </div>
+              <div class="hero-meta">
+                <div class="meta-item"><b>Role</b><span>Who should the model act as?</span></div>
+                <div class="meta-item"><b>Rules</b><span>What must it do, avoid, and verify?</span></div>
+                <div class="meta-item"><b>Shape</b><span>What output structure is useful?</span></div>
+              </div>
+            </div>
+            <aside class="prompt-panel">
+              <div>
+                <p class="kicker">Prompt builder</p>
+                <h3 style="margin: 8px 0 0; font-size: 28px; line-height: 1.1;">Generate a reusable starter.</h3>
+              </div>
+              <div class="prompt-controls">
+                <select class="select" id="promptType" aria-label="Prompt type">
+                  <option value="summary">Executive summary</option>
+                  <option value="meta">Meta prompt refiner</option>
+                  <option value="json">JSON output prompt</option>
+                  <option value="review">Quality review</option>
+                </select>
+                <input class="input" id="promptAudience" value="Deloitte manager" aria-label="Audience">
+              </div>
+              <textarea class="textarea" id="promptContext" aria-label="Prompt context">Raw notes, meeting transcript, spreadsheet, draft deck, or workstream context goes here.</textarea>
+              <pre class="prompt-output" id="generatedPrompt"></pre>
+              <button class="button" data-variant="green" type="button" data-copy-target="generatedPrompt">Copy prompt</button>
+            </aside>
+          </div>
+
+          <section class="band">
+            <div class="section-head">
+              <div>
+                <p class="kicker">Meta prompting types</p>
+                <h2 class="section-title">Ask the model to improve the ask.</h2>
+              </div>
+              <p class="section-note">Meta prompts are useful when the first request is vague, high-stakes, repeated, or needs a consistent format across a team.</p>
+            </div>
+            <div class="grid three">
+              <article class="card">
+                <b>Prompt refiner</b>
+                <h3>Turn messy intent into a strong prompt.</h3>
+                <p>Ask for missing context, assumptions, better wording, constraints, and an output schema before execution.</p>
+              </article>
+              <article class="card">
+                <b>Rubric creator</b>
+                <h3>Define how quality will be judged.</h3>
+                <p>Have the model create a scoring rubric, then use that rubric to review its own draft and propose fixes.</p>
+              </article>
+              <article class="card">
+                <b>Expert panel</b>
+                <h3>Generate multiple lenses.</h3>
+                <p>Ask strategy, risk, data, legal, and change experts to critique the same work before producing the final output.</p>
+              </article>
+              <article class="card">
+                <b>Clarifying questions</b>
+                <h3>Ask before answering.</h3>
+                <p>Force the model to ask only questions that would materially change the answer, then proceed with stated assumptions.</p>
+              </article>
+              <article class="card">
+                <b>Output architect</b>
+                <h3>Design the deliverable structure.</h3>
+                <p>Ask the model to choose the best format: memo, table, slide outline, JSON, checklist, tracker, or storyboard.</p>
+              </article>
+              <article class="card">
+                <b>Red-team prompt</b>
+                <h3>Find weak claims before sharing.</h3>
+                <p>Ask for unsupported assumptions, ambiguous wording, confidentiality risks, and missing evidence.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="band">
+            <div class="section-head">
+              <div>
+                <p class="kicker">JSON prompting</p>
+                <h2 class="section-title">Use JSON when outputs need to be reused.</h2>
+              </div>
+              <p class="section-note">JSON prompts are valuable for structured extraction, batch processing, image briefs, spreadsheet cleanup, evals, dashboards, and any output another tool should read reliably.</p>
+            </div>
+            <div class="split">
+              <div class="grid">
+                <article class="card">
+                  <b>Extraction</b>
+                  <h3>Actions, owners, dates, risks.</h3>
+                  <p>Get clean fields from messy notes without losing an assumption log.</p>
+                </article>
+                <article class="card">
+                  <b>Content generation</b>
+                  <h3>Consistent sections at scale.</h3>
+                  <p>Generate slide titles, chart notes, executive summaries, and quality flags in a stable shape.</p>
+                </article>
+                <article class="card">
+                  <b>Image and design</b>
+                  <h3>Control composition.</h3>
+                  <p>Specify subject, style, constraints, format, negative prompts, and quality checks.</p>
+                </article>
+              </div>
+              <pre class="prompt-output">{
+  "role": "Deloitte India engagement manager",
+  "task": "Extract meeting decisions and actions",
+  "input": {
+    "meeting_context": "&lt;client, date, workstream&gt;",
+    "notes": "&lt;&lt;&lt;paste notes&gt;&gt;&gt;"
+  },
+  "rules": [
+    "Do not invent owners or due dates",
+    "Separate facts from assumptions",
+    "Flag confidential or personal data"
+  ],
+  "output_schema": {
+    "summary": "string",
+    "decisions": [{"decision": "string", "rationale": "string"}],
+    "actions": [{"action": "string", "owner": "string", "due_date": "string"}],
+    "open_questions": ["string"]
+  }
+}</pre>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="page" id="office-ai" data-title="Office workflows">
+        <div class="page-shell">
+          <div class="hero">
+            <div class="hero-main">
+              <div>
+                <p class="kicker">Daily work use cases</p>
+                <h2 class="page-title">Use AI where the work already happens<span class="dot" aria-hidden="true"></span></h2>
+                <p class="lead">Presentations, documents, and spreadsheets become faster when AI is used for structure, critique, cleanup, and quality checks, with humans owning judgment and final numbers.</p>
+              </div>
+              <div class="pill-row">
+                <span class="pill" style="--accent: var(--cyan)">Storylines</span>
+                <span class="pill" style="--accent: var(--teal)">Executive summaries</span>
+                <span class="pill" style="--accent: var(--yellow)">Data checks</span>
+                <span class="pill" style="--accent: var(--orange)">Tables</span>
+                <span class="pill" style="--accent: var(--magenta)">Review gates</span>
+              </div>
+            </div>
+            <aside class="intelligence-visual">
+              <div>
+                <span class="signal-label">Work product loop</span>
+                <h3 style="margin: 10px 0 0; font-size: 30px; line-height: 1.05;">Draft, test, tighten, verify.</h3>
+              </div>
+              <div class="visual-stats" style="grid-template-columns: 1fr;">
+                <div class="visual-stat"><b>Decks</b><span>Turn bullet dumps into insight-led narratives.</span></div>
+                <div class="visual-stat"><b>Docs</b><span>Convert transcripts and notes into structured memos.</span></div>
+                <div class="visual-stat"><b>Sheets</b><span>Profile data, explain trends, and surface checks.</span></div>
+              </div>
+            </aside>
+          </div>
+
+          <section class="band">
+            <div class="matrix" role="table" aria-label="AI office workflow matrix">
+              <div class="head"><b>Workflow</b>Use when</div>
+              <div class="head"><b>Ask AI for</b>Core tasks</div>
+              <div class="head"><b>Human checks</b>What to verify</div>
+              <div class="head"><b>Useful output</b>Deliverable shape</div>
+              <div><b>Presentations</b>Raw bullets, workshop notes, research dumps, pursuit outlines.</div>
+              <div>SCQA, pyramid structure, insight titles, slide sequence, visual suggestions.</div>
+              <div>Audience fit, evidence, client sensitivity, charts, and narrative logic.</div>
+              <div>Slide storyline, executive summary slide, speaker notes, appendix map.</div>
+              <div><b>Documentation</b>Transcripts, process notes, policies, meeting notes, status updates.</div>
+              <div>Summaries, action trackers, decision logs, SOPs, risk registers, comparison tables.</div>
+              <div>Accuracy, missing context, confidentiality, named owners, and approval status.</div>
+              <div>Memo, tracker, policy draft, meeting recap, review checklist.</div>
+              <div><b>Spreadsheets</b>Messy exports, survey files, financial models, tracking sheets.</div>
+              <div>Data profile, outlier scan, formula explanation, chart ideas, validation checks.</div>
+              <div>Cell references, formula logic, source definitions, units, and assumptions.</div>
+              <div>Data dictionary, quality report, formula map, insight table.</div>
+            </div>
+          </section>
+
+          <section class="band">
+            <div class="section-head">
+              <div>
+                <p class="kicker">Practical prompts</p>
+                <h2 class="section-title">Three prompts to use this week.</h2>
+              </div>
+              <p class="section-note">These should be adapted to the specific file, audience, and risk level before client-facing use.</p>
+            </div>
+            <div class="grid three">
+              <article class="card">
+                <b>Presentation</b>
+                <h3>Slide storyline from bullets</h3>
+                <p>Convert raw bullets into SCQA, an insight headline, grouped support points, and a recommended visual.</p>
+              </article>
+              <article class="card">
+                <b>Documentation</b>
+                <h3>Meeting notes to action tracker</h3>
+                <p>Extract decisions, actions, owners, due dates, dependencies, open questions, and a follow-up email.</p>
+              </article>
+              <article class="card">
+                <b>Spreadsheet</b>
+                <h3>Table to slide-ready insight</h3>
+                <p>Summarize trends, outliers, assumptions, data-quality questions, and the best chart for the message.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="page" id="prototypes" data-title="Prototypes">
+        <div class="page-shell">
+          <div class="hero">
+            <div class="hero-main">
+              <div>
+                <p class="kicker">Vibe coding and prototypes</p>
+                <h2 class="page-title">Prototype the idea before the meeting ends<span class="dot" aria-hidden="true"></span></h2>
+                <p class="lead">A prototype changes the conversation. It turns abstract AI potential into a concrete workflow, screen, automation, or demo that people can critique and improve.</p>
+              </div>
+              <div class="hero-meta">
+                <div class="meta-item"><b>Speed</b><span>Move from idea to testable artifact.</span></div>
+                <div class="meta-item"><b>Clarity</b><span>Expose what the workflow really needs.</span></div>
+                <div class="meta-item"><b>Buy-in</b><span>Help stakeholders react to something visible.</span></div>
+              </div>
+            </div>
+            <aside class="intelligence-visual">
+              <div>
+                <span class="signal-label">Prototype ladder</span>
+                <h3 style="margin: 10px 0 0; font-size: 30px; line-height: 1.05;">Sketch -> screen -> workflow -> pilot.</h3>
+              </div>
+              <div class="flow" style="grid-template-columns: 1fr; border-color: rgba(255,255,255,0.16);">
+                <div class="flow-step" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.16);"><b>01</b><h3 style="color:white;">Whiteboard the journey</h3><p style="color:rgba(255,255,255,0.72);">User, data, decision, output, risk.</p></div>
+                <div class="flow-step" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.16);"><b>02</b><h3 style="color:white;">Ask Codex to build</h3><p style="color:rgba(255,255,255,0.72);">Static interface, mock data, prompt flow.</p></div>
+                <div class="flow-step" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.16);"><b>03</b><h3 style="color:white;">Test with users</h3><p style="color:rgba(255,255,255,0.72);">Find gaps before investing more.</p></div>
+              </div>
+            </aside>
+          </div>
+
+          <section class="band">
+            <div class="section-head">
+              <div>
+                <p class="kicker">What to prototype</p>
+                <h2 class="section-title">Build the smallest artifact that proves the workflow.</h2>
+              </div>
+              <p class="section-note">Do not start with production engineering. Start with a credible interaction that reveals data needs, user behavior, risks, and decision value.</p>
+            </div>
+            <div class="grid three">
+              <article class="card">
+                <b>Client workshop demo</b>
+                <h3>Show the future workflow.</h3>
+                <p>Mock the dashboard, assistant, tracker, or briefing flow using sample data and realistic outputs.</p>
+              </article>
+              <article class="card">
+                <b>Internal productivity tool</b>
+                <h3>Automate a repeated task.</h3>
+                <p>Prototype a summarizer, deck reviewer, risk scanner, or spreadsheet profiler before writing a business case.</p>
+              </article>
+              <article class="card">
+                <b>Applied AI lab asset</b>
+                <h3>Create reusable capability.</h3>
+                <p>Convert promising prototypes into demoable assets, prompt packs, and implementation playbooks.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="band-dark band">
+            <div class="section-head">
+              <div>
+                <p class="kicker">Prototype prompt</p>
+                <h2 class="section-title">A starter brief for Codex.</h2>
+              </div>
+              <p class="section-note">Use this when you want a pure front-end prototype with no backend dependency.</p>
+            </div>
+            <pre class="prompt-output" id="prototypePrompt">You are Codex, acting as a senior product engineer and designer.
+
+Build a pure front-end prototype for this workflow:
+&lt;describe user, problem, and desired outcome&gt;
+
+Constraints:
+- No backend. Use static HTML, CSS, and JavaScript.
+- Use mock data that looks realistic but contains no confidential information.
+- Make the first screen the actual working experience, not a marketing page.
+- Include states for empty, loading, success, and review-needed where relevant.
+- Use Deloitte-inspired black, white, neutral, and green styling with restrained data accents.
+- Add comments only where the code is not self-explanatory.
+
+Before finalizing:
+- Verify desktop and mobile layout.
+- Check that text does not overflow.
+- Explain what is implemented, what is mocked, and what would be needed for production.</pre>
+            <button class="button" data-variant="green" type="button" data-copy-target="prototypePrompt">Copy prototype prompt</button>
+          </section>
+        </div>
+      </section>
+
+      <section class="page" id="resources" data-title="Resource hub">
+        <div class="page-shell">
+          <div class="hero">
+            <div class="hero-main">
+              <div>
+                <p class="kicker">Closing resources</p>
+                <h2 class="page-title">Keep learning after the field guide<span class="dot" aria-hidden="true"></span></h2>
+                <p class="lead">The core guide comes first. This closing section collects follow-up learning paths, community links, prompt assets, and applied AI next steps.</p>
+              </div>
+              <div class="hero-meta">
+                <div class="meta-item"><b>Practice</b><span>Apply one prompt to one live work product.</span></div>
+                <div class="meta-item"><b>Share</b><span>Bring useful workflows back to the cohort.</span></div>
+                <div class="meta-item"><b>Build</b><span>Convert repeated tasks into prototypes and playbooks.</span></div>
+              </div>
+            </div>
+            <aside class="intelligence-visual">
+              <div>
+                <span class="signal-label">Next step</span>
+                <h3 style="margin: 10px 0 0; font-size: 30px; line-height: 1.05;">Learn prompting by using it on real work.</h3>
+              </div>
+              <div class="visual-stats" style="grid-template-columns: 1fr;">
+                <div class="visual-stat"><b>01</b><span>Use one prompt on one task this week.</span></div>
+                <div class="visual-stat"><b>02</b><span>Capture the reusable learning in a second brain.</span></div>
+                <div class="visual-stat"><b>03</b><span>Share the workflow through the closing resource links.</span></div>
+              </div>
+            </aside>
+          </div>
+
+          <section class="band">
+            <div class="section-head">
+              <div>
+                <p class="kicker">Recommended next step</p>
+                <h2 class="section-title">Run a practical prompting sprint.</h2>
+              </div>
+              <p class="section-note">The strongest follow-up is not a theory session. It is a live practice sprint where each participant brings a real document, spreadsheet, or deck and leaves with reusable prompts.</p>
+            </div>
+            <div class="grid three">
+              <article class="card">
+                <b>Session 01</b>
+                <h3>Prompting fundamentals</h3>
+                <p>Role, context, constraints, examples, output schema, review gates, and confidentiality-safe inputs.</p>
+              </article>
+              <article class="card">
+                <b>Session 02</b>
+                <h3>Meta prompting lab</h3>
+                <p>Improve weak prompts, create rubrics, build JSON schemas, and red-team draft outputs.</p>
+              </article>
+              <article class="card">
+                <b>Session 03</b>
+                <h3>Workflow build day</h3>
+                <p>Use Codex to turn one repeated professional task into a static prototype, prompt pack, or reusable template.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="band">
+            <div class="section-head">
+              <div>
+                <p class="kicker">Links</p>
+                <h2 class="section-title">Session resources and next steps.</h2>
+              </div>
+              <p class="section-note">The local Deloitte artifacts are linked now. External FutureLab links are marked as pending until the exact URLs are shared.</p>
+            </div>
+            <div class="grid three" id="resourceGrid"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="page" id="readings" data-title="Further readings">
+        <div class="page-shell">
+          <div class="hero">
+            <div class="hero-main">
+              <div>
+                <p class="kicker">Further reading page</p>
+                <h2 class="page-title">A reading list that can grow with the cohort<span class="dot" aria-hidden="true"></span></h2>
+                <p class="lead">This page is reserved for the links you plan to send. I added the second-brain reference materials already used in the local demo, plus editable slots for the rest.</p>
+              </div>
+              <div class="hero-meta">
+                <div class="meta-item"><b>Foundations</b><span>Prompting, AI literacy, second-brain patterns.</span></div>
+                <div class="meta-item"><b>Practice</b><span>Prompts, templates, workflow examples.</span></div>
+                <div class="meta-item"><b>Build</b><span>Prototyping and applied AI lab references.</span></div>
+              </div>
+            </div>
+            <aside class="intelligence-visual">
+              <div>
+                <span class="signal-label">Reading system</span>
+                <h3 style="margin: 10px 0 0; font-size: 30px; line-height: 1.05;">Read, apply, capture, share.</h3>
+              </div>
+              <div class="visual-stats" style="grid-template-columns: 1fr;">
+                <div class="visual-stat"><b>Read</b><span>Pick one source, not ten.</span></div>
+                <div class="visual-stat"><b>Apply</b><span>Use it on a live work product.</span></div>
+                <div class="visual-stat"><b>Capture</b><span>Save the reusable learning in the second brain.</span></div>
+              </div>
+            </aside>
+          </div>
+
+          <section class="band">
+            <div class="section-head">
+              <div>
+                <p class="kicker">Reference links</p>
+                <h2 class="section-title">Current and pending reading list.</h2>
+              </div>
+              <p class="section-note">Send the exact reading URLs and these placeholder cards can be replaced without changing the design.</p>
+            </div>
+            <div class="grid three" id="readingGrid"></div>
+          </section>
+
+          <section class="band-dark band">
+            <div class="section-head">
+              <div>
+                <p class="kicker">Reading prompt</p>
+                <h2 class="section-title">Turn any article into usable knowledge.</h2>
+              </div>
+              <p class="section-note">Use this with a pasted article, video transcript, or source note.</p>
+            </div>
+            <pre class="prompt-output" id="readingPrompt">ROLE
+You are maintaining my Deloitte AI second brain.
+
+TASK
+Turn the pasted source into reusable working knowledge.
+
+INPUT
+Source title: &lt;title&gt;
+Source URL: &lt;url&gt;
+Source date: &lt;date if known&gt;
+Text:
+&lt;&lt;&lt;paste source or notes here&gt;&gt;&gt;
+
+OUTPUT
+1. One-line takeaway
+2. What changed or what this teaches
+3. Practical implication for Deloitte professionals
+4. Prompt, checklist, or template worth saving
+5. Pages in my second brain that should be updated
+6. Claims that need verification</pre>
+            <button class="button" data-variant="green" type="button" data-copy-target="readingPrompt">Copy reading prompt</button>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const pages = [
+      { id: "field-guide", label: "Field guide", desc: "Setup and operating model" },
+      { id: "second-brain", label: "Brain snapshot", desc: "Individual, team, firm value" },
+      { id: "prompting", label: "Prompting", desc: "Meta prompts and JSON" },
+      { id: "office-ai", label: "Office workflows", desc: "Decks, docs, spreadsheets" },
+      { id: "prototypes", label: "Prototypes", desc: "Vibe coding and build habits" },
+      { id: "resources", label: "Resource hub", desc: "FutureLab links and assets" },
+      { id: "readings", label: "Further reading", desc: "References and next study" }
+    ];
+
+    const resourceLinks = [
+      {
+        title: "FutureLab WhatsApp community",
+        eyebrow: "Community",
+        description: "Join professionals from across the world exchanging AI workflows, prompts, tools, and practical lessons.",
+        href: "#replace-whatsapp-community-link",
+        status: "Needs final URL"
+      },
+      {
+        title: "AI School by FutureLab",
+        eyebrow: "Learning path",
+        description: "A structured pathway for practical prompting, AI workflows, prototype thinking, and applied build habits.",
+        href: "#replace-ai-school-link",
+        status: "Needs final URL"
+      },
+      {
+        title: "FutureLab website",
+        eyebrow: "Products",
+        description: "Explore the products, prototypes, and applied AI work created by the FutureLab team.",
+        href: "#replace-futurelab-website-link",
+        status: "Needs final URL"
+      },
+      {
+        title: "Deloitte prompt library",
+        eyebrow: "Local artifact",
+        description: "A copy-ready prompt bank for consulting work, storytelling, risk, data, pursuits, and JSON image prompts.",
+        href: "artifacts/deloitte-prompt-bank.html",
+        status: "Ready"
+      },
+      {
+        title: "Deloitte second brain demo",
+        eyebrow: "Local artifact",
+        description: "A working prototype that shows how a Deloitte India second brain can organize market signals and wiki pages.",
+        href: "artifacts/deloitte-india-second-brain/index.html",
+        status: "Ready"
+      },
+      {
+        title: "Applied AI Lab suggestion",
+        eyebrow: "Next initiative",
+        description: "A repeatable lab model for turning use cases into prototypes, prompt packs, governance patterns, and team capability.",
+        href: "#replace-applied-ai-lab-link",
+        status: "Needs final URL"
+      }
+    ];
+
+    const readings = [
+      {
+        title: "Andrej Karpathy LLM Wiki pattern",
+        eyebrow: "Second brain",
+        description: "Reference pattern for raw sources, compiled wiki pages, and maintenance instructions.",
+        href: "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+        status: "Ready"
+      },
+      {
+        title: "Garry Tan GBrain",
+        eyebrow: "Second brain",
+        description: "Reference pattern for a readable brain repo plus retrieval, recurring jobs, and agent skills.",
+        href: "https://github.com/garrytan/gbrain",
+        status: "Ready"
+      },
+      {
+        title: "Garry Tan GStack",
+        eyebrow: "Prompt pattern",
+        description: "Useful structure for specialist workflows, context, staged execution, and quality gates.",
+        href: "https://github.com/garrytan/gstack",
+        status: "Ready"
+      },
+      {
+        title: "FutureLab practical prompting reading",
+        eyebrow: "Pending",
+        description: "Add the article, deck, or post you want participants to read after the session.",
+        href: "#replace-reading-link-1",
+        status: "Needs final URL"
+      },
+      {
+        title: "Daily AI workflow examples",
+        eyebrow: "Pending",
+        description: "Add examples for presentations, documentation, spreadsheets, research, and prototype building.",
+        href: "#replace-reading-link-2",
+        status: "Needs final URL"
+      },
+      {
+        title: "Applied AI Lab reference",
+        eyebrow: "Pending",
+        description: "Add the FutureLab or Deloitte Applied AI Lab proposal link when ready.",
+        href: "#replace-reading-link-3",
+        status: "Needs final URL"
+      }
+    ];
+
+    const brainViews = [
+      {
+        id: "individual",
+        label: "Individual member",
+        kicker: "Personal relevance",
+        title: "A personal memory advantage for every professional.",
+        copy: "Each person can maintain a trusted workspace for meetings, decisions, learning, prompts, reusable examples, and context they do not want to rediscover from scratch.",
+        cards: [
+          ["Before meetings", "Generate briefs with previous decisions, open questions, and stakeholder context."],
+          ["During delivery", "Track risks, assumptions, dependencies, and next actions in one place."],
+          ["After learning", "Convert articles, sessions, and experiments into reusable prompts and notes."]
+        ]
+      },
+      {
+        id: "department",
+        label: "Department",
+        kicker: "Team relevance",
+        title: "A reusable knowledge layer for each practice or function.",
+        copy: "Departments can standardize recurring workflows, create stronger onboarding paths, preserve institutional learning, and maintain current sector or regulatory intelligence.",
+        cards: [
+          ["Pursuits", "Reuse win themes, proposal structures, proof points, and client-ready language."],
+          ["Delivery", "Maintain playbooks, decision logs, risk registers, and quality review prompts."],
+          ["Capability building", "Capture what works from workshops, pilots, and internal experiments."]
+        ]
+      },
+      {
+        id: "company",
+        label: "Company",
+        kicker: "Firm relevance",
+        title: "A governed intelligence system that compounds over time.",
+        copy: "At firm level, second brains can connect approved knowledge assets, enable faster response cycles, surface signals, and support responsible AI adoption with reviewable workflows.",
+        cards: [
+          ["Market signals", "Track regulatory, industry, and technology developments across domains."],
+          ["Knowledge reuse", "Reduce duplicated effort by preserving validated methods and outputs."],
+          ["Responsible AI", "Keep source trails, review logs, red-team notes, and data-use boundaries visible."]
+        ]
+      }
+    ];
+
+    const promptTemplates = {
+      summary: ({ audience, context }) => `ROLE
+You are a Deloitte India engagement manager writing for ${audience}.
+
+TASK
+Convert the supplied material into a concise executive summary.
+
+CONTEXT
+${context}
+
+RULES
+- Use only the supplied material.
+- Separate facts from assumptions.
+- Flag claims that need validation.
+- Keep the language direct, neutral, and client-ready.
+
+OUTPUT
+1. One-line takeaway
+2. Executive summary, max 160 words
+3. Key facts
+4. Decisions needed
+5. Risks or open questions
+6. Suggested next step
+
+QUALITY GATE
+Check whether the summary answers what happened, why it matters, what decision is needed, and what happens next.`,
+      meta: ({ audience, context }) => `ROLE
+You are a prompt engineering coach for ${audience}.
+
+TASK
+Improve the user's rough request before answering it.
+
+ROUGH REQUEST
+${context}
+
+WORKFLOW
+1. Identify missing context that would materially change the output.
+2. State safe assumptions if the missing context is not available.
+3. Rewrite the request into a stronger prompt with role, task, inputs, rules, output format, and quality gate.
+4. Ask up to three clarifying questions only if they are essential.
+
+OUTPUT
+- Improved prompt
+- Missing information
+- Assumptions
+- Recommended first test`,
+      json: ({ audience, context }) => `{
+  "role": "Deloitte India specialist supporting ${audience}",
+  "task": "Transform the supplied material into structured output",
+  "input_context": ${JSON.stringify(context)},
+  "rules": [
+    "Use only supplied material unless external research is explicitly requested",
+    "Do not invent names, dates, amounts, or ownership",
+    "Flag personal, client confidential, or sensitive data",
+    "Separate facts, assumptions, and recommendations"
+  ],
+  "output_schema": {
+    "takeaway": "string",
+    "facts": ["string"],
+    "actions": [{"action": "string", "owner": "string", "due_date": "string"}],
+    "risks": [{"risk": "string", "severity": "low | medium | high"}],
+    "open_questions": ["string"],
+    "quality_checks": ["string"]
+  }
+}`,
+      review: ({ audience, context }) => `ROLE
+You are a Deloitte India quality reviewer for ${audience}.
+
+TASK
+Review the supplied work product and identify the highest-value fixes.
+
+MATERIAL
+${context}
+
+REVIEW RUBRIC
+- Clear answer to the business question
+- Evidence and source traceability
+- Audience fit
+- Confidentiality and data sensitivity
+- Logical structure
+- Concrete next steps
+
+OUTPUT
+1. Overall rating: Ready / Needs revision / Not ready
+2. Top five issues ranked by severity
+3. Exact fixes to make
+4. Missing evidence or assumptions
+5. Stronger version of the weakest section`
+    };
+
+    const nav = document.querySelector("#nav");
+    const mobileNav = document.querySelector("#mobileNav");
+    const crumb = document.querySelector("#crumb");
+    const progressChip = document.querySelector("#progressChip");
+    const toast = document.querySelector("#toast");
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    function isPendingLink(href) {
+      return href.startsWith("#replace");
+    }
+
+    function setPage(id) {
+      const page = pages.find((item) => item.id === id) || pages[0];
+      document.querySelectorAll(".page").forEach((el) => el.classList.toggle("is-active", el.id === page.id));
+      document.querySelectorAll(".nav-button").forEach((button) => button.classList.toggle("is-active", button.dataset.page === page.id));
+      mobileNav.value = page.id;
+      crumb.textContent = page.label;
+      progressChip.textContent = `${String(pages.indexOf(page) + 1).padStart(2, "0")} / ${String(pages.length).padStart(2, "0")}`;
+      if (window.location.hash !== `#${page.id}`) {
+        history.replaceState(null, "", `#${page.id}`);
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderNav() {
+      nav.innerHTML = pages.map((page, index) => `
+        <button class="nav-button" type="button" data-page="${page.id}">
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <span>
+            <span class="nav-title">${page.label}</span>
+            <span class="nav-desc">${page.desc}</span>
+          </span>
+        </button>
+      `).join("");
+
+      mobileNav.innerHTML = pages.map((page) => `<option value="${page.id}">${page.label}</option>`).join("");
+
+      nav.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-page]");
+        if (button) setPage(button.dataset.page);
+      });
+
+      mobileNav.addEventListener("change", () => setPage(mobileNav.value));
+    }
+
+    function cardMarkup(item) {
+      const pending = isPendingLink(item.href);
+      const statusClass = pending ? "" : "ready";
+      const target = pending ? "" : ' target="_blank" rel="noreferrer"';
+      return `
+        <article class="resource-card" data-pending="${pending}">
+          <span class="status ${statusClass}">${item.status}</span>
+          <b>${item.eyebrow}</b>
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+          <a class="button" data-variant="${pending ? "ghost" : "green"}" href="${item.href}"${target}>${pending ? "Add link" : "Open"}</a>
+        </article>
+      `;
+    }
+
+    function renderResourceCards() {
+      document.querySelector("#resourceGrid").innerHTML = resourceLinks.map(cardMarkup).join("");
+      document.querySelector("#readingGrid").innerHTML = readings.map((item) => cardMarkup(item).replaceAll("resource-card", "reading-card")).join("");
+
+      document.querySelectorAll("a[href^='#replace']").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          showToast("Placeholder link. Replace it in resourceLinks or readings when the final URL is ready.");
+        });
+      });
+    }
+
+    function renderBrainSelector() {
+      const selector = document.querySelector("#brainSelector");
+      selector.innerHTML = brainViews.map((view) => `<button type="button" data-brain="${view.id}">${view.label}</button>`).join("");
+      selector.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-brain]");
+        if (button) setBrainView(button.dataset.brain);
+      });
+      setBrainView("individual");
+    }
+
+    function setBrainView(id) {
+      const view = brainViews.find((item) => item.id === id) || brainViews[0];
+      document.querySelectorAll("[data-brain]").forEach((button) => button.classList.toggle("is-active", button.dataset.brain === id));
+      document.querySelector("#snapshotKicker").textContent = view.kicker;
+      document.querySelector("#snapshotTitle").textContent = view.title;
+      document.querySelector("#snapshotCopy").textContent = view.copy;
+      document.querySelector("#snapshotGrid").innerHTML = view.cards.map(([title, copy], index) => `
+        <article class="card">
+          <b>${String(index + 1).padStart(2, "0")}</b>
+          <h3>${title}</h3>
+          <p>${copy}</p>
+        </article>
+      `).join("");
+    }
+
+    function updateGeneratedPrompt() {
+      const type = document.querySelector("#promptType").value;
+      const audience = document.querySelector("#promptAudience").value.trim() || "Deloitte professional";
+      const context = document.querySelector("#promptContext").value.trim() || "Context not supplied.";
+      document.querySelector("#generatedPrompt").textContent = promptTemplates[type]({ audience, context });
+    }
+
+    function setupPromptBuilder() {
+      ["#promptType", "#promptAudience", "#promptContext"].forEach((selector) => {
+        document.querySelector(selector).addEventListener("input", updateGeneratedPrompt);
+      });
+      updateGeneratedPrompt();
+    }
+
+    async function copyTextFrom(targetId) {
+      const el = document.querySelector(`#${targetId}`);
+      const text = el ? el.textContent : "";
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast("Copied to clipboard.");
+      } catch (error) {
+        showToast("Copy failed. Select the text manually.");
+      }
+    }
+
+    function setupCopyButtons() {
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-copy-target]");
+        if (button) copyTextFrom(button.dataset.copyTarget);
+      });
+    }
+
+    function setupChecklistPersistence() {
+      document.querySelectorAll("#fieldChecklist input").forEach((input, index) => {
+        const key = `deloitte-handout-check-${index}`;
+        input.checked = localStorage.getItem(key) === "true";
+        input.addEventListener("change", () => localStorage.setItem(key, input.checked));
+      });
+    }
+
+    function setupPrint() {
+      document.querySelector("#printButton").addEventListener("click", () => window.print());
+    }
+
+    function setupHashLinks() {
+      window.addEventListener("hashchange", () => {
+        const id = window.location.hash.slice(1);
+        if (pages.some((page) => page.id === id)) setPage(id);
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const id = link.getAttribute("href").slice(1);
+          if (pages.some((page) => page.id === id)) {
+            event.preventDefault();
+            setPage(id);
+          }
+        });
+      });
+    }
+
+    renderNav();
+    renderResourceCards();
+    renderBrainSelector();
+    setupPromptBuilder();
+    setupCopyButtons();
+    setupChecklistPersistence();
+    setupPrint();
+    setupHashLinks();
+    setPage(window.location.hash.slice(1) || "field-guide");
+  </script>
+</body>
+</html>

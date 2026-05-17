@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deloitte India Latest Intelligence</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ccircle cx='46' cy='44' r='8' fill='%2386BC25'/%3E%3Ctext x='14' y='40' font-size='30' font-family='Arial' font-weight='700' fill='white'%3ED%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --green: #86bc25;
+      --black: #000;
+      --ink: #111;
+      --paper: #f7f8f6;
+      --mist: #eff0ef;
+      --line: #d8dad7;
+      --muted: #53564f;
+      --blue: #6087ce;
+      --teal: #4ea099;
+      --yellow: #fec530;
+      --navy: #132738;
+      --rose: #c94f7c;
+      --violet: #7254c9;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(134, 188, 37, 0.13) 0 12px, transparent 12px),
+        linear-gradient(135deg, #ffffff 0%, #f7f8f6 44%, #edf7f8 100%);
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 0;
+    }
+    a { color: inherit; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 22px;
+      color: white;
+      background: #000;
+      border-bottom: 4px solid var(--green);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+    .wordmark {
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .wordmark::after {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-left: 3px;
+      border-radius: 50%;
+      background: var(--green);
+      vertical-align: baseline;
+    }
+    .brand strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.1;
+    }
+    .brand span {
+      display: block;
+      margin-top: 3px;
+      color: #d9dfda;
+      font-size: 12px;
+    }
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav a {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 8px;
+      padding: 9px 12px;
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      background: #101010;
+    }
+    .nav a:first-child {
+      border-color: rgba(134,188,37,0.7);
+    }
+    main {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+    .hero {
+      min-height: 560px;
+      display: grid;
+      grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .hero-copy {
+      display: grid;
+      align-content: space-between;
+      gap: 22px;
+      padding: 30px;
+      color: white;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(134,188,37,0.28), transparent 28%),
+        linear-gradient(135deg, #132738, #0b0d0d 74%);
+      box-shadow: var(--shadow);
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 6.2vw, 84px);
+      line-height: 0.92;
+      overflow-wrap: break-word;
+    }
+    .lead {
+      max-width: 650px;
+      margin: 20px 0 0;
+      color: #dbe2de;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .metric {
+      min-height: 104px;
+      padding: 15px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.07);
+    }
+    .metric b {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+    }
+    .metric span {
+      display: block;
+      margin-top: 10px;
+      color: #d1dad3;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .spotlight {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 12px;
+      min-width: 0;
+    }
+    .brief-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .brief {
+      min-height: 124px;
+      padding: 15px;
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 16px 38px rgba(0,0,0,0.12);
+    }
+    .brief:nth-child(1) { background: var(--navy); }
+    .brief:nth-child(2) { background: var(--teal); }
+    .brief:nth-child(3) { background: #345894; }
+    .brief:nth-child(4) { background: #4b4d13; }
+    .brief b {
+      display: block;
+      margin-bottom: 9px;
+      font-size: 14px;
+    }
+    .brief span {
+      color: rgba(255,255,255,0.9);
+      font-size: 12px;
+      line-height: 1.38;
+    }
+    .top-card {
+      display: grid;
+      align-content: center;
+      min-height: 360px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(134,188,37,0.22) 0 8px, transparent 8px),
+        linear-gradient(180deg, rgba(96,135,206,0.1), transparent 42%),
+        linear-gradient(135deg, rgba(255,255,255,0.93), rgba(247,248,246,0.95)),
+        linear-gradient(90deg, rgba(134,188,37,0.18), transparent);
+      box-shadow: var(--shadow);
+    }
+    .top-card h2 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(28px, 4vw, 56px);
+      line-height: 1;
+    }
+    .top-card p {
+      max-width: 680px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .signal-card {
+      min-height: 320px;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto auto;
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--accent, var(--green));
+      border-radius: 8px;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 14px 36px rgba(15,15,15,0.09);
+    }
+    .theme-tmt-and-infrastructure { --accent: var(--blue); }
+    .theme-consumer { --accent: var(--teal); }
+    .theme-life-sciences { --accent: var(--rose); }
+    .theme-financial-services { --accent: var(--yellow); }
+    .theme-privacy { --accent: var(--violet); }
+    .theme-ai-and-gccs { --accent: var(--green); }
+    .theme-market { --accent: var(--navy); }
+    .card-top {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .rank {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #000;
+      background: rgba(134,188,37,0.24);
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .score,
+    .status {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .status {
+      color: #000;
+      background: rgba(134,188,37,0.18);
+      border-color: rgba(134,188,37,0.42);
+    }
+    .signal-card h3 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.16;
+    }
+    .signal-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .meta {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .meta span {
+      display: inline-block;
+      padding-left: 10px;
+      border-left: 3px solid var(--accent, var(--green));
+    }
+    .links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .links a {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: #102f00;
+      background: #fbfcfb;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .lower {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .panel {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.94);
+      box-shadow: 0 12px 30px rgba(15,15,15,0.08);
+    }
+    .panel h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+    .theme-list {
+      display: grid;
+      gap: 10px;
+    }
+    .theme-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+    }
+    .theme-row b {
+      display: block;
+      margin-bottom: 3px;
+    }
+    .theme-row span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .count {
+      min-width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(134,188,37,0.2);
+      font-weight: 800;
+    }
+    .actions {
+      display: grid;
+      gap: 10px;
+    }
+    .action {
+      padding: 14px;
+      border-left: 5px solid var(--green);
+      border-radius: 8px;
+      background: white;
+    }
+    .action b {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .action span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    @media (max-width: 1120px) {
+      .hero,
+      .lower {
+        grid-template-columns: 1fr;
+      }
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 720px) {
+      .topbar {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .brand {
+        flex-wrap: wrap;
+      }
+      .wordmark {
+        font-size: 26px;
+      }
+      .nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .nav a {
+        padding-inline: 8px;
+      }
+      main {
+        padding: 12px;
+      }
+      .hero-copy {
+        padding: 22px;
+      }
+      h1 {
+        font-size: clamp(36px, 11vw, 48px);
+        line-height: 1;
+      }
+      .lead {
+        font-size: 16px;
+      }
+      .metrics,
+      .brief-strip,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .top-card {
+        min-height: 280px;
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="wordmark">Deloitte</div>
+      <div>
+        <strong>Latest Intelligence Brief</strong>
+        <span>Living second brain radar for Deloitte India professionals</span>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Brief links">
+      <a href="index.html">Wiki</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="wiki/00-inbox/radar.md">Radar MD</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Latest intelligence overview">
+      <div class="hero-copy">
+        <div>
+          <p class="eyebrow">Latest scan · 2026-05-17 04:14 UTC / 2026-05-17 09:44 IST</p>
+          <h1>Signals worth a partner skim.</h1>
+          <p class="lead">A focused, sourced view of what the living brain is watching now: AI infrastructure, selective Indian consumers, life sciences AI, digital banking maturity, DPDP, and sector transformation.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><b>0</b><span>Current radar signals</span></div>
+          <div class="metric"><b>0</b><span>New captures in this radar state</span></div>
+          <div class="metric"><b>0</b><span>Average relevance score</span></div>
+        </div>
+      </div>
+
+      <div class="spotlight">
+        <div class="brief-strip">
+          <div class="brief"><b>AI infrastructure</b><span>Compute, green data centres, telco platforms, and semiconductor capacity are converging.</span></div>
+          <div class="brief"><b>Consumer demand</b><span>Indian consumers remain resilient, but value and experience quality drive spending.</span></div>
+          <div class="brief"><b>Regulated AI</b><span>Life sciences and banking AI need evidence, privacy, validation, cyber, and controls.</span></div>
+          <div class="brief"><b>Privacy pressure</b><span>DPDP continues to shape client data governance and compliance readiness.</span></div>
+        </div>
+        <div class="top-card">
+          <div>
+            <p class="eyebrow">What changed</p>
+            <h2>Sector pages now carry the newest signals.</h2>
+            <p>The latest refresh promoted consumer, financial-services digital banking, life sciences AI, and green AI data-centre signals into durable wiki pages, so the second brain is no longer just holding headlines in the inbox.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Top radar cards">
+      
+    </section>
+
+    <section class="lower" aria-label="Theme and action summary">
+      <div class="panel">
+        <h2>Theme Mix</h2>
+        <div class="theme-list">
+          
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Recommended Next Moves</h2>
+        <div class="actions">
+          <div class="action"><b>Package a client-ready AI infrastructure brief.</b><span>Pull together TMT 2026, green data centres, semiconductors, and AI-at-scale into a single board discussion.</span></div>
+          <div class="action"><b>Build sector variants.</b><span>Create short versions for consumer, financial services, and life sciences with industry-specific control and transformation questions.</span></div>
+          <div class="action"><b>Keep DPDP close to every AI page.</b><span>Privacy, consent, breach readiness, evidence, and data lineage should be linked into AI and digital banking narratives.</span></div>
+          <div class="action"><b>Review source quality before client reuse.</b><span>Use Deloitte, regulator, ministry, central-bank, exchange, and reputable business sources as the promotion bar.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

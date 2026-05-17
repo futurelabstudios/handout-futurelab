@@ -1,0 +1,3170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deloitte India AI Prompt Bank</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --green: #86BC25;
+      --green-bright: #A4D65E;
+      --black: #000000;
+      --ink: #0F0F0F;
+      --charcoal: #252525;
+      --graphite: #53565A;
+      --line: #D8DAD7;
+      --mist: #F4F6F3;
+      --paper: #FFFFFF;
+      --cyan: #00A3E0;
+      --teal: #00ABAB;
+      --yellow: #FFCD00;
+      --orange: #F58220;
+      --magenta: #D0006F;
+      --purple: #6E267B;
+      --radius: 8px;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+      --font: Arial, Helvetica, sans-serif;
+      color-scheme: light;
+      font-family: var(--font);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        var(--mist);
+      background-size: 44px 44px;
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.45;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .rail {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 26px 22px;
+      background: var(--black);
+      color: var(--paper);
+      overflow-y: auto;
+    }
+
+    .brand {
+      display: grid;
+      gap: 14px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .brand-mark::after {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 7px rgba(134, 188, 37, 0.14);
+    }
+
+    .kicker,
+    .mini-label {
+      margin: 0;
+      color: var(--green-bright);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 0;
+      max-width: 760px;
+      font-size: 42px;
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .brand h1 {
+      font-size: 31px;
+      line-height: 1.02;
+    }
+
+    .brand-copy {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+    }
+
+    .built {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 7px 9px;
+      border: 1px solid rgba(134, 188, 37, 0.45);
+      border-radius: 999px;
+      color: var(--paper);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .built::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .rail-section {
+      display: grid;
+      gap: 10px;
+    }
+
+    .level-nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .level-button,
+    .ghost-button,
+    .copy-button,
+    .chip-button {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--paper);
+      font-weight: 900;
+    }
+
+    .level-button {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 9px 10px;
+      text-align: left;
+    }
+
+    .level-button:hover,
+    .level-button.is-active {
+      border-color: rgba(134, 188, 37, 0.7);
+      background: rgba(134, 188, 37, 0.13);
+    }
+
+    .level-dot {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent, var(--green));
+      color: var(--black);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .level-name {
+      display: block;
+      font-size: 14px;
+    }
+
+    .level-count {
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 12px;
+    }
+
+    .rail-note {
+      margin: auto 0 0;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 12px;
+    }
+
+    .accent-bars {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.4fr 0.8fr 1.2fr;
+      gap: 6px;
+      min-height: 6px;
+    }
+
+    .accent-bars span {
+      display: block;
+      border-radius: 999px;
+      background: var(--bar);
+    }
+
+    .main {
+      min-width: 0;
+      padding: 26px;
+    }
+
+    .top-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 22px;
+      align-items: end;
+      margin-bottom: 18px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .headline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .headline h1 {
+      margin-bottom: 0;
+    }
+
+    .headline-copy {
+      max-width: 820px;
+      margin: 0;
+      color: var(--graphite);
+      font-size: 16px;
+    }
+
+    .pattern-board {
+      display: grid;
+      gap: 8px;
+    }
+
+    .pattern-item {
+      display: grid;
+      grid-template-columns: 10px 1fr;
+      align-items: start;
+      gap: 10px;
+      color: var(--graphite);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .pattern-item::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin-top: 5px;
+      border-radius: 50%;
+      background: var(--accent, var(--green));
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) 190px 190px auto;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 18px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.06);
+      backdrop-filter: blur(16px);
+    }
+
+    .search,
+    .select {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .search {
+      padding: 10px 12px;
+    }
+
+    .select {
+      padding: 9px 10px;
+      font-weight: 800;
+    }
+
+    .ghost-button {
+      min-height: 42px;
+      padding: 9px 12px;
+      border-color: var(--black);
+      background: var(--black);
+      color: var(--paper);
+      white-space: nowrap;
+    }
+
+    .ghost-button:hover {
+      background: var(--green);
+      color: var(--black);
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .stat {
+      min-height: 86px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--accent, var(--green));
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 25px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--graphite);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .result-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      color: var(--graphite);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .result-row strong {
+      color: var(--ink);
+    }
+
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .prompt-card {
+      display: grid;
+      grid-template-rows: auto auto auto 1fr auto;
+      gap: 12px;
+      min-height: 460px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-top: 6px solid var(--accent, var(--green));
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .prompt-card:hover {
+      border-color: color-mix(in srgb, var(--accent, var(--green)) 70%, var(--line));
+      box-shadow: var(--shadow);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .command {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 27px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--accent, var(--green)) 18%, white);
+      color: var(--black);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .command::before {
+      content: "/";
+      color: var(--accent, var(--green));
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .level-pill {
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--graphite);
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .prompt-card h2 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: #F0F2EF;
+      color: var(--graphite);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .tag.tech {
+      background: color-mix(in srgb, var(--accent, var(--green)) 16%, white);
+      color: var(--black);
+    }
+
+    .use-case {
+      margin: 0;
+      color: var(--graphite);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .prompt-text {
+      min-height: 210px;
+      max-height: 330px;
+      margin: 0;
+      padding: 13px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.028) 1px, transparent 1px),
+        #FBFCFA;
+      background-size: 100% 28px;
+      color: #181818;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .copy-button {
+      min-height: 40px;
+      padding: 9px 12px;
+      border-color: var(--black);
+      background: var(--black);
+      color: var(--paper);
+    }
+
+    .copy-button:hover,
+    .copy-button.is-copied {
+      border-color: var(--accent, var(--green));
+      background: var(--accent, var(--green));
+      color: var(--black);
+    }
+
+    .chip-button {
+      min-height: 40px;
+      padding: 9px 10px;
+      border-color: var(--line);
+      background: var(--paper);
+      color: var(--graphite);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .chip-button:hover {
+      border-color: var(--accent, var(--green));
+      color: var(--black);
+    }
+
+    .empty-state {
+      display: none;
+      min-height: 260px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: var(--graphite);
+      font-weight: 900;
+    }
+
+    .empty-state.is-visible {
+      display: grid;
+    }
+
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 28px;
+      padding: 18px 0 4px;
+      border-top: 1px solid var(--line);
+      color: var(--graphite);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .footer a {
+      color: var(--black);
+      text-decoration-color: var(--green);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 1120px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      .rail {
+        position: relative;
+        height: auto;
+      }
+
+      .level-nav {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .rail-note {
+        margin-top: 0;
+      }
+
+      .top-band,
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .pattern-board {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      .main {
+        padding: 18px;
+      }
+
+      .quick-stats,
+      .prompt-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pattern-board {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .rail {
+        padding: 20px 16px;
+        gap: 16px;
+      }
+
+      .level-nav {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scroll-snap-type: x mandatory;
+      }
+
+      .level-button {
+        min-width: 182px;
+        scroll-snap-align: start;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .brand h1 {
+        font-size: 27px;
+      }
+
+      .prompt-card {
+        min-height: auto;
+        padding: 14px;
+      }
+
+      .card-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .pattern-section,
+      .rail-note {
+        display: none;
+      }
+
+      .top-band .pattern-board,
+      .quick-stats {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="rail" aria-label="Prompt bank navigation">
+      <div class="brand">
+        <div class="brand-row">
+          <p class="kicker">Deloitte India</p>
+          <span class="brand-mark" aria-hidden="true"></span>
+        </div>
+        <h1>AI Prompt Bank</h1>
+        <p class="brand-copy">Simple to advanced prompts for consulting work, built around specialist workflows, review gates, and reusable output structures.</p>
+        <span class="built">Built by Futurelab Studios</span>
+      </div>
+
+      <div class="accent-bars" aria-hidden="true">
+        <span style="--bar: var(--green)"></span>
+        <span style="--bar: var(--cyan)"></span>
+        <span style="--bar: var(--yellow)"></span>
+        <span style="--bar: var(--magenta)"></span>
+        <span style="--bar: var(--orange)"></span>
+      </div>
+
+      <div class="rail-section level-section">
+        <p class="mini-label">Levels</p>
+        <div class="level-nav" id="levelNav"></div>
+      </div>
+
+      <div class="rail-section pattern-section">
+        <p class="mini-label">Gstack Pattern</p>
+        <div class="pattern-board">
+          <div class="pattern-item" style="--accent: var(--green)">Specialist role</div>
+          <div class="pattern-item" style="--accent: var(--cyan)">Inputs and context</div>
+          <div class="pattern-item" style="--accent: var(--yellow)">Staged workflow</div>
+          <div class="pattern-item" style="--accent: var(--magenta)">Quality gate</div>
+          <div class="pattern-item" style="--accent: var(--orange)">Learning loop</div>
+        </div>
+      </div>
+
+      <p class="rail-note">Deloitte-inspired working theme. No official logo or confidential client content is embedded in this artifact.</p>
+    </aside>
+
+    <main class="main">
+      <section class="top-band" aria-label="Prompt bank overview">
+        <div class="headline">
+          <p class="kicker">Consulting-ready, copy-ready</p>
+          <h1>Deloitte India AI Prompt Bank<span style="color: var(--green)">.</span></h1>
+          <p class="headline-copy">A colourful, easygoing bank of reusable prompts for client work, internal analysis, proposals, image editing, reviews, and AI delivery. Each card is structured to copy in one click.</p>
+        </div>
+        <div class="pattern-board">
+          <div class="pattern-item" style="--accent: var(--green)">Think -> plan -> review -> test -> learn</div>
+          <div class="pattern-item" style="--accent: var(--cyan)">Simple prompts for everyday tasks</div>
+          <div class="pattern-item" style="--accent: var(--yellow)">Intermediate prompts for consulting deliverables</div>
+          <div class="pattern-item" style="--accent: var(--magenta)">Advanced prompts for expert workflows</div>
+          <div class="pattern-item" style="--accent: var(--orange)">JSON prompts for image editing</div>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="Prompt controls">
+        <input class="search" id="searchInput" type="search" placeholder="Search prompts, techniques, sectors, outputs">
+        <select class="select" id="categorySelect" aria-label="Category filter"></select>
+        <select class="select" id="techniqueSelect" aria-label="Technique filter"></select>
+        <button class="ghost-button" id="copyVisibleButton" type="button">Copy visible</button>
+      </section>
+
+      <section class="quick-stats" aria-label="Prompt bank stats">
+        <div class="stat" style="--accent: var(--green)">
+          <strong id="statTotal">49</strong>
+          <span>copy-ready prompts</span>
+        </div>
+        <div class="stat" style="--accent: var(--cyan)">
+          <strong>3</strong>
+          <span>skill levels</span>
+        </div>
+        <div class="stat" style="--accent: var(--yellow)">
+          <strong>100+</strong>
+          <span>prompting techniques</span>
+        </div>
+        <div class="stat" style="--accent: var(--magenta)">
+          <strong>1</strong>
+          <span>click per prompt</span>
+        </div>
+      </section>
+
+      <div class="result-row">
+        <span><strong id="resultCount">49</strong> prompts shown</span>
+        <span id="activeFilterLabel">All levels</span>
+      </div>
+
+      <section class="prompt-grid" id="promptGrid" aria-live="polite"></section>
+      <section class="empty-state" id="emptyState">No prompts match the current filters.</section>
+
+      <footer class="footer">
+        <span>Built by Futurelab Studios for Deloitte India team enablement.</span>
+        <span>Structure inspired by <a href="https://github.com/garrytan/gstack" target="_blank" rel="noreferrer">garrytan/gstack</a> specialist workflows.</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const levels = [
+      { id: "all", name: "All", label: "All prompts", accent: "#86BC25" },
+      { id: "simple", name: "Simple", label: "Everyday tasks", accent: "#00A3E0" },
+      { id: "intermediate", name: "Intermediate", label: "Consulting deliverables", accent: "#FFCD00" },
+      { id: "advanced", name: "Advanced", label: "Expert workflows", accent: "#D0006F" }
+    ];
+
+    const prompts = [
+      {
+        id: "exec-summary",
+        command: "exec-summary",
+        level: "simple",
+        category: "Client communication",
+        accent: "#00A3E0",
+        title: "Executive Summary From Raw Notes",
+        useCase: "Turn messy notes into a crisp partner-ready summary.",
+        techniques: ["Role prompt", "Output schema", "Constraints"],
+        prompt: String.raw`ROLE
+You are a Deloitte India engagement manager writing for a senior client executive.
+
+TASK
+Convert the pasted notes into a concise executive summary.
+
+CONTEXT
+Audience: <client role or internal stakeholder>
+Purpose: <decision, update, proposal, workshop, or review>
+Notes:
+<<<paste notes here>>>
+
+RULES
+- Use only the supplied notes.
+- If a claim needs evidence that is missing, label it as "Needs validation".
+- Keep language direct, neutral, and client-ready.
+- Avoid hype and generic transformation language.
+
+OUTPUT
+1. One-line takeaway
+2. Executive summary, max 160 words
+3. Key facts
+4. Decisions needed
+5. Risks or open questions
+6. Suggested next step
+
+QUALITY GATE
+Before finalizing, check whether the summary answers: what happened, why it matters, what decision is needed, and what happens next.`
+      },
+      {
+        id: "meeting-actions",
+        command: "meeting-actions",
+        level: "simple",
+        category: "Client communication",
+        accent: "#00ABAB",
+        title: "Meeting Notes To Action Tracker",
+        useCase: "Extract decisions, owners, dates, and follow-ups from a call transcript.",
+        techniques: ["Structured extraction", "Delimiters", "Assumption log"],
+        prompt: String.raw`ROLE
+You are a Deloitte India project manager preparing a clean action tracker.
+
+TASK
+Extract decisions and actions from the meeting notes.
+
+INPUT
+Meeting context: <client, workstream, date>
+Notes:
+<<<paste notes here>>>
+
+RULES
+- Do not invent owners or dates.
+- If owner or due date is unclear, write "Unassigned" or "Date not stated".
+- Separate decisions from discussion points.
+- Keep every action specific and testable.
+
+OUTPUT
+Meeting summary:
+- <3 bullets max>
+
+Decision log:
+| Decision | Rationale | Owner | Date |
+
+Action tracker:
+| Action | Owner | Due date | Dependency | Status |
+
+Open questions:
+| Question | Who can answer | Why it matters |
+
+Follow-up email:
+Write a short client-ready email confirming the above.`
+      },
+      {
+        id: "email-polish",
+        command: "email-polish",
+        level: "simple",
+        category: "Client communication",
+        accent: "#FFCD00",
+        title: "Client Email Polisher",
+        useCase: "Rewrite a draft so it is warm, precise, and easy to act on.",
+        techniques: ["Style transfer", "Audience framing", "Tone constraints"],
+        prompt: String.raw`ROLE
+You are a Deloitte India client service professional.
+
+TASK
+Rewrite the draft email for clarity, warmth, and executive polish.
+
+INPUT
+Audience: <client seniority and function>
+Intent: <request, update, escalation, thank-you, decision>
+Draft:
+<<<paste draft here>>>
+
+STYLE
+- Professional, crisp, and easy to read.
+- Confident without sounding pushy.
+- Human without being casual.
+- No jargon unless the audience already uses it.
+
+OUTPUT
+Subject line:
+<subject>
+
+Email:
+<rewritten email>
+
+Optional shorter version:
+<max 90 words>
+
+Review notes:
+- What changed
+- Any missing information`
+      },
+      {
+        id: "jargon-translator",
+        command: "jargon-translator",
+        level: "simple",
+        category: "Storytelling",
+        accent: "#F58220",
+        title: "Jargon To Executive Language",
+        useCase: "Convert dense technical text into clear business language.",
+        techniques: ["Audience adaptation", "Plain-language rewrite", "Before-after"],
+        prompt: String.raw`ROLE
+You are a Deloitte India strategy consultant translating technical content for executives.
+
+TASK
+Rewrite the text so a non-technical CXO can understand the business meaning.
+
+INPUT
+Audience: <CEO, CFO, CIO, COO, CHRO, board, business head>
+Text:
+<<<paste technical text here>>>
+
+RULES
+- Preserve the meaning.
+- Remove unexplained acronyms.
+- Convert features into business outcomes.
+- Flag any sentence that is too vague to translate confidently.
+
+OUTPUT
+Plain-language version:
+<rewrite>
+
+Business implications:
+- <bullet>
+
+Terms simplified:
+| Original term | Simple explanation |
+
+Questions to ask the technical team:
+- <bullet>`
+      },
+      {
+        id: "slide-storyline",
+        command: "slide-storyline",
+        level: "simple",
+        category: "Storytelling",
+        accent: "#6E267B",
+        title: "Slide Storyline From Bullets",
+        useCase: "Turn bullet dumps into a slide narrative with a clear headline.",
+        techniques: ["SCQA", "Pyramid principle", "Headline writing"],
+        prompt: String.raw`ROLE
+You are a Deloitte India presentation lead.
+
+TASK
+Create a consulting-style storyline from raw bullets.
+
+INPUT
+Audience: <client or internal audience>
+Decision or message: <what the slide should make clear>
+Raw bullets:
+<<<paste bullets here>>>
+
+WORKFLOW
+1. Identify the situation, complication, question, and answer.
+2. Find the strongest governing thought.
+3. Group supporting points into MECE buckets.
+4. Write a slide title that states the insight, not the topic.
+
+OUTPUT
+Insight headline:
+<one sentence>
+
+SCQA:
+| Element | Content |
+
+Slide structure:
+1. <section>
+2. <section>
+3. <section>
+
+Tightened bullets:
+- <bullet>
+
+Visual suggestion:
+<chart, table, process, or comparison>`
+      },
+      {
+        id: "data-insight",
+        command: "data-insight",
+        level: "simple",
+        category: "Data and insights",
+        accent: "#86BC25",
+        title: "Table To Slide-Ready Insight",
+        useCase: "Summarize a pasted table into trends, outliers, and implications.",
+        techniques: ["Delimited input", "Analytical role", "Output schema"],
+        prompt: String.raw`ROLE
+You are a Deloitte India data analyst.
+
+TASK
+Analyze the supplied table and produce slide-ready insights.
+
+INPUT
+Business question: <what we are trying to answer>
+Table:
+<<<paste table here>>>
+
+RULES
+- Use only the numbers supplied.
+- Do not calculate if the table is ambiguous; ask for clarification.
+- Call out whether values are absolute, percentage, INR, USD, indexed, or unknown.
+
+OUTPUT
+Plain-English answer:
+<2-3 sentences>
+
+Key trends:
+- <bullet>
+
+Outliers:
+- <bullet>
+
+Possible chart:
+<best chart type and why>
+
+Slide-ready headline:
+<one sentence>
+
+Checks needed:
+- <data quality or definition questions>`
+      },
+      {
+        id: "risk-register",
+        command: "risk-register",
+        level: "simple",
+        category: "Risk and controls",
+        accent: "#D0006F",
+        title: "Risk Register Starter",
+        useCase: "Create a first-pass risk register from project notes.",
+        techniques: ["Risk rubric", "Tabular output", "Severity scoring"],
+        prompt: String.raw`ROLE
+You are a Deloitte India risk and controls consultant.
+
+TASK
+Create a practical risk register from the supplied notes.
+
+INPUT
+Project context: <project, client, function>
+Notes:
+<<<paste notes here>>>
+
+SCORING
+Likelihood: Low, Medium, High
+Impact: Low, Medium, High
+Priority: P1 critical, P2 high, P3 medium, P4 low
+
+OUTPUT
+Risk register:
+| Risk | Cause | Consequence | Likelihood | Impact | Priority | Mitigation | Owner |
+
+Top 3 risks:
+1. <risk and why>
+
+Assumptions:
+- <bullet>
+
+Information required:
+- <bullet>`
+      },
+      {
+        id: "clarifying-questions",
+        command: "clarify",
+        level: "simple",
+        category: "Discovery",
+        accent: "#00A3E0",
+        title: "Clarifying Questions Generator",
+        useCase: "Prepare sharper questions before a client workshop or analysis task.",
+        techniques: ["Ask-first prompting", "Question ladder", "MECE"],
+        prompt: String.raw`ROLE
+You are a Deloitte India discovery lead.
+
+TASK
+Generate the most useful clarifying questions before starting the work.
+
+INPUT
+Task request:
+<<<paste request here>>>
+
+RULES
+- Ask only questions that materially change the output.
+- Group questions by decision area.
+- Mark must-have questions separately from nice-to-have.
+- Keep questions short enough to use in a client meeting.
+
+OUTPUT
+Must-have questions:
+| Question | Why it matters | Who should answer |
+
+Nice-to-have questions:
+| Question | Why it matters |
+
+Assumptions if unanswered:
+- <bullet>
+
+Recommended opening question:
+<one question>`
+      },
+      {
+        id: "confidentiality-rewrite",
+        command: "safe-rewrite",
+        level: "simple",
+        category: "Responsible AI",
+        accent: "#FFCD00",
+        title: "Confidentiality-Safe Rewrite",
+        useCase: "Mask sensitive details while preserving business meaning.",
+        techniques: ["Safety guardrails", "Data minimization", "Transformation"],
+        prompt: String.raw`ROLE
+You are a Deloitte India responsible AI reviewer.
+
+TASK
+Rewrite the text to remove or generalize sensitive information while preserving the useful meaning.
+
+INPUT
+Text:
+<<<paste text here>>>
+
+RULES
+- Mask names, account numbers, emails, phone numbers, addresses, IDs, and unique client identifiers.
+- Generalize client-specific details unless approved for use.
+- Do not change the business meaning.
+- If the text contains personal data or confidential client data, flag it.
+
+OUTPUT
+Sanitized text:
+<rewrite>
+
+Removed or generalized:
+| Original type | Replacement style |
+
+Residual risk:
+Low / Medium / High
+
+Reviewer note:
+<what a human should check before sharing>`
+      },
+      {
+        id: "proposal-check",
+        command: "proposal-check",
+        level: "simple",
+        category: "Pursuits",
+        accent: "#00ABAB",
+        title: "Proposal Quality Checklist",
+        useCase: "Check whether a proposal section is client-ready.",
+        techniques: ["Rubric", "Scoring", "Rewrite suggestions"],
+        prompt: String.raw`ROLE
+You are a Deloitte India pursuit quality reviewer.
+
+TASK
+Review the proposal section against a practical quality rubric.
+
+INPUT
+Client ask: <brief description>
+Proposal section:
+<<<paste section here>>>
+
+RUBRIC
+Score each 1-5:
+- Relevance to client ask
+- Evidence and proof points
+- Differentiation
+- Clarity
+- Commercial credibility
+- Delivery feasibility
+
+OUTPUT
+Scorecard:
+| Criterion | Score | Rationale | Fix |
+
+Top improvements:
+1. <fix>
+2. <fix>
+3. <fix>
+
+Sharper rewrite:
+<rewrite the weakest paragraph>
+
+Missing proof:
+- <credentials, case studies, metrics, or assumptions needed>`
+      },
+      {
+        id: "stakeholder-map",
+        command: "stakeholder-map",
+        level: "simple",
+        category: "Change and adoption",
+        accent: "#F58220",
+        title: "Stakeholder Map Lite",
+        useCase: "Map stakeholders and likely concerns before a workshop.",
+        techniques: ["Persona prompting", "Influence-interest grid", "Assumptions"],
+        prompt: String.raw`ROLE
+You are a Deloitte India change management consultant.
+
+TASK
+Create a stakeholder map from the supplied context.
+
+INPUT
+Initiative: <initiative name>
+Known stakeholders:
+<<<paste list or notes here>>>
+
+OUTPUT
+Stakeholder map:
+| Stakeholder | Role | Influence | Interest | Likely concern | Engagement approach |
+
+Likely blockers:
+- <bullet>
+
+Likely champions:
+- <bullet>
+
+Workshop questions:
+- <question>
+
+Assumptions to validate:
+- <bullet>`
+      },
+      {
+        id: "india-market-scan",
+        command: "market-scan",
+        level: "simple",
+        category: "Research",
+        accent: "#6E267B",
+        title: "India Market Scan Brief",
+        useCase: "Frame a quick research request for an India market topic.",
+        techniques: ["Research framing", "Source requirements", "Fact-check gate"],
+        prompt: String.raw`ROLE
+You are a Deloitte India research analyst.
+
+TASK
+Prepare a concise market scan brief for the topic.
+
+INPUT
+Topic: <sector, regulation, technology, or client issue>
+Audience: <partner, client CXO, internal team>
+Time horizon: <now, 12 months, 3 years>
+
+SOURCE RULES
+- Use current, credible sources.
+- Separate facts from interpretation.
+- Include dates for time-sensitive claims.
+- If you cannot verify a claim, label it "unverified".
+
+OUTPUT
+1. Executive takeaway
+2. What changed recently
+3. Why it matters in India
+4. Implications for clients
+5. Watchlist signals
+6. Suggested sources to verify
+7. Open questions`
+      },
+      {
+        id: "rfp-architect",
+        command: "rfp-architect",
+        level: "intermediate",
+        category: "Pursuits",
+        accent: "#86BC25",
+        title: "RFP Response Architect",
+        useCase: "Convert an RFP into response strategy, win themes, and workplan.",
+        techniques: ["Specialist role", "Decomposition", "Win-theme rubric"],
+        prompt: String.raw`ROLE
+You are a Deloitte India pursuit architect.
+
+TASK
+Analyze the RFP and design the response strategy.
+
+INPUTS
+RFP text:
+<<<paste RFP here>>>
+
+Known Deloitte strengths:
+<<<paste credentials, offerings, SMEs, or differentiators here>>>
+
+Constraints:
+<timeline, budget, team, exclusions>
+
+WORKFLOW
+1. Extract client objectives and evaluation criteria.
+2. Identify explicit requirements, hidden requirements, and likely decision drivers.
+3. Propose 3 win themes.
+4. Map response sections to requirements.
+5. Identify proof points and gaps.
+6. Red-team the response from the evaluator's perspective.
+
+OUTPUT
+RFP readout:
+| Requirement | Evidence in RFP | Response implication | Owner |
+
+Win themes:
+1. <theme, why it will matter>
+
+Response architecture:
+| Section | Purpose | Key messages | Proof needed |
+
+Clarification questions:
+- <question>
+
+Evaluator red-team:
+| Concern evaluator may have | How to address |
+
+Next 48-hour plan:
+- <action>`
+      },
+      {
+        id: "business-case",
+        command: "business-case",
+        level: "intermediate",
+        category: "Strategy",
+        accent: "#00A3E0",
+        title: "Business Case Builder",
+        useCase: "Build a quantified investment narrative with scenarios and assumptions.",
+        techniques: ["Scenario planning", "Assumption ledger", "Decision framing"],
+        prompt: String.raw`ROLE
+You are a Deloitte India strategy and finance consultant.
+
+TASK
+Build a business case narrative for the initiative.
+
+INPUT
+Initiative: <name>
+Objective: <business outcome>
+Available numbers:
+<<<paste data here>>>
+Constraints:
+<budget, timeline, risk, organization constraints>
+
+WORKFLOW
+1. Define the value levers.
+2. Separate quantified benefits, unquantified benefits, and costs.
+3. Create base, upside, and downside scenarios.
+4. Identify assumptions that matter most.
+5. Recommend the decision posture.
+
+OUTPUT
+Executive recommendation:
+<go / no-go / stage-gate / pilot>
+
+Value model:
+| Lever | Metric | Base case | Upside | Downside | Evidence |
+
+Cost and investment:
+| Cost item | One-time or recurring | Confidence |
+
+Assumption ledger:
+| Assumption | Impact if wrong | Validation method |
+
+Decision slide headline:
+<one sentence>`
+      },
+      {
+        id: "operating-model",
+        command: "op-model",
+        level: "intermediate",
+        category: "Operating model",
+        accent: "#00ABAB",
+        title: "Operating Model Designer",
+        useCase: "Design roles, governance, processes, and measures for a target state.",
+        techniques: ["MECE", "RACI", "Target-state design"],
+        prompt: String.raw`ROLE
+You are a Deloitte India operating model consultant.
+
+TASK
+Design a practical operating model for the target capability.
+
+INPUT
+Capability: <e.g., AI governance, procurement analytics, GCC product engineering>
+Current pain points:
+<<<paste pain points here>>>
+Constraints:
+<people, systems, regulation, timeline>
+
+WORKFLOW
+1. Define current-state friction.
+2. Define target-state principles.
+3. Create the operating model across process, people, technology, governance, and metrics.
+4. Build a RACI for critical decisions.
+5. Identify transition risks.
+
+OUTPUT
+Target-state principles:
+- <principle>
+
+Operating model:
+| Dimension | Current issue | Target design | Key decision |
+
+RACI:
+| Activity | Responsible | Accountable | Consulted | Informed |
+
+Metrics:
+| Metric | Why it matters | Source |
+
+Transition risks:
+- <risk and mitigation>`
+      },
+      {
+        id: "ai-use-case-triage",
+        command: "ai-triage",
+        level: "intermediate",
+        category: "AI transformation",
+        accent: "#FFCD00",
+        title: "AI Use Case Triage",
+        useCase: "Prioritize AI ideas by value, feasibility, risk, and readiness.",
+        techniques: ["Scoring rubric", "Portfolio prioritization", "Risk lens"],
+        prompt: String.raw`ROLE
+You are a Deloitte India AI transformation lead.
+
+TASK
+Prioritize AI use cases for an enterprise client.
+
+INPUT
+Client context: <industry, function, geography>
+Use cases:
+<<<paste list here>>>
+
+SCORING
+Score each 1-5:
+- Business value
+- Data readiness
+- Process readiness
+- Technical feasibility
+- Risk and compliance manageability
+- Adoption likelihood
+
+WORKFLOW
+1. Normalize duplicate or overlapping use cases.
+2. Score each use case.
+3. Classify into Now, Next, Later, or Avoid.
+4. Recommend the first 90-day pilot.
+5. Identify controls required before launch.
+
+OUTPUT
+Prioritization table:
+| Use case | Value | Feasibility | Risk | Adoption | Bucket | Rationale |
+
+Recommended pilot:
+<use case and why>
+
+90-day path:
+| Phase | Outcome | Key activities | Evidence of success |
+
+Controls required:
+- <control>`
+      },
+      {
+        id: "dpdp-workshop",
+        command: "dpdp-workshop",
+        level: "intermediate",
+        category: "Risk and controls",
+        accent: "#D0006F",
+        title: "DPDP Workshop Prep",
+        useCase: "Prepare a privacy readiness workshop without making unverified legal claims.",
+        techniques: ["Compliance framing", "Source verification", "Workshop design"],
+        prompt: String.raw`ROLE
+You are a Deloitte India privacy transformation consultant.
+
+TASK
+Prepare a DPDP readiness workshop plan for the client.
+
+INPUT
+Client industry: <industry>
+Business processes in scope:
+<<<paste processes here>>>
+Known systems and data types:
+<<<paste systems/data here>>>
+
+RULES
+- Do not provide legal advice.
+- Verify current legal and regulatory details with approved sources and counsel.
+- Separate regulatory obligations from operational readiness tasks.
+- Flag unknowns clearly.
+
+OUTPUT
+Workshop objective:
+<objective>
+
+Readiness areas:
+| Area | What to assess | Evidence to request | Risk if weak |
+
+Process questions:
+- <question>
+
+Data inventory starter:
+| Data category | Source system | Purpose | Consent or notice question | Retention question |
+
+Follow-up deliverables:
+- <deliverable>
+
+Counsel review points:
+- <point>`
+      },
+      {
+        id: "sector-hypotheses",
+        command: "sector-hypotheses",
+        level: "intermediate",
+        category: "Research",
+        accent: "#F58220",
+        title: "Sector Brief With Hypotheses",
+        useCase: "Create a research-backed sector point of view for client conversations.",
+        techniques: ["Hypothesis-driven analysis", "PESTLE", "Evidence ladder"],
+        prompt: String.raw`ROLE
+You are a Deloitte India sector research lead.
+
+TASK
+Build a sector brief with testable hypotheses.
+
+INPUT
+Sector: <sector>
+Client segment: <enterprise, MSME, GCC, public sector, startup>
+Question to answer: <strategic question>
+
+WORKFLOW
+1. Frame 3-5 hypotheses.
+2. Test each using political, economic, social, technology, legal, and environmental signals.
+3. Separate strong evidence, weak evidence, and unknowns.
+4. Translate findings into client implications.
+
+OUTPUT
+Executive takeaway:
+<2 sentences>
+
+Hypothesis table:
+| Hypothesis | Evidence supporting | Evidence against | Confidence | Client implication |
+
+PESTLE signals:
+| Signal | Why it matters | Source to verify |
+
+Recommended conversation starters:
+- <question>
+
+What would change our mind:
+- <evidence>`
+      },
+      {
+        id: "board-qa",
+        command: "board-qa",
+        level: "intermediate",
+        category: "Storytelling",
+        accent: "#6E267B",
+        title: "Board Q&A Prep",
+        useCase: "Prepare tough questions and concise answers for a board or CXO review.",
+        techniques: ["Adversarial questioning", "Perspective taking", "Answer rehearsal"],
+        prompt: String.raw`ROLE
+You are a Deloitte India board advisory coach.
+
+TASK
+Prepare likely board or CXO questions and strong answers.
+
+INPUT
+Topic or recommendation:
+<<<paste summary here>>>
+Audience:
+<board, CEO, CFO, CIO, audit committee, regulator-facing group>
+
+WORKFLOW
+1. Identify what the audience will care about most.
+2. Generate tough questions across strategy, financials, risk, execution, and reputation.
+3. Draft concise answers with evidence.
+4. Flag weak areas that need backup.
+
+OUTPUT
+Likely questions:
+| Question | Why they will ask | Strong answer | Evidence needed |
+
+Opening answer:
+<60-second answer>
+
+Weak spots:
+- <gap>
+
+Backup appendix needed:
+- <data, chart, or proof point>`
+      },
+      {
+        id: "process-redesign",
+        command: "process-redesign",
+        level: "intermediate",
+        category: "Operating model",
+        accent: "#86BC25",
+        title: "Process Redesign Sprint",
+        useCase: "Move from current-state pain points to future-state process design.",
+        techniques: ["Current-to-future mapping", "Bottleneck analysis", "Control points"],
+        prompt: String.raw`ROLE
+You are a Deloitte India process transformation consultant.
+
+TASK
+Redesign the process from current-state notes.
+
+INPUT
+Process name: <process>
+Current-state notes:
+<<<paste notes here>>>
+Known constraints:
+<systems, people, policy, locations>
+
+WORKFLOW
+1. Identify process stages.
+2. Find bottlenecks, rework, controls, and handoff failures.
+3. Propose future-state changes.
+4. Identify automation opportunities.
+5. Define measures and control points.
+
+OUTPUT
+Current-state map:
+| Stage | Actor | Input | Activity | Output | Pain point |
+
+Future-state design:
+| Change | Benefit | Effort | Dependency | Risk |
+
+Automation candidates:
+| Candidate | Rule-based or AI-assisted | Data needed | Control required |
+
+KPIs:
+- <metric>
+
+Next workshop agenda:
+<agenda>`
+      },
+      {
+        id: "model-sanity",
+        command: "model-sanity",
+        level: "intermediate",
+        category: "Data and insights",
+        accent: "#00A3E0",
+        title: "Financial Model Sanity Check",
+        useCase: "Review assumptions, formulas, and story before sharing a model.",
+        techniques: ["Chain-of-verification", "Assumption testing", "Sensitivity analysis"],
+        prompt: String.raw`ROLE
+You are a Deloitte India financial modelling reviewer.
+
+TASK
+Review the model notes or extracted tables for logic, assumption, and storytelling risks.
+
+INPUT
+Model purpose: <valuation, business case, synergy, forecast, cost-out>
+Extracts or assumptions:
+<<<paste tables or notes here>>>
+
+WORKFLOW
+1. Identify the model driver tree.
+2. Check whether assumptions connect logically to outputs.
+3. Identify missing sensitivities.
+4. Flag hard-coded or unexplained numbers.
+5. Recommend presentation storyline.
+
+OUTPUT
+Model driver tree:
+<revenue/cost/capex/working capital or relevant tree>
+
+Sanity checks:
+| Check | Status | Why it matters | Fix |
+
+Sensitivity tests:
+| Variable | Low | Base | High | Expected impact |
+
+Questions for model owner:
+- <question>
+
+Slide headline:
+<one sentence>`
+      },
+      {
+        id: "change-plan",
+        command: "change-plan",
+        level: "intermediate",
+        category: "Change and adoption",
+        accent: "#00ABAB",
+        title: "Change Adoption Plan",
+        useCase: "Turn a transformation idea into a stakeholder adoption plan.",
+        techniques: ["Journey mapping", "Resistance analysis", "Message map"],
+        prompt: String.raw`ROLE
+You are a Deloitte India change adoption lead.
+
+TASK
+Create an adoption plan for the initiative.
+
+INPUT
+Initiative: <initiative>
+Impacted groups:
+<<<paste groups here>>>
+Current concerns:
+<<<paste concerns here>>>
+
+WORKFLOW
+1. Segment impacted users.
+2. Identify what changes for each group.
+3. Predict likely resistance.
+4. Create messages, interventions, and adoption metrics.
+
+OUTPUT
+Stakeholder impact table:
+| Group | What changes | Likely concern | Support needed |
+
+Message map:
+| Audience | Message | Proof point | Channel |
+
+Adoption interventions:
+| Intervention | Owner | Timing | Success measure |
+
+Risk watchlist:
+- <risk>
+
+First 30 days:
+- <action>`
+      },
+      {
+        id: "gcc-roadmap",
+        command: "gcc-roadmap",
+        level: "intermediate",
+        category: "Strategy",
+        accent: "#FFCD00",
+        title: "GCC Transformation Roadmap",
+        useCase: "Build a phased roadmap for a global capability center or shared services setup.",
+        techniques: ["Roadmapping", "Capability maturity", "Dependency mapping"],
+        prompt: String.raw`ROLE
+You are a Deloitte India GCC transformation advisor.
+
+TASK
+Build a transformation roadmap for the capability center.
+
+INPUT
+Current state:
+<<<paste current state here>>>
+Target ambition:
+<cost center, capability hub, product engine, innovation hub>
+Constraints:
+<talent, locations, systems, leadership, budget>
+
+WORKFLOW
+1. Assess current maturity.
+2. Define target capabilities.
+3. Sequence roadmap into 0-90 days, 3-6 months, 6-12 months.
+4. Identify dependencies and governance.
+5. Define metrics that show maturity shift.
+
+OUTPUT
+Maturity assessment:
+| Capability | Current maturity | Target maturity | Gap |
+
+Roadmap:
+| Horizon | Outcomes | Initiatives | Dependencies | Metrics |
+
+Governance model:
+<cadence, forums, decision rights>
+
+Risks:
+- <risk and mitigation>
+
+Executive storyline:
+<3-bullet narrative>`
+      },
+      {
+        id: "prompt-refiner",
+        command: "prompt-refiner",
+        level: "intermediate",
+        category: "Prompt engineering",
+        accent: "#D0006F",
+        title: "Prompt Refiner",
+        useCase: "Improve a rough prompt into a reusable team prompt.",
+        techniques: ["Meta-prompting", "Prompt diagnosis", "Reusable template"],
+        prompt: String.raw`ROLE
+You are a prompt engineering coach for Deloitte India teams.
+
+TASK
+Improve the rough prompt into a reusable, safe, high-quality prompt.
+
+INPUT
+Rough prompt:
+<<<paste prompt here>>>
+Intended use case:
+<what the prompt should help with>
+
+WORKFLOW
+1. Diagnose missing role, context, inputs, rules, output format, and quality checks.
+2. Identify risks such as confidentiality, unsupported claims, vague outputs, or missing review steps.
+3. Rewrite the prompt as a reusable template.
+4. Explain how to adapt it.
+
+OUTPUT
+Diagnosis:
+| Issue | Why it weakens output | Fix |
+
+Improved prompt:
+<copy-ready prompt>
+
+Adaptation knobs:
+- Audience
+- Depth
+- Output format
+- Evidence level
+
+Safety note:
+<what users must not paste or assume>`
+      },
+      {
+        id: "gstack-sprint",
+        command: "consulting-sprint",
+        level: "advanced",
+        category: "Prompt engineering",
+        accent: "#86BC25",
+        title: "GStack-Inspired Consulting Sprint",
+        useCase: "Run a full think-plan-review-test-learn cycle on a client deliverable.",
+        techniques: ["Prompt chaining", "Workflow orchestration", "Quality gates"],
+        prompt: String.raw`ROLE
+You are a Deloitte India consulting sprint lead. Operate like a specialist workflow, not a generic chatbot.
+
+MISSION
+Take the supplied request from fuzzy brief to client-ready deliverable plan.
+
+INPUT
+Client or internal request:
+<<<paste request here>>>
+Context and constraints:
+<<<paste context here>>>
+
+WORKFLOW
+Phase 1 - Diagnose
+- Restate the real business problem.
+- Identify missing information.
+- Ask up to 5 must-have clarifying questions if needed.
+
+Phase 2 - Alternatives
+- Create 3 approaches: minimal, balanced, and ambitious.
+- Score effort, risk, completeness, and client value.
+- Recommend one approach and explain why.
+
+Phase 3 - Plan
+- Create a workplan with owners, dependencies, and outputs.
+- Identify risks, assumptions, and required evidence.
+
+Phase 4 - Review
+- Red-team the plan from client, delivery, risk, and commercial perspectives.
+- Fix weaknesses.
+
+Phase 5 - Test
+- Define acceptance criteria and review checklist.
+
+Phase 6 - Learn
+- Capture what should become a reusable team learning.
+
+OUTPUT
+Return only:
+1. Problem diagnosis
+2. Clarifying questions
+3. Approach options table
+4. Recommended path
+5. Workplan
+6. Risk and assumption register
+7. Acceptance checklist
+8. Reusable learning`
+      },
+      {
+        id: "expert-panel",
+        command: "expert-panel",
+        level: "advanced",
+        category: "Strategy",
+        accent: "#00A3E0",
+        title: "Multi-Expert Panel",
+        useCase: "Stress-test a recommendation from multiple executive perspectives.",
+        techniques: ["Perspective stack", "Debate simulation", "Synthesis"],
+        prompt: String.raw`ROLE
+Facilitate a structured expert panel for Deloitte India.
+
+PANEL
+- Strategy partner
+- CFO advisor
+- Technology architect
+- Risk and compliance lead
+- Change adoption lead
+- Client executive sponsor
+
+TASK
+Evaluate the recommendation from each perspective, then synthesize a final point of view.
+
+INPUT
+Recommendation:
+<<<paste recommendation here>>>
+Client context:
+<<<paste context here>>>
+
+RULES
+- Each panelist must state support, concern, evidence needed, and one improvement.
+- Do not let all panelists agree unless the evidence truly supports it.
+- Separate facts from assumptions.
+
+OUTPUT
+Panel review:
+| Panelist | Supports because | Concern | Evidence needed | Improvement |
+
+Tension points:
+- <where experts disagree>
+
+Synthesis:
+<final recommendation>
+
+Decision memo:
+1. What to do
+2. Why now
+3. What could go wrong
+4. What to validate before commitment`
+      },
+      {
+        id: "pursuit-war-room",
+        command: "war-room",
+        level: "advanced",
+        category: "Pursuits",
+        accent: "#00ABAB",
+        title: "Pursuit War Room",
+        useCase: "Run a pursuit strategy session across client, commercial, delivery, and risk lenses.",
+        techniques: ["Role-based review", "Win strategy", "Red-team"],
+        prompt: String.raw`ROLE
+You are facilitating a Deloitte India pursuit war room.
+
+MISSION
+Pressure-test the pursuit strategy and produce a sharper response plan.
+
+INPUT
+Opportunity summary:
+<<<paste opportunity details here>>>
+Client context:
+<<<paste client context here>>>
+Known competitors:
+<if known>
+Constraints:
+<deadline, pricing, team, conflicts, risk>
+
+WORKFLOW
+1. Client lens: what outcome does the client really need?
+2. Competitor lens: how could we lose?
+3. Commercial lens: where is margin or scope risk?
+4. Delivery lens: what must be true to deliver credibly?
+5. Risk lens: what should we avoid saying or promising?
+6. Differentiation lens: what can only we credibly claim?
+
+OUTPUT
+Pursuit diagnosis:
+<short readout>
+
+Win strategy:
+| Theme | Client need | Proof point | Response section |
+
+Lose risks:
+| Risk | Signal | Mitigation |
+
+Commercial watchouts:
+- <watchout>
+
+Red-team objections:
+| Objection | Best answer |
+
+Next 72-hour war-room actions:
+- <action>`
+      },
+      {
+        id: "regulatory-radar",
+        command: "reg-radar",
+        level: "advanced",
+        category: "Risk and controls",
+        accent: "#FFCD00",
+        title: "Regulatory Radar With Source Plan",
+        useCase: "Build a current regulatory scan workflow with verification requirements.",
+        techniques: ["Tool-use planning", "Source hierarchy", "Evidence matrix"],
+        prompt: String.raw`ROLE
+You are a Deloitte India regulatory radar analyst.
+
+TASK
+Create a source-backed regulatory radar for the topic.
+
+INPUT
+Topic: <e.g., data privacy, RBI digital lending, SEBI, GST, AI governance>
+Client industry: <industry>
+Geography: India, plus <states or global interfaces if relevant>
+Decision to inform: <why the radar matters>
+
+SOURCE PLAN
+Prioritize:
+1. Official regulator or government source
+2. Primary legal text or notification
+3. Deloitte-approved internal source, if provided
+4. Reputable professional services or law firm analysis
+5. Business press only for market reaction
+
+WORKFLOW
+1. List the exact questions the radar must answer.
+2. Create a source collection plan.
+3. Build a change log with dates.
+4. Translate changes into client implications.
+5. Flag what needs counsel review.
+
+OUTPUT
+Radar questions:
+- <question>
+
+Source matrix:
+| Question | Preferred source | Backup source | Verification status |
+
+Change log:
+| Date | Change | Source | Confidence | Client implication |
+
+Counsel review:
+- <point>
+
+Executive alert:
+<120-word client-ready update>`
+      },
+      {
+        id: "cyber-threat-model",
+        command: "threat-model",
+        level: "advanced",
+        category: "Cyber and trust",
+        accent: "#D0006F",
+        title: "Cyber Threat Model Workshop",
+        useCase: "Structure a cyber risk review for a product, platform, or process.",
+        techniques: ["STRIDE", "Attack path thinking", "Control mapping"],
+        prompt: String.raw`ROLE
+You are a Deloitte India cyber and digital trust advisor.
+
+TASK
+Create a threat model workshop output for the system or process.
+
+INPUT
+System/process description:
+<<<paste description here>>>
+Data involved:
+<<<paste data types here>>>
+Users and roles:
+<<<paste roles here>>>
+
+WORKFLOW
+1. Map assets, actors, trust boundaries, and data flows.
+2. Identify threats using STRIDE: spoofing, tampering, repudiation, information disclosure, denial of service, elevation of privilege.
+3. Identify plausible attack paths.
+4. Map mitigations and control gaps.
+5. Prioritize remediation.
+
+OUTPUT
+System map:
+| Asset | Actor | Trust boundary | Data flow |
+
+Threat table:
+| Threat | STRIDE category | Attack path | Impact | Existing control | Gap | Priority |
+
+Top 5 remediation actions:
+| Action | Owner | Effort | Risk reduction |
+
+Questions for engineering/security:
+- <question>
+
+Human review note:
+This is a workshop artifact, not a penetration test.`
+      },
+      {
+        id: "agent-op-model",
+        command: "agent-op-model",
+        level: "advanced",
+        category: "AI transformation",
+        accent: "#F58220",
+        title: "AI Agent Operating Model And Controls",
+        useCase: "Design how AI agents should be governed, monitored, and improved.",
+        techniques: ["Control design", "RACI", "Evaluation loop"],
+        prompt: String.raw`ROLE
+You are a Deloitte India AI governance and operating model lead.
+
+TASK
+Design an operating model for AI agents in an enterprise environment.
+
+INPUT
+Agent use case:
+<<<paste use case here>>>
+Data and tools the agent can access:
+<<<paste data/tools here>>>
+Business process owner:
+<owner>
+Risk constraints:
+<privacy, financial, regulatory, reputational, operational>
+
+WORKFLOW
+1. Define agent scope and non-scope.
+2. Map human-in-the-loop checkpoints.
+3. Define tool access and permissions.
+4. Create evaluation and monitoring requirements.
+5. Define incident response and continuous improvement loop.
+
+OUTPUT
+Agent charter:
+| Item | Definition |
+
+Control model:
+| Risk | Preventive control | Detective control | Human owner |
+
+RACI:
+| Activity | Responsible | Accountable | Consulted | Informed |
+
+Eval plan:
+| Eval case | Expected behavior | Failure mode tested | Review cadence |
+
+Launch gate:
+- <go/no-go criterion>`
+      },
+      {
+        id: "eval-harness",
+        command: "eval-harness",
+        level: "advanced",
+        category: "Responsible AI",
+        accent: "#6E267B",
+        title: "GenAI Eval Harness Designer",
+        useCase: "Create a quality and safety evaluation plan for an AI workflow.",
+        techniques: ["Evaluation rubric", "Golden dataset", "Failure taxonomy"],
+        prompt: String.raw`ROLE
+You are a Deloitte India AI quality assurance lead.
+
+TASK
+Design an evaluation harness for the AI workflow.
+
+INPUT
+AI workflow description:
+<<<paste workflow here>>>
+Users:
+<who uses it>
+Expected outputs:
+<what good looks like>
+Known risks:
+<hallucination, bias, privacy, tone, compliance, tool misuse>
+
+WORKFLOW
+1. Define quality dimensions.
+2. Create golden test cases.
+3. Create adversarial test cases.
+4. Define pass/fail thresholds.
+5. Recommend a human review cadence.
+
+OUTPUT
+Quality rubric:
+| Dimension | Passing standard | Failing pattern | Severity |
+
+Golden test set:
+| Case | Input pattern | Expected output traits |
+
+Adversarial tests:
+| Case | What it attacks | Expected safe behavior |
+
+Metrics:
+| Metric | Target | Review frequency |
+
+Release gate:
+<what must pass before launch>`
+      },
+      {
+        id: "options-tree",
+        command: "options-tree",
+        level: "advanced",
+        category: "Strategy",
+        accent: "#86BC25",
+        title: "C-Suite Options Tree",
+        useCase: "Generate strategic options, score them, and recommend a path.",
+        techniques: ["Options tree", "Tradeoff matrix", "Decision memo"],
+        prompt: String.raw`ROLE
+You are a Deloitte India C-suite strategy advisor.
+
+TASK
+Create an options tree for a strategic decision.
+
+INPUT
+Decision:
+<<<paste decision here>>>
+Business context:
+<<<paste context here>>>
+Constraints:
+<capital, talent, time, regulation, market, technology>
+
+WORKFLOW
+Think privately through possible paths, then return only the concise analysis.
+1. Define the decision criteria.
+2. Generate 3-5 mutually distinct options.
+3. Score options against criteria.
+4. Identify no-regret moves and irreversible bets.
+5. Recommend a path with triggers for revisiting.
+
+OUTPUT
+Decision criteria:
+- <criterion>
+
+Options tree:
+| Option | Description | Upside | Risk | Investment | Time to value | Reversibility |
+
+Scorecard:
+| Option | Strategic fit | Financial case | Feasibility | Risk | Total |
+
+Recommendation:
+<one path and why>
+
+Trigger points:
+- <signal that should change the decision>`
+      },
+      {
+        id: "root-cause",
+        command: "root-cause",
+        level: "advanced",
+        category: "Operating model",
+        accent: "#00A3E0",
+        title: "Root Cause Investigation",
+        useCase: "Investigate a recurring business, operations, or delivery issue before proposing fixes.",
+        techniques: ["5 whys", "Evidence log", "Hypothesis testing"],
+        prompt: String.raw`ROLE
+You are a Deloitte India root-cause investigation lead.
+
+TASK
+Investigate the issue without jumping to solutions.
+
+INPUT
+Issue statement:
+<<<paste issue here>>>
+Evidence available:
+<<<paste evidence here>>>
+Recent changes:
+<<<paste changes here>>>
+
+RULES
+- No recommendations until hypotheses are tested against evidence.
+- Separate symptoms from causes.
+- Label uncertain items.
+
+WORKFLOW
+1. Restate the issue in measurable terms.
+2. Create an evidence log.
+3. Generate hypotheses.
+4. Run 5 whys for the leading hypotheses.
+5. Identify tests or data needed.
+6. Recommend fixes only after evidence review.
+
+OUTPUT
+Problem statement:
+<measurable issue>
+
+Evidence log:
+| Evidence | Source | Supports | Weakness |
+
+Hypothesis table:
+| Hypothesis | Evidence for | Evidence against | Confidence | Test |
+
+Root cause view:
+<most likely root cause and why>
+
+Fix options:
+| Fix | Addresses cause? | Effort | Risk | Owner |`
+      },
+      {
+        id: "transformation-blueprint",
+        command: "blueprint",
+        level: "advanced",
+        category: "AI transformation",
+        accent: "#00ABAB",
+        title: "Transformation Blueprint",
+        useCase: "Create a client-ready transformation blueprint from a strategic ambition.",
+        techniques: ["Blueprinting", "Workstream design", "Benefits tracking"],
+        prompt: String.raw`ROLE
+You are a Deloitte India transformation program architect.
+
+TASK
+Create a transformation blueprint that can become a client deck or program charter.
+
+INPUT
+Transformation ambition:
+<<<paste ambition here>>>
+Current-state constraints:
+<<<paste constraints here>>>
+Target business outcomes:
+<<<paste outcomes here>>>
+
+WORKFLOW
+1. Define the North Star.
+2. Break the transformation into workstreams.
+3. Define initiatives, milestones, dependencies, and benefits.
+4. Identify governance and decision rights.
+5. Define benefits tracking and risk management.
+
+OUTPUT
+North Star:
+<one sentence>
+
+Workstreams:
+| Workstream | Objective | Key initiatives | Owner | Dependencies |
+
+Roadmap:
+| Horizon | Milestones | Benefits unlocked | Risks |
+
+Governance:
+| Forum | Purpose | Decisions | Cadence |
+
+Benefits tracker:
+| Benefit | Metric | Baseline | Target | Owner |
+
+Executive narrative:
+<5-slide storyline>`
+      },
+      {
+        id: "red-team-output",
+        command: "red-team",
+        level: "advanced",
+        category: "Responsible AI",
+        accent: "#FFCD00",
+        title: "AI Output Red-Team",
+        useCase: "Review AI-generated content for accuracy, evidence, confidentiality, and client readiness.",
+        techniques: ["Adversarial critique", "Risk scoring", "Rewrite"],
+        prompt: String.raw`ROLE
+You are a Deloitte India AI output red-team reviewer.
+
+TASK
+Review the AI-generated output before it is used in client or internal work.
+
+INPUT
+Intended audience: <client, partner, team, regulator-facing, public>
+Original prompt:
+<<<paste original prompt if available>>>
+AI output:
+<<<paste AI output here>>>
+
+RISK AREAS
+- Accuracy and evidence
+- Unsupported claims
+- Confidentiality or personal data
+- Bias or fairness
+- Legal, tax, regulatory, or financial advice risk
+- Tone and client readiness
+- Missing human review
+
+OUTPUT
+Risk score:
+<0-100 and Low / Medium / High / Needs human review>
+
+Findings:
+| Issue | Severity | Evidence | Fix |
+
+Claims needing verification:
+- <claim>
+
+Safer rewritten version:
+<rewrite>
+
+Human review checklist:
+- <check>`
+      },
+      {
+        id: "knowledge-loop",
+        command: "knowledge-loop",
+        level: "advanced",
+        category: "Knowledge management",
+        accent: "#D0006F",
+        title: "Reusable Learning Capture",
+        useCase: "Turn project experience into team knowledge and better future prompts.",
+        techniques: ["Reflection", "Memory extraction", "Pattern library"],
+        prompt: String.raw`ROLE
+You are a Deloitte India knowledge curator.
+
+TASK
+Extract reusable learnings from the project, workshop, proposal, or delivery experience.
+
+INPUT
+What happened:
+<<<paste notes here>>>
+Artifacts produced:
+<<<paste artifact list here>>>
+Outcome:
+<won, lost, delivered, delayed, escalated, learned>
+
+WORKFLOW
+1. Identify what was reusable.
+2. Identify what surprised the team.
+3. Identify mistakes to avoid.
+4. Convert learnings into playbook entries and prompt improvements.
+5. Suggest how to store or tag the learning.
+
+OUTPUT
+Reusable learnings:
+| Learning | Where it applies | Confidence | Evidence |
+
+Anti-patterns:
+| What to avoid | Why | Early warning signal |
+
+Prompt improvements:
+| Existing prompt gap | Suggested wording |
+
+Playbook entry:
+<copy-ready knowledge note>
+
+Tags:
+<function, industry, offering, risk, client issue>`
+      },
+      {
+        id: "json-image-edit-master",
+        command: "json-edit-master",
+        level: "simple",
+        category: "Image editing",
+        accent: "#00A3E0",
+        title: "JSON Image Edit Master Brief",
+        useCase: "Create a clean, reusable JSON brief for any image-editing request.",
+        techniques: ["JSON prompt", "Image editing", "Constraint stack"],
+        prompt: String.raw`{
+  "role": "Image editing director for a Deloitte India consulting artifact",
+  "task": "Edit the provided image according to the brief while preserving the parts listed as locked.",
+  "source_image": {
+    "description": "<describe the uploaded image>",
+    "primary_subject": "<person, product, place, document, dashboard, slide, or scene>",
+    "current_problem": "<what needs to change>"
+  },
+  "edit_intent": {
+    "business_context": "<proposal, workshop, report, internal training, social post, event, client deck>",
+    "desired_outcome": "<what the final image should communicate>",
+    "audience": "<client CXO, partner, internal team, public audience>"
+  },
+  "changes": [
+    {
+      "area": "<background, subject, lighting, text, colors, object, composition>",
+      "instruction": "<specific edit>",
+      "priority": "must-have"
+    }
+  ],
+  "preserve": [
+    "<identity, facial structure, product shape, data accuracy, document text, layout, brand-safe elements>"
+  ],
+  "style": {
+    "visual_direction": "clean professional-services intelligence, high contrast, crisp detail",
+    "palette": "black, white, graphite, Deloitte-inspired green accent, limited secondary color",
+    "avoid": ["cartoonish styling", "heavy gradients", "generic stock-photo feel", "fake official logo"]
+  },
+  "output_requirements": {
+    "aspect_ratio": "<1:1, 4:5, 16:9, 9:16, original>",
+    "resolution": "high",
+    "background": "<transparent, white, office, stage, city, data grid, original>",
+    "safe_for_client_use": true
+  },
+  "quality_check": [
+    "The edited areas blend naturally with the original image.",
+    "No important text or data is changed unless explicitly requested.",
+    "The image feels polished, credible, and consulting-ready."
+  ]
+}`
+      },
+      {
+        id: "json-background-replace",
+        command: "json-bg-replace",
+        level: "simple",
+        category: "Image editing",
+        accent: "#00ABAB",
+        title: "JSON Background Replacement",
+        useCase: "Replace a background while preserving the subject and making it deck-ready.",
+        techniques: ["JSON prompt", "Background replacement", "Subject preservation"],
+        prompt: String.raw`{
+  "task": "Replace the background of the uploaded image.",
+  "source_image": {
+    "subject_to_preserve": "<person, team, object, product, device, booth, document>",
+    "must_preserve": ["shape", "proportions", "expression", "pose", "edges", "important text"],
+    "remove_or_reduce": ["visual clutter", "low-quality backdrop", "distracting objects"]
+  },
+  "new_background": {
+    "type": "<modern office, conference stage, India city skyline, data-grid studio, neutral white, black editorial>",
+    "mood": "credible, bright, premium, calm",
+    "detail_level": "realistic but not busy",
+    "brand_cue": "subtle Deloitte-inspired green accent as a small focal cue, not a logo"
+  },
+  "lighting_and_blend": {
+    "match_subject_lighting": true,
+    "shadow_style": "natural contact shadow",
+    "edge_quality": "clean, no halo, no cutout look"
+  },
+  "output": {
+    "aspect_ratio": "<keep original or specify>",
+    "format_intent": "<slide, LinkedIn post, profile card, event banner, report cover>"
+  },
+  "negative_instructions": [
+    "Do not alter the subject identity.",
+    "Do not add fake text, badges, or official logos.",
+    "Do not create a dark blurry atmospheric background."
+  ]
+}`
+      },
+      {
+        id: "json-profile-retouch",
+        command: "json-profile-edit",
+        level: "simple",
+        category: "Image editing",
+        accent: "#FFCD00",
+        title: "JSON Professional Profile Retouch",
+        useCase: "Clean up a headshot or speaker photo without changing identity.",
+        techniques: ["JSON prompt", "Portrait retouching", "Identity preservation"],
+        prompt: String.raw`{
+  "task": "Retouch the uploaded portrait for professional use.",
+  "identity_preservation": {
+    "priority": "highest",
+    "preserve": ["face shape", "skin tone", "age cues", "hair style", "expression", "eye shape", "natural features"],
+    "do_not_change": ["identity", "body shape", "ethnicity", "facial structure"]
+  },
+  "edits": {
+    "lighting": "balanced, natural, polished",
+    "skin": "clean minor blemishes only, keep natural texture",
+    "background": "<keep original, neutral office, white, black editorial, subtle green accent>",
+    "framing": "<headshot, half-body, speaker card crop>",
+    "color": "professional, true-to-life, not over-saturated"
+  },
+  "use_case": "<speaker bio, internal profile, proposal team page, event agenda>",
+  "output_requirements": {
+    "aspect_ratio": "<1:1, 4:5, original>",
+    "client_ready": true
+  },
+  "quality_check": [
+    "Looks like the same person.",
+    "No artificial smoothing.",
+    "Professional but not staged or fake."
+  ]
+}`
+      },
+      {
+        id: "json-slide-image-cleanup",
+        command: "json-slide-cleanup",
+        level: "simple",
+        category: "Image editing",
+        accent: "#F58220",
+        title: "JSON Slide Image Cleanup",
+        useCase: "Clean a screenshot, diagram, or slide image for a professional deck.",
+        techniques: ["JSON prompt", "Document cleanup", "Visual QA"],
+        prompt: String.raw`{
+  "task": "Clean and improve the uploaded slide or screenshot image for presentation use.",
+  "source_image": {
+    "content_type": "<screenshot, slide, chart, workflow, document photo, whiteboard>",
+    "important_content": "<what must remain accurate>",
+    "issues_to_fix": ["blur", "skew", "low contrast", "cropping", "visual clutter", "background noise"]
+  },
+  "edits": {
+    "straighten": true,
+    "increase_legibility": true,
+    "clean_background": true,
+    "improve_contrast": true,
+    "crop_focus_area": "<describe crop>",
+    "remove": ["unwanted borders", "cursor", "notification bars", "irrelevant UI chrome"]
+  },
+  "data_integrity": {
+    "preserve_all_numbers": true,
+    "preserve_all_labels": true,
+    "do_not_rewrite_text": true
+  },
+  "style": {
+    "look": "clean consulting deck asset",
+    "palette": "neutral with restrained green emphasis if an accent is needed"
+  },
+  "quality_check": [
+    "Text remains readable.",
+    "No numbers or labels are changed.",
+    "The result can be dropped into a client slide."
+  ]
+}`
+      },
+      {
+        id: "json-product-shot",
+        command: "json-product-shot",
+        level: "intermediate",
+        category: "Image editing",
+        accent: "#86BC25",
+        title: "JSON Product Or Interface Shot",
+        useCase: "Turn a product, dashboard, or interface screenshot into a polished visual asset.",
+        techniques: ["JSON prompt", "Product staging", "Composition"],
+        prompt: String.raw`{
+  "role": "Creative director for a Deloitte India digital transformation deck",
+  "task": "Transform the uploaded product or interface image into a premium presentation visual.",
+  "source_asset": {
+    "asset_type": "<app screenshot, dashboard, device photo, product photo, platform UI>",
+    "must_remain_true": ["visible product shape", "core UI layout", "numbers if readable", "key labels"],
+    "current_limitations": ["flat composition", "low contrast", "busy background", "poor crop"]
+  },
+  "composition": {
+    "hero_focus": "<what should draw the eye first>",
+    "crop": "<wide hero, square card, slide-safe 16:9, mobile 9:16>",
+    "depth": "subtle realistic depth, not theatrical",
+    "supporting_elements": ["thin data grid", "small green focus point", "neutral surface"]
+  },
+  "edits": [
+    "Improve lighting and contrast.",
+    "Place asset in a clean professional-services environment.",
+    "Remove clutter and distractions.",
+    "Keep the interface or product credible and inspectable."
+  ],
+  "brand_safe_style": {
+    "palette": "white, black, graphite, Deloitte-inspired green accent",
+    "avoid": ["fake Deloitte logo", "invented client logo", "neon sci-fi look", "one-color green wash"]
+  },
+  "output_requirements": {
+    "aspect_ratio": "16:9",
+    "slide_ready": true,
+    "leave_space_for_headline": "<left, right, top, none>"
+  }
+}`
+      },
+      {
+        id: "json-generative-fill",
+        command: "json-fill",
+        level: "intermediate",
+        category: "Image editing",
+        accent: "#00A3E0",
+        title: "JSON Generative Fill And Object Removal",
+        useCase: "Remove objects or fill missing areas while keeping the image natural.",
+        techniques: ["JSON prompt", "Inpainting", "Mask instructions"],
+        prompt: String.raw`{
+  "task": "Use generative fill or inpainting on the uploaded image.",
+  "mask_or_area": {
+    "area_to_edit": "<describe exact region or masked area>",
+    "edit_type": "<remove object, extend background, fill missing area, replace object, repair damage>",
+    "replacement_content": "<what should appear instead>"
+  },
+  "context_to_preserve": {
+    "lighting": "match surrounding image",
+    "perspective": "match camera angle and lens",
+    "texture": "match neighboring surfaces",
+    "shadows": "preserve realistic shadows",
+    "edges": "blend cleanly"
+  },
+  "do_not_touch": [
+    "<faces, hands, product, logos provided by user, text, data, key objects>"
+  ],
+  "style_constraints": {
+    "realism": "high",
+    "visual_noise": "low",
+    "professional_finish": true
+  },
+  "quality_gate": {
+    "pass_if": [
+      "No visible seam around edited area.",
+      "Perspective and lighting are consistent.",
+      "The viewer cannot tell an object was removed or filled."
+    ],
+    "fail_if": [
+      "Warped hands or faces.",
+      "Changed text or data.",
+      "Unnatural repeated textures."
+    ]
+  }
+}`
+      },
+      {
+        id: "json-social-variant",
+        command: "json-social-edit",
+        level: "intermediate",
+        category: "Image editing",
+        accent: "#D0006F",
+        title: "JSON Social Creative Variant",
+        useCase: "Adapt a source image into a vibrant social post while staying professional.",
+        techniques: ["JSON prompt", "Channel adaptation", "Creative variants"],
+        prompt: String.raw`{
+  "task": "Create a social-media-ready edited image from the uploaded source.",
+  "channel": "<LinkedIn, Instagram feed, Instagram story, X post, event teaser>",
+  "source_image": {
+    "main_subject": "<person, team, venue, object, visual, screenshot>",
+    "preserve": ["identity", "key message", "important visual detail"],
+    "remove": ["clutter", "low-value background", "unwanted text"]
+  },
+  "creative_direction": {
+    "tone": "vibrant, easygoing, premium, professional",
+    "composition": "<centered subject, left text space, full-bleed, editorial crop>",
+    "palette": "black, white, green focus cue, plus one secondary accent",
+    "energy_level": "<calm, optimistic, event-like, bold>"
+  },
+  "text_handling": {
+    "add_text": false,
+    "if_text_is_requested": "keep text minimal, large, and legible",
+    "safe_area": "<top, bottom, left, right>"
+  },
+  "outputs": [
+    {
+      "aspect_ratio": "4:5",
+      "purpose": "LinkedIn feed"
+    },
+    {
+      "aspect_ratio": "9:16",
+      "purpose": "Story"
+    }
+  ],
+  "avoid": ["fake official endorsement", "logo recreation", "crowded typography", "generic stock look"]
+}`
+      },
+      {
+        id: "json-report-cover",
+        command: "json-cover-edit",
+        level: "intermediate",
+        category: "Image editing",
+        accent: "#6E267B",
+        title: "JSON Report Cover Image",
+        useCase: "Edit or extend an image into a report or POV cover visual.",
+        techniques: ["JSON prompt", "Editorial art direction", "Cover composition"],
+        prompt: String.raw`{
+  "role": "Editorial art director for a Deloitte India report cover",
+  "task": "Edit the uploaded image into a strong cover visual.",
+  "report_context": {
+    "title_or_topic": "<report topic>",
+    "industry": "<industry>",
+    "audience": "<board, CXO, regulators, internal leadership, clients>",
+    "message": "<central idea the cover should signal>"
+  },
+  "image_edit": {
+    "keep": ["main subject", "authentic visual detail", "credible setting"],
+    "change": ["composition", "background clarity", "lighting", "color focus", "negative space"],
+    "extend_canvas": "<none, top, bottom, left, right, all sides>",
+    "cover_safe_space": "<where title could sit without a card>"
+  },
+  "visual_direction": {
+    "style": "high-contrast editorial consulting visual",
+    "motifs": ["data geometry", "circular network cue", "small green focal point"],
+    "palette": "mostly neutral with precise green emphasis and one optional secondary accent"
+  },
+  "constraints": [
+    "No fake logos.",
+    "No unreadable tiny text.",
+    "No stock-photo cliche.",
+    "Do not imply official endorsement beyond supplied assets."
+  ],
+  "qa": [
+    "Cover works at thumbnail size.",
+    "There is clear space for title and metadata.",
+    "The subject matter is recognizable and relevant."
+  ]
+}`
+      },
+      {
+        id: "json-batch-variants",
+        command: "json-batch-variants",
+        level: "advanced",
+        category: "Image editing",
+        accent: "#F58220",
+        title: "JSON Batch Image Variant System",
+        useCase: "Generate multiple controlled image-edit variants from one source.",
+        techniques: ["JSON prompt", "Batch variants", "Design exploration"],
+        prompt: String.raw`{
+  "task": "Create multiple edited variants from the uploaded image while preserving the locked elements.",
+  "source_image": {
+    "description": "<describe uploaded image>",
+    "locked_elements": ["<identity>", "<product shape>", "<important text>", "<data>", "<composition anchor>"],
+    "editable_elements": ["background", "crop", "lighting", "color grade", "supporting objects", "negative space"]
+  },
+  "variant_strategy": {
+    "number_of_variants": 4,
+    "evaluation_criteria": ["client readiness", "clarity", "visual distinctiveness", "brand-safe restraint"],
+    "constant_across_variants": ["subject identity", "core message", "data integrity"]
+  },
+  "variants": [
+    {
+      "name": "White editorial",
+      "direction": "bright white canvas, crisp shadows, small green focal point",
+      "best_for": "proposal or report"
+    },
+    {
+      "name": "Black stage",
+      "direction": "black event backdrop, high contrast, restrained color accents",
+      "best_for": "keynote or launch"
+    },
+    {
+      "name": "India systems",
+      "direction": "subtle urban or infrastructure context, data grid overlay, realistic light",
+      "best_for": "market or sector POV"
+    },
+    {
+      "name": "Human collaboration",
+      "direction": "warm professional setting with people in motion, subject remains primary",
+      "best_for": "change or adoption story"
+    }
+  ],
+  "output": {
+    "aspect_ratio": "<16:9 or 4:5>",
+    "return_variant_notes": true,
+    "recommend_best_variant": true
+  }
+}`
+      },
+      {
+        id: "json-image-qa",
+        command: "json-image-qa",
+        level: "advanced",
+        category: "Image editing",
+        accent: "#86BC25",
+        title: "JSON Image Edit QA Inspector",
+        useCase: "Review an edited image for artifacts, brand safety, and consulting readiness.",
+        techniques: ["JSON prompt", "Visual QA", "Red-team"],
+        prompt: String.raw`{
+  "role": "Image QA reviewer for Deloitte India deliverables",
+  "task": "Inspect the edited image and identify issues before client or public use.",
+  "review_context": {
+    "intended_use": "<client deck, proposal, report, event, social, internal training>",
+    "audience": "<client, partner, public, internal>",
+    "risk_tolerance": "<low, medium, high>"
+  },
+  "inspection_checklist": {
+    "visual_artifacts": ["warping", "halos", "bad edges", "repeated textures", "strange shadows", "blur"],
+    "identity_and_people": ["changed face", "unnatural hands", "skin over-smoothing", "incorrect expression"],
+    "text_and_data": ["changed numbers", "misspelled text", "fake labels", "unreadable text"],
+    "brand_and_rights": ["fake logo", "unapproved mark", "misleading endorsement", "stock-like cliche"],
+    "composition": ["crowding", "weak focal point", "poor crop", "insufficient title safe space"]
+  },
+  "output_format": {
+    "risk_score": "0-100",
+    "risk_label": "Low / Medium / High / Do not use",
+    "findings_table": ["issue", "severity", "where visible", "fix instruction"],
+    "go_no_go": "Go / Fix first / Do not use"
+  },
+  "fix_prompt": {
+    "return_copy_ready_edit_prompt": true,
+    "include_only_necessary_changes": true
+  }
+}`
+      },
+      {
+        id: "json-slide-hero-edit",
+        command: "json-slide-hero",
+        level: "advanced",
+        category: "Image editing",
+        accent: "#00ABAB",
+        title: "JSON Slide Hero Visual Editor",
+        useCase: "Edit a source image into a full-bleed hero visual for a deck opener.",
+        techniques: ["JSON prompt", "Hero composition", "Presentation design"],
+        prompt: String.raw`{
+  "role": "Senior presentation designer for Deloitte India",
+  "task": "Edit the uploaded image into a full-bleed hero visual for a slide or section opener.",
+  "slide_context": {
+    "slide_title": "<title>",
+    "message": "<one sentence insight>",
+    "deck_type": "<proposal, workshop, report, training, leadership meeting>",
+    "audience": "<client CXO, internal leadership, practitioner team>"
+  },
+  "composition": {
+    "aspect_ratio": "16:9",
+    "text_safe_area": "<left third, right third, top band, bottom band>",
+    "focal_point": "<subject or visual anchor>",
+    "depth": "premium editorial depth, not decorative clutter",
+    "next_section_hint": "leave subtle visual continuity at bottom edge if used as first viewport"
+  },
+  "edits": [
+    "Extend or crop image to 16:9 without distorting the subject.",
+    "Create enough calm negative space for headline text.",
+    "Use black, white, graphite, and a small green focus cue.",
+    "Improve clarity, lighting, and contrast."
+  ],
+  "do_not": [
+    "Do not place text in the image unless explicitly requested.",
+    "Do not create a fake Deloitte logo.",
+    "Do not make the image dark, blurry, or purely atmospheric.",
+    "Do not hide the actual subject."
+  ],
+  "acceptance_criteria": [
+    "Headline would be readable over the safe area.",
+    "Subject is recognizable in the first 3 seconds.",
+    "Image feels specific to the topic, not generic."
+  ]
+}`
+      },
+      {
+        id: "json-masked-local-edit",
+        command: "json-local-edit",
+        level: "advanced",
+        category: "Image editing",
+        accent: "#D0006F",
+        title: "JSON Masked Local Edit",
+        useCase: "Specify precise local edits while protecting everything outside the mask.",
+        techniques: ["JSON prompt", "Masked editing", "Precision constraints"],
+        prompt: String.raw`{
+  "task": "Perform a precise local edit on only the masked or described area.",
+  "edit_scope": {
+    "masked_area": "<describe mask if no visual mask is supplied>",
+    "allowed_changes": ["<change 1>", "<change 2>"],
+    "forbidden_changes": ["everything outside mask", "faces unless masked", "text unless masked", "data unless masked"]
+  },
+  "local_edit_instruction": {
+    "replace_with": "<new object, texture, color, material, background detail, cleaned area>",
+    "match": {
+      "lighting": true,
+      "perspective": true,
+      "scale": true,
+      "shadow": true,
+      "grain_or_noise": true
+    },
+    "edge_behavior": "blend naturally with no visible boundary"
+  },
+  "preservation_contract": {
+    "outside_mask": "pixel-consistent except for natural blending at the boundary",
+    "identity": "unchanged",
+    "important_text": "unchanged",
+    "composition": "unchanged unless requested"
+  },
+  "output": {
+    "return_single_best_edit": true,
+    "if_uncertain": "make the smallest plausible edit",
+    "qa_summary": "list what changed and what was preserved"
+  }
+}`
+      },
+      {
+        id: "json-image-to-prompt",
+        command: "json-image-to-prompt",
+        level: "advanced",
+        category: "Image editing",
+        accent: "#6E267B",
+        title: "JSON Reverse Image Edit Brief",
+        useCase: "Analyze an image and convert it into a reusable edit prompt.",
+        techniques: ["JSON prompt", "Reverse prompting", "Style extraction"],
+        prompt: String.raw`{
+  "role": "Visual prompt engineer for Deloitte India creative enablement",
+  "task": "Analyze the uploaded reference image and create a reusable JSON edit prompt that can produce similar quality from another source image.",
+  "analyze": {
+    "composition": true,
+    "lighting": true,
+    "color_palette": true,
+    "subject_treatment": true,
+    "background_style": true,
+    "editing_techniques": true,
+    "risks_or_artifacts": true
+  },
+  "extract": {
+    "style_principles": ["<principle 1>", "<principle 2>", "<principle 3>"],
+    "preserve_from_future_source": ["identity", "core subject", "important text or data"],
+    "transfer_to_future_edit": ["lighting style", "composition logic", "background mood", "color treatment"]
+  },
+  "output_prompt_schema": {
+    "task": "<copy-ready image edit task>",
+    "source_image_requirements": "<what future source image should contain>",
+    "edit_instructions": ["<instruction>"],
+    "preserve": ["<locked element>"],
+    "style": {
+      "palette": "<palette>",
+      "mood": "<mood>",
+      "composition": "<composition>"
+    },
+    "avoid": ["<artifact or style to avoid>"],
+    "quality_check": ["<acceptance criterion>"]
+  },
+  "final_output": "Return only valid JSON."
+}`
+      }
+    ];
+
+    const state = {
+      level: "all",
+      query: "",
+      category: "all",
+      technique: "all"
+    };
+
+    const levelNav = document.getElementById("levelNav");
+    const promptGrid = document.getElementById("promptGrid");
+    const searchInput = document.getElementById("searchInput");
+    const categorySelect = document.getElementById("categorySelect");
+    const techniqueSelect = document.getElementById("techniqueSelect");
+    const resultCount = document.getElementById("resultCount");
+    const activeFilterLabel = document.getElementById("activeFilterLabel");
+    const emptyState = document.getElementById("emptyState");
+    const copyVisibleButton = document.getElementById("copyVisibleButton");
+    const statTotal = document.getElementById("statTotal");
+
+    statTotal.textContent = prompts.length;
+
+    function init() {
+      renderLevelNav();
+      populateFilters();
+      bindEvents();
+      render();
+    }
+
+    function renderLevelNav() {
+      levelNav.innerHTML = "";
+
+      levels.forEach(level => {
+        const count = level.id === "all" ? prompts.length : prompts.filter(prompt => prompt.level === level.id).length;
+        const button = document.createElement("button");
+        button.className = "level-button";
+        button.type = "button";
+        button.dataset.level = level.id;
+        button.style.setProperty("--accent", level.accent);
+        button.innerHTML = `
+          <span class="level-dot">${count}</span>
+          <span>
+            <span class="level-name">${escapeHtml(level.name)}</span>
+            <span class="level-count">${escapeHtml(level.label)}</span>
+          </span>
+          <span class="level-count">${count}</span>
+        `;
+        levelNav.appendChild(button);
+      });
+    }
+
+    function populateFilters() {
+      const categories = ["all", ...new Set(prompts.map(prompt => prompt.category).sort())];
+      const techniques = ["all", ...new Set(prompts.flatMap(prompt => prompt.techniques).sort())];
+      fillSelect(categorySelect, categories, "All categories");
+      fillSelect(techniqueSelect, techniques, "All techniques");
+    }
+
+    function fillSelect(select, values, allLabel) {
+      select.innerHTML = "";
+      values.forEach(value => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = value === "all" ? allLabel : value;
+        select.appendChild(option);
+      });
+    }
+
+    function bindEvents() {
+      levelNav.addEventListener("click", event => {
+        const button = event.target.closest("button[data-level]");
+        if (!button) return;
+        state.level = button.dataset.level;
+        render();
+      });
+
+      searchInput.addEventListener("input", event => {
+        state.query = event.target.value.trim().toLowerCase();
+        render();
+      });
+
+      categorySelect.addEventListener("change", event => {
+        state.category = event.target.value;
+        render();
+      });
+
+      techniqueSelect.addEventListener("change", event => {
+        state.technique = event.target.value;
+        render();
+      });
+
+      copyVisibleButton.addEventListener("click", async () => {
+        const visible = getFilteredPrompts();
+        const payload = visible.map(prompt => `${prompt.title}\n${prompt.prompt.trim()}`).join("\n\n---\n\n");
+        await copyText(payload, copyVisibleButton, "Copied visible");
+      });
+    }
+
+    function getFilteredPrompts() {
+      return prompts.filter(prompt => {
+        const levelMatch = state.level === "all" || prompt.level === state.level;
+        const categoryMatch = state.category === "all" || prompt.category === state.category;
+        const techniqueMatch = state.technique === "all" || prompt.techniques.includes(state.technique);
+        const haystack = [
+          prompt.title,
+          prompt.command,
+          prompt.category,
+          prompt.level,
+          prompt.useCase,
+          prompt.techniques.join(" "),
+          prompt.prompt
+        ].join(" ").toLowerCase();
+        const queryMatch = !state.query || haystack.includes(state.query);
+        return levelMatch && categoryMatch && techniqueMatch && queryMatch;
+      });
+    }
+
+    function render() {
+      const filtered = getFilteredPrompts();
+      promptGrid.innerHTML = "";
+
+      filtered.forEach(prompt => {
+        promptGrid.appendChild(createPromptCard(prompt));
+      });
+
+      document.querySelectorAll(".level-button").forEach(button => {
+        button.classList.toggle("is-active", button.dataset.level === state.level);
+      });
+
+      resultCount.textContent = filtered.length;
+      activeFilterLabel.textContent = buildFilterLabel();
+      emptyState.classList.toggle("is-visible", filtered.length === 0);
+    }
+
+    function createPromptCard(prompt) {
+      const card = document.createElement("article");
+      card.className = "prompt-card";
+      card.style.setProperty("--accent", prompt.accent);
+      card.innerHTML = `
+        <div class="card-top">
+          <span class="command">${escapeHtml(prompt.command)}</span>
+          <span class="level-pill">${escapeHtml(capitalize(prompt.level))}</span>
+        </div>
+        <h2>${escapeHtml(prompt.title)}</h2>
+        <div class="meta">
+          <span class="tag">${escapeHtml(prompt.category)}</span>
+          ${prompt.techniques.map(technique => `<span class="tag tech">${escapeHtml(technique)}</span>`).join("")}
+        </div>
+        <p class="use-case">${escapeHtml(prompt.useCase)}</p>
+        <pre class="prompt-text"></pre>
+        <div class="card-actions">
+          <button class="copy-button" type="button">Copy prompt</button>
+          <button class="chip-button" type="button">Copy title + prompt</button>
+        </div>
+      `;
+
+      const pre = card.querySelector(".prompt-text");
+      pre.textContent = prompt.prompt.trim();
+
+      const [copyPromptButton, copyFullButton] = card.querySelectorAll("button");
+      copyPromptButton.addEventListener("click", () => copyText(prompt.prompt.trim(), copyPromptButton, "Copied"));
+      copyFullButton.addEventListener("click", () => copyText(`${prompt.title}\n\n${prompt.prompt.trim()}`, copyFullButton, "Copied"));
+
+      return card;
+    }
+
+    function buildFilterLabel() {
+      const parts = [];
+      if (state.level !== "all") parts.push(capitalize(state.level));
+      if (state.category !== "all") parts.push(state.category);
+      if (state.technique !== "all") parts.push(state.technique);
+      if (state.query) parts.push(`Search: "${state.query}"`);
+      return parts.length ? parts.join(" | ") : "All levels";
+    }
+
+    async function copyText(text, button, label) {
+      const original = button.textContent;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          fallbackCopy(text);
+        }
+        button.textContent = label;
+        button.classList.add("is-copied");
+        setTimeout(() => {
+          button.textContent = original;
+          button.classList.remove("is-copied");
+        }, 1500);
+      } catch (error) {
+        fallbackCopy(text);
+        button.textContent = label;
+        button.classList.add("is-copied");
+        setTimeout(() => {
+          button.textContent = original;
+          button.classList.remove("is-copied");
+        }, 1500);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function capitalize(value) {
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+
+    init();
+  </script>
+</body>
+</html>

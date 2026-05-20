@@ -1,6 +1,6 @@
-# Knowledge Handout for Deloitte USA by Futurelab Studios
+# Knowledge Handout for Deloitte USI by Futurelab Studios
 
-Static front-end digital debrief for the Deloitte USA AI enablement workshop.
+Static front-end digital debrief for the Deloitte USI AI enablement workshop.
 
 ## Local Preview
 

@@ -236,6 +236,7 @@
 
     .page {
       padding: 26px 0 0;
+      scroll-margin-top: 86px;
     }
 
     .magazine-intro {
@@ -677,6 +678,197 @@
       gap: 4px;
     }
 
+    .resource-hub {
+      display: grid;
+      gap: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      padding: 18px;
+    }
+
+    .resource-hub-head {
+      display: grid;
+      gap: 14px;
+      align-items: end;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .resource-hub-head h2 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(26px, 5vw, 44px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .resource-hub-head p {
+      max-width: 720px;
+      margin: 0;
+      color: var(--graphite);
+      font-size: 14px;
+    }
+
+    .resource-count {
+      width: fit-content;
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--green);
+      border-radius: 999px;
+      padding: 0 11px;
+      background: #f8fbf3;
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .resource-spotlight {
+      display: grid;
+      gap: 14px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: var(--white);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .resource-spotlight p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+    }
+
+    .resource-spotlight h3 {
+      margin: 0;
+      font-size: clamp(22px, 4vw, 34px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .resource-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .resource-actions a,
+    .resource-item .resource-link {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ink);
+      border-radius: 4px;
+      padding: 0 10px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .resource-spotlight .resource-actions a {
+      border-color: rgba(255, 255, 255, 0.24);
+      color: var(--white);
+    }
+
+    .resource-spotlight .resource-actions a:first-child {
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--ink);
+    }
+
+    .resource-actions a:hover,
+    .resource-item:hover .resource-link {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .resource-spotlight .resource-actions a:hover {
+      border-color: var(--white);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .resource-groups {
+      display: grid;
+      gap: 16px;
+    }
+
+    .resource-group {
+      display: grid;
+      gap: 10px;
+    }
+
+    .resource-group-head {
+      display: grid;
+      gap: 3px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .resource-group-head h3 {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .resource-group-head p {
+      margin: 0;
+      color: var(--graphite);
+      font-size: 13px;
+    }
+
+    .resource-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .resource-item {
+      min-height: 132px;
+      display: grid;
+      gap: 12px;
+      align-content: space-between;
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      background: var(--mist);
+      padding: 13px;
+    }
+
+    a.resource-item:hover {
+      border-color: var(--green);
+      background: #f8fbf3;
+    }
+
+    .resource-type {
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .resource-item h4 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .resource-item p {
+      margin: 0;
+      color: var(--graphite);
+      font-size: 13px;
+    }
+
+    .resource-item .mini-actions {
+      justify-content: flex-start;
+    }
+
     .footer {
       margin-top: 18px;
       padding: 30px 0 44px;
@@ -802,6 +994,19 @@
         gap: 14px 18px;
       }
 
+      .resource-hub-head {
+        grid-template-columns: 1fr auto;
+      }
+
+      .resource-spotlight {
+        grid-template-columns: 1fr auto;
+        align-items: end;
+      }
+
+      .resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .footer-grid {
         grid-template-columns: 140px 1fr;
         align-items: center;
@@ -810,6 +1015,10 @@
 
     @media (min-width: 1080px) {
       .resource-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .resource-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
@@ -868,6 +1077,19 @@
       }
 
       .link-row a {
+        width: fit-content;
+      }
+
+      .resource-hub {
+        padding: 14px;
+      }
+
+      .resource-spotlight {
+        padding: 15px;
+      }
+
+      .resource-actions a,
+      .resource-item .resource-link {
         width: fit-content;
       }
     }
@@ -1128,29 +1350,199 @@
                 <p class="eyebrow">Issue 01</p>
                 <span class="folio">05 / 05</span>
               </div>
-              <h2 class="spread-title">Resource library</h2>
-              <p class="spread-copy">The necessary links, workshop artifacts, source ideas, and Futurelab routes in one place.</p>
+              <h2 class="spread-title">Resources for ongoing usage</h2>
+              <p class="spread-copy">The workshop artifacts, prompt references, further reading, and Futurelab access points the Deloitte USI team can return to after the session.</p>
             </div>
-            <article class="tile span-12">
-              <p class="eyebrow">Resources</p>
-              <h2>Essential links for the Deloitte USI team.</h2>
-              <div class="resource-list">
-                <div class="link-row"><div class="resource-card-title"><div class="label">Original PDF handout</div><p>Source deck shared for the workshop handout.</p></div><a href="artifacts/deloitte-workshop-14th-may.pdf" target="_blank" rel="noreferrer">Open</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">Deloitte prompt library</div><p>Copy-ready prompts created for the team.</p></div><a href="artifacts/deloitte-prompt-bank.html" target="_blank" rel="noreferrer">Open</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">Second brain method</div><p>Codex knowledge-base architecture and live example.</p></div><a href="artifacts/deloitte-india-second-brain/architecture.html" target="_blank" rel="noreferrer">Open</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">LLM Wiki and GBrain sources</div><p>The source ideas behind the second-brain architecture.</p></div><div class="mini-actions"><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noreferrer">LLM Wiki</a><a href="https://github.com/garrytan/gbrain" target="_blank" rel="noreferrer">GBrain</a><a href="https://github.com/garrytan/gstack" target="_blank" rel="noreferrer">GStack</a></div></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">Futurelab AI School</div><p>Practical AI learning path, courses, and knowledge hub.</p></div><a href="https://futurelabstudios.com/ai-school" target="_blank" rel="noreferrer">Open</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">Future Collective</div><p>Open WhatsApp community for AI and exponential technologies.</p></div><a href="https://chat.whatsapp.com/HPERSAaSwJDFwLzAKQHTYp" target="_blank" rel="noreferrer">Join</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">Futurelab Studios</div><p>AI deployment, tools, products, and enterprise work.</p></div><a href="https://futurelabstudios.com/" target="_blank" rel="noreferrer">Visit</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">Kuntal Sharma</div><p>Co-Founder and CEO, Futurelab Studios.</p></div><a href="https://in.linkedin.com/in/kuntal7" target="_blank" rel="noreferrer">LinkedIn</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">Shabbir Haider</div><p>Co-Founder and CTO, Futurelab Studios.</p></div><a href="https://in.linkedin.com/in/shabbir7" target="_blank" rel="noreferrer">LinkedIn</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">Codex skills</div><p>How to package repeatable workflows as agent skills.</p></div><a href="https://developers.openai.com/codex/skills" target="_blank" rel="noreferrer">Read</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">Structured outputs</div><p>Use schemas when AI output needs to move downstream.</p></div><a href="https://developers.openai.com/api/docs/guides/structured-outputs" target="_blank" rel="noreferrer">Read</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">Workspace prompting guide</div><p>Practical prompting examples for office work products.</p></div><a href="https://services.google.com/fh/files/misc/gemini-for-google-workspace-prompting-guide-101.pdf" target="_blank" rel="noreferrer">Read</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">Deloitte State of AI 2026</div><p>Current enterprise AI adoption signals and governance lens.</p></div><a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" target="_blank" rel="noreferrer">Read</a></div>
-                <div class="link-row"><div class="resource-card-title"><div class="label">AI reading shelf</div><p>Foundational essays and videos for building AI intuition.</p></div><div class="mini-actions"><a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html" target="_blank" rel="noreferrer">WBW</a><a href="https://ia.samaltman.com/" target="_blank" rel="noreferrer">Altman</a><a href="https://www.darioamodei.com/essay/machines-of-loving-grace" target="_blank" rel="noreferrer">Amodei</a><a href="https://www.youtube.com/watch?v=LPZh9BOjkQs" target="_blank" rel="noreferrer">LLMs</a><a href="https://www.youtube.com/watch?v=7xTGNNLPyMI" target="_blank" rel="noreferrer">Karpathy</a></div></div>
-              </div>
-            </article>
+            <div class="bento">
+              <article class="resource-hub span-12">
+                <div class="resource-hub-head">
+                  <div>
+                    <p class="eyebrow">Always-on library</p>
+                    <h2>Open these when you want to apply the workshop, not just remember it.</h2>
+                    <p>Start with the artifacts made for Deloitte USI, then use the references and community links when a workflow needs a prompt, a prototype, a skill file, or a deeper mental model.</p>
+                  </div>
+                  <span class="resource-count">Resources for ongoing usage</span>
+                </div>
+
+                <div class="resource-spotlight">
+                  <div>
+                    <p class="eyebrow">Start here</p>
+                    <h3>The three core workshop assets.</h3>
+                    <p>Use the PDF for the session recap, the prompt library for day-to-day prompting, and the second-brain method when setting up Codex as a reusable knowledge system.</p>
+                  </div>
+                  <div class="resource-actions" aria-label="Primary workshop resources">
+                    <a href="artifacts/deloitte-workshop-14th-may.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+                    <a href="artifacts/deloitte-prompt-bank.html" target="_blank" rel="noreferrer">Prompt library</a>
+                    <a href="artifacts/deloitte-india-second-brain/architecture.html" target="_blank" rel="noreferrer">Second brain</a>
+                  </div>
+                </div>
+
+                <div class="resource-groups">
+                  <section class="resource-group" aria-labelledby="workshop-assets">
+                    <div class="resource-group-head">
+                      <h3 id="workshop-assets">Workshop assets</h3>
+                      <p>Artifacts created for the Deloitte USI cohort and the pages most likely to be reused at work.</p>
+                    </div>
+                    <div class="resource-grid">
+                      <a class="resource-item" href="artifacts/deloitte-workshop-14th-may.pdf" target="_blank" rel="noreferrer">
+                        <span class="resource-type">PDF</span>
+                        <h4>Original PDF handout</h4>
+                        <p>The source workshop handout, preserved for quick review and sharing.</p>
+                        <span class="resource-link">Open</span>
+                      </a>
+                      <a class="resource-item" href="artifacts/deloitte-prompt-bank.html" target="_blank" rel="noreferrer">
+                        <span class="resource-type">Prompt bank</span>
+                        <h4>Deloitte prompt library</h4>
+                        <p>Copy-ready prompts for presentations, documents, spreadsheets, research, and workflow thinking.</p>
+                        <span class="resource-link">Open</span>
+                      </a>
+                      <a class="resource-item" href="artifacts/deloitte-india-second-brain/architecture.html" target="_blank" rel="noreferrer">
+                        <span class="resource-type">Method</span>
+                        <h4>Second brain method</h4>
+                        <p>The Codex knowledge-base architecture and reference implementation for a living second brain.</p>
+                        <span class="resource-link">Open</span>
+                      </a>
+                      <a class="resource-item" href="#applied-ai-lab">
+                        <span class="resource-type">Prototype agenda</span>
+                        <h4>Applied AI Lab ideas</h4>
+                        <p>A shortlist of workflow prototypes worth testing before scaling AI adoption.</p>
+                        <span class="resource-link">View</span>
+                      </a>
+                    </div>
+                  </section>
+
+                <section class="resource-group" aria-labelledby="build-prompt">
+                  <div class="resource-group-head">
+                    <h3 id="build-prompt">Build, prompt, and structure</h3>
+                    <p>References for turning prompts into repeatable systems, schemas, and skill files.</p>
+                  </div>
+                  <div class="resource-grid">
+                    <div class="resource-item">
+                      <span class="resource-type">Source ideas</span>
+                      <h4>LLM Wiki, GBrain, and GStack</h4>
+                      <p>The source ideas behind the second-brain architecture and practical AI memory systems.</p>
+                      <div class="mini-actions">
+                        <a class="resource-link" href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noreferrer">LLM Wiki</a>
+                        <a class="resource-link" href="https://github.com/garrytan/gbrain" target="_blank" rel="noreferrer">GBrain</a>
+                        <a class="resource-link" href="https://github.com/garrytan/gstack" target="_blank" rel="noreferrer">GStack</a>
+                      </div>
+                    </div>
+                    <a class="resource-item" href="https://developers.openai.com/codex/skills" target="_blank" rel="noreferrer">
+                      <span class="resource-type">Skills</span>
+                      <h4>Codex skills</h4>
+                      <p>How to package repeatable workflows as reusable instructions and `SKILL.md` files.</p>
+                      <span class="resource-link">Read</span>
+                    </a>
+                    <a class="resource-item" href="https://developers.openai.com/api/docs/guides/structured-outputs" target="_blank" rel="noreferrer">
+                      <span class="resource-type">JSON and schemas</span>
+                      <h4>Structured outputs</h4>
+                      <p>Use schemas when AI output must move into spreadsheets, apps, reviews, or downstream systems.</p>
+                      <span class="resource-link">Read</span>
+                    </a>
+                    <a class="resource-item" href="https://services.google.com/fh/files/misc/gemini-for-google-workspace-prompting-guide-101.pdf" target="_blank" rel="noreferrer">
+                      <span class="resource-type">Office prompting</span>
+                      <h4>Workspace prompting guide</h4>
+                      <p>Practical examples for prompting across documents, email, presentations, and daily work products.</p>
+                      <span class="resource-link">Read</span>
+                    </a>
+                  </div>
+                </section>
+
+                <section class="resource-group" aria-labelledby="further-reading">
+                  <div class="resource-group-head">
+                    <h3 id="further-reading">Further reading and videos</h3>
+                    <p>Curated material for building stronger AI intuition beyond the workshop.</p>
+                  </div>
+                  <div class="resource-grid">
+                    <a class="resource-item" href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" target="_blank" rel="noreferrer">
+                      <span class="resource-type">Enterprise AI</span>
+                      <h4>Deloitte State of AI 2026</h4>
+                      <p>Current enterprise AI adoption signals, governance themes, and leadership questions.</p>
+                      <span class="resource-link">Read</span>
+                    </a>
+                    <a class="resource-item" href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html" target="_blank" rel="noreferrer">
+                      <span class="resource-type">AI intuition</span>
+                      <h4>The AI Revolution</h4>
+                      <p>A clear long-form primer on why AI progress can feel unintuitive and fast-moving.</p>
+                      <span class="resource-link">Read</span>
+                    </a>
+                    <a class="resource-item" href="https://ia.samaltman.com/" target="_blank" rel="noreferrer">
+                      <span class="resource-type">Future lens</span>
+                      <h4>The Intelligence Age</h4>
+                      <p>Sam Altman's short essay on abundance, intelligence, and how AI may reshape work.</p>
+                      <span class="resource-link">Read</span>
+                    </a>
+                    <a class="resource-item" href="https://www.darioamodei.com/essay/machines-of-loving-grace" target="_blank" rel="noreferrer">
+                      <span class="resource-type">Impact lens</span>
+                      <h4>Machines of Loving Grace</h4>
+                      <p>Dario Amodei's view of potential positive AI outcomes across health, science, and society.</p>
+                      <span class="resource-link">Read</span>
+                    </a>
+                    <a class="resource-item" href="https://www.youtube.com/watch?v=LPZh9BOjkQs" target="_blank" rel="noreferrer">
+                      <span class="resource-type">Video primer</span>
+                      <h4>Large Language Models explained briefly</h4>
+                      <p>A quick visual explanation of what LLMs are and why they behave differently from classic software.</p>
+                      <span class="resource-link">Watch</span>
+                    </a>
+                    <a class="resource-item" href="https://www.youtube.com/watch?v=7xTGNNLPyMI" target="_blank" rel="noreferrer">
+                      <span class="resource-type">Deep dive</span>
+                      <h4>Deep Dive into LLMs by Andrej Karpathy</h4>
+                      <p>A practical technical walkthrough for understanding modern LLM behavior and capability.</p>
+                      <span class="resource-link">Watch</span>
+                    </a>
+                  </div>
+                </section>
+
+                  <section class="resource-group" aria-labelledby="community-contact">
+                  <div class="resource-group-head">
+                    <h3 id="community-contact">Community and Futurelab access</h3>
+                    <p>Places to continue learning, ask questions, and reach the Futurelab Studios team.</p>
+                  </div>
+                  <div class="resource-grid">
+                    <a class="resource-item" href="https://futurelabstudios.com/ai-school" target="_blank" rel="noreferrer">
+                      <span class="resource-type">Learning path</span>
+                      <h4>Futurelab AI School</h4>
+                      <p>Practical AI learning routes, courses, and resources for everyday professional work.</p>
+                      <span class="resource-link">Open</span>
+                    </a>
+                    <a class="resource-item" href="https://chat.whatsapp.com/HPERSAaSwJDFwLzAKQHTYp" target="_blank" rel="noreferrer">
+                      <span class="resource-type">Community</span>
+                      <h4>Future Collective</h4>
+                      <p>Open WhatsApp community where professionals share AI and exponential technology resources.</p>
+                      <span class="resource-link">Join</span>
+                    </a>
+                    <a class="resource-item" href="https://futurelabstudios.com/" target="_blank" rel="noreferrer">
+                      <span class="resource-type">Studio</span>
+                      <h4>Futurelab Studios</h4>
+                      <p>Products, tools, and enterprise AI work from the Futurelab Studios team.</p>
+                      <span class="resource-link">Visit</span>
+                    </a>
+                    <a class="resource-item" href="https://in.linkedin.com/in/kuntal7" target="_blank" rel="noreferrer">
+                      <span class="resource-type">LinkedIn</span>
+                      <h4>Kuntal Sharma</h4>
+                      <p>Co-Founder and CEO, Futurelab Studios.</p>
+                      <span class="resource-link">Connect</span>
+                    </a>
+                    <a class="resource-item" href="https://in.linkedin.com/in/shabbir7" target="_blank" rel="noreferrer">
+                      <span class="resource-type">LinkedIn</span>
+                      <h4>Shabbir Haider</h4>
+                      <p>Co-Founder and CTO, Futurelab Studios.</p>
+                      <span class="resource-link">Connect</span>
+                    </a>
+                    <div class="resource-item">
+                      <span class="resource-type">Contact</span>
+                      <h4>Write to Futurelab Studios</h4>
+                      <p>For follow-up workshops, AI adoption support, prototype builds, or Applied AI Lab conversations.</p>
+                      <div class="mini-actions">
+                        <a class="resource-link" href="mailto:hello@futurelabstudios.com">Email</a>
+                        <a class="resource-link" href="https://www.linkedin.com/company/futurelabstudios" target="_blank" rel="noreferrer">LinkedIn</a>
+                      </div>
+                    </div>
+                  </div>
+                  </section>
+                </div>
+              </article>
+            </div>
           </section>
         </div>
       </div>
@@ -1245,7 +1637,8 @@
       if (event.key === "ArrowLeft") showPage(activePage - 1);
     });
 
-    activePage = pageFromHash();
+    const initialPage = pageFromHash();
+    activePage = initialPage;
     spreads.forEach((spread, index) => spread.classList.toggle("is-active", index === activePage));
     chapterButtons.forEach((button) => {
       button.classList.toggle("is-active", Number(button.dataset.page) === activePage);
@@ -1253,6 +1646,9 @@
     prevButton.disabled = activePage === 0;
     nextButton.disabled = activePage === spreads.length - 1;
     pageStatus.textContent = `Page ${activePage + 1} of ${spreads.length} - ${spreads[activePage].dataset.title}`;
+    if (initialPage > 0) {
+      window.setTimeout(() => reader.scrollIntoView({ block: "start" }), 50);
+    }
   </script>
 </body>
 </html>

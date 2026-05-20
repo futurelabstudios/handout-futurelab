@@ -1155,11 +1155,32 @@
       },
       {
         title: "Further reading resources",
-        type: "Pending link",
+        type: "Ready",
         category: "Reading",
         accent: "#d0006f",
-        description: "Recommended posts, frameworks, and reference material for prompting, AI agents, second brains, and practical AI adoption.",
-        href: "#replace-further-reading-link"
+        description: "A curated set of three foundational essays and two videos to help the team keep building AI intuition after the workshop.",
+        links: [
+          {
+            label: "Article 1",
+            href: "https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html"
+          },
+          {
+            label: "Article 2",
+            href: "https://ia.samaltman.com/"
+          },
+          {
+            label: "Article 3",
+            href: "https://www.darioamodei.com/essay/machines-of-loving-grace"
+          },
+          {
+            label: "Video 1",
+            href: "https://www.youtube.com/watch?v=LPZh9BOjkQs"
+          },
+          {
+            label: "Video 2",
+            href: "https://www.youtube.com/watch?v=7xTGNNLPyMI"
+          }
+        ]
       },
       {
         title: "AI School by Futurelab",
@@ -1208,13 +1229,14 @@
       const query = search.value.trim().toLowerCase();
       const shown = resources.filter((item) => {
         const matchesFilter = activeFilter === "All" || item.category === activeFilter;
-        const haystack = `${item.title} ${item.category} ${item.description}`.toLowerCase();
+        const linkedText = (item.links || []).map((link) => `${link.label} ${link.href}`).join(" ");
+        const haystack = `${item.title} ${item.category} ${item.description} ${linkedText}`.toLowerCase();
         return matchesFilter && haystack.includes(query);
       });
 
       grid.innerHTML = shown.map((item) => {
-        const pending = isPending(item.href);
-        const target = pending ? "" : ' target="_blank" rel="noreferrer"';
+        const links = item.links || [{ label: "Open", href: item.href }];
+        const pending = links.every((link) => isPending(link.href));
         return `
           <article class="resource-card" data-state="${pending ? "pending" : "ready"}">
             <div class="resource-meta">
@@ -1225,7 +1247,11 @@
             <h3>${item.title}</h3>
             <p>${item.description}</p>
             <div class="resource-actions">
-              <a class="button" data-variant="${pending ? "ghost" : "green"}" href="${item.href}"${target}>${pending ? "Add link later" : "Open"}</a>
+              ${links.map((link) => {
+                const linkPending = isPending(link.href);
+                const target = linkPending ? "" : ' target="_blank" rel="noreferrer"';
+                return `<a class="button" data-variant="${linkPending ? "ghost" : "green"}" href="${link.href}"${target}>${linkPending ? "Add link later" : link.label}</a>`;
+              }).join("")}
             </div>
           </article>
         `;

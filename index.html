@@ -314,6 +314,8 @@
 
     .black-band .section-copy,
     .black-band .debrief-card p,
+    .black-band .method-card p,
+    .black-band .next-card p,
     .black-band .method-row p {
       color: rgba(255, 255, 255, 0.72);
     }
@@ -336,6 +338,26 @@
     .black-band .debrief-card {
       border-color: rgba(255, 255, 255, 0.16);
       background: rgba(255, 255, 255, 0.055);
+    }
+
+    .black-band .method-card,
+    .black-band .next-card {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .black-band .method-card h3,
+    .black-band .method-row h4,
+    .black-band .next-card h3 {
+      color: var(--white);
+    }
+
+    .black-band .method-steps {
+      border-top-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .black-band .method-row {
+      border-bottom-color: rgba(255, 255, 255, 0.12);
     }
 
     .debrief-card {
@@ -874,20 +896,20 @@
           <div>
             <p class="cover-kicker">Digital workshop debrief</p>
             <h1>Knowledge Handout for Deloitte USA<span class="dot" aria-hidden="true"></span></h1>
-            <p class="cover-lead">A concise post-workshop artifact by Futurelab Studios for the Deloitte USA team: what mattered, what to try next, and the resources to keep building practical AI capability.</p>
+            <p class="cover-lead">A concise post-workshop artifact by Futurelab Studios for the Deloitte USA team: the workshop debrief, practical AI operating models, prompt frameworks, second-brain methods, prototype habits, and resource routes to keep the learning alive.</p>
           </div>
           <aside class="cover-meta" aria-label="Debrief metadata">
             <div class="meta-cell">
               <b>01</b>
-              <span>Designed as a client-ready digital debrief, not a static recap.</span>
+              <span>Designed as a client-ready digital debrief that people can revisit, search, and share.</span>
             </div>
             <div class="meta-cell">
               <b>02</b>
-              <span>Organized around adoption: prompt, structure, build, review.</span>
+              <span>Organized around adoption: prompt, structure, build, govern, and repeat.</span>
             </div>
             <div class="meta-cell">
               <b>03</b>
-              <span>Resource links sit at the end so the narrative stays focused.</span>
+              <span>Resource links and Futurelab contact routes sit at the end so the main story stays focused.</span>
             </div>
           </aside>
         </div>
@@ -900,24 +922,24 @@
               <p class="kicker">Workshop debrief</p>
               <h2 class="section-title">The session was about changing the shape of everyday work.</h2>
             </div>
-            <p class="section-copy">The most useful AI behavior is not a one-off answer. It is a repeatable work system: clear prompts, reusable knowledge, explicit skills, fast prototypes, and a habit of reviewing outputs before they travel.</p>
+            <p class="section-copy">The useful shift is not from no AI to more AI. It is from casual prompting to a repeatable work system: clear tasks, durable knowledge, explicit instructions, visible prototypes, and review gates before AI output reaches a client or decision forum.</p>
           </div>
 
           <div class="debrief-grid">
             <article class="debrief-card">
               <b>Prompting</b>
-              <h3>Better prompts create better work contracts.</h3>
-              <p>Role, context, rules, examples, output schema, and review criteria turn AI from a blank chat box into a governed collaborator.</p>
+              <h3>Prompts are work contracts.</h3>
+              <p>Role, task, context, examples, output format, and review criteria turn AI from an empty chat box into a governed collaborator.</p>
             </article>
             <article class="debrief-card">
               <b>Second brain</b>
               <h3>Useful knowledge should compound.</h3>
-              <p>Codex can help turn notes, links, and workshop learning into a living memory layer that gets easier to query and improve.</p>
+              <p>Codex can turn notes, links, decks, research, and decisions into a living memory layer that gets easier to query and maintain.</p>
             </article>
             <article class="debrief-card">
               <b>Prototype culture</b>
               <h3>Showing beats explaining.</h3>
-              <p>Vibe coding is most valuable when it turns a vague workflow into something visible enough for stakeholders to react to.</p>
+              <p>Vibe coding is most valuable when it converts a vague workflow into something visible enough for users and stakeholders to critique.</p>
             </article>
           </div>
 
@@ -926,21 +948,21 @@
               <b>Signal 01</b>
               <div>
                 <h3>AI belongs inside work products.</h3>
-                <p>Decks, spreadsheets, documents, research notes, and prototypes are where adoption becomes measurable.</p>
+                <p>Decks, spreadsheets, documents, research notes, and prototypes are where adoption becomes measurable and habit-forming.</p>
               </div>
             </article>
             <article class="signal">
               <b>Signal 02</b>
               <div>
                 <h3>Structure is the new productivity layer.</h3>
-                <p>Prompt libraries, SKILL.md files, and second-brain pages make good work easier to repeat.</p>
+                <p>Prompt libraries, SKILL.md files, AGENTS.md guidance, and second-brain pages make good work easier to repeat.</p>
               </div>
             </article>
             <article class="signal">
               <b>Signal 03</b>
               <div>
-                <h3>Human review remains the control point.</h3>
-                <p>The best workflows preserve judgment, source trails, confidentiality checks, and explicit quality gates.</p>
+                <h3>Governance decides whether AI scales.</h3>
+                <p>Deloitte's 2026 AI research points to a familiar pattern: access is growing quickly, but governance and fluency decide whether value compounds.</p>
               </div>
             </article>
           </div>
@@ -952,9 +974,9 @@
           <div class="section-head">
             <div>
               <p class="kicker">How to use the learning</p>
-              <h2 class="section-title">Five practical frameworks from the workshop.</h2>
+              <h2 class="section-title">A practical AI operating system for the week after the workshop.</h2>
             </div>
-            <p class="section-copy">Each framework is intentionally short. The point is to help the Deloitte team move from inspiration to a small repeatable behavior this week.</p>
+            <p class="section-copy">Each framework is short enough to use in a live workday, but specific enough to become a team habit. Start with one real deliverable, then capture the method as a reusable prompt, skill, or second-brain page.</p>
           </div>
 
           <div class="method-stack">
@@ -965,9 +987,38 @@
                 <p>Use this when the task is ambiguous, high-value, or repeatable.</p>
               </div>
               <div class="method-steps">
-                <div class="method-row"><span>1</span><div><h4>State the work product.</h4><p>Memo, tracker, slide outline, spreadsheet insight, prototype, or code change.</p></div></div>
-                <div class="method-row"><span>2</span><div><h4>Give the model a role.</h4><p>Make the role specific to the audience and decision context.</p></div></div>
-                <div class="method-row"><span>3</span><div><h4>Add a quality gate.</h4><p>Ask it to flag assumptions, missing evidence, sensitivity risk, and weak logic.</p></div></div>
+                <div class="method-row"><span>1</span><div><h4>Name the work product.</h4><p>Memo, tracker, slide outline, spreadsheet insight, prototype, code change, or meeting brief.</p></div></div>
+                <div class="method-row"><span>2</span><div><h4>Add the operating context.</h4><p>Audience, business goal, source material, constraints, sensitivity level, and deadline.</p></div></div>
+                <div class="method-row"><span>3</span><div><h4>Define the output contract.</h4><p>Format, length, tone, decision criteria, evidence requirements, and what must be excluded.</p></div></div>
+                <div class="method-row"><span>4</span><div><h4>Review before reuse.</h4><p>Ask for assumptions, missing evidence, weak logic, edge cases, and confidence flags.</p></div></div>
+              </div>
+            </article>
+
+            <article class="method-card">
+              <div class="method-card-header">
+                <b>Meta prompting</b>
+                <h3>Use AI to design the prompt before doing the task.</h3>
+                <p>Meta prompting is useful when the workflow will be repeated, delegated, audited, or taught to a team.</p>
+              </div>
+              <div class="method-steps">
+                <div class="method-row"><span>1</span><div><h4>Prompt generator.</h4><p>Ask AI to convert a rough task into a robust prompt with role, context, inputs, steps, and output format.</p></div></div>
+                <div class="method-row"><span>2</span><div><h4>Prompt critic.</h4><p>Ask what the prompt fails to specify: audience, examples, acceptance criteria, risk, or source boundaries.</p></div></div>
+                <div class="method-row"><span>3</span><div><h4>Workflow translator.</h4><p>Convert a human process into repeatable AI instructions: trigger, inputs, process, review, and final artifact.</p></div></div>
+                <div class="method-row"><span>4</span><div><h4>Evaluator prompt.</h4><p>Create a checklist or scoring rubric so every output can be reviewed the same way.</p></div></div>
+              </div>
+            </article>
+
+            <article class="method-card">
+              <div class="method-card-header">
+                <b>JSON prompting</b>
+                <h3>Use structure when the output needs to move downstream.</h3>
+                <p>JSON is not for every answer. It is for trackers, automations, tables, evaluations, and repeatable handoffs.</p>
+              </div>
+              <div class="method-steps">
+                <div class="method-row"><span>1</span><div><h4>List fields first.</h4><p>Define the exact keys, allowed values, and whether each field is required.</p></div></div>
+                <div class="method-row"><span>2</span><div><h4>Describe the semantics.</h4><p>Tell the model what each field means, not just what it is called.</p></div></div>
+                <div class="method-row"><span>3</span><div><h4>Add one example.</h4><p>Provide a tiny valid object so the model can mirror the shape and level of specificity.</p></div></div>
+                <div class="method-row"><span>4</span><div><h4>Validate before trusting.</h4><p>For production, use schema-based structured output or a parser rather than relying only on wording.</p></div></div>
               </div>
             </article>
 
@@ -975,12 +1026,13 @@
               <div class="method-card-header">
                 <b>Second brain method</b>
                 <h3>Move from stored files to compiled knowledge.</h3>
-                <p>Use this to maintain a practical Codex knowledge base.</p>
+                <p>Use this to maintain a practical Codex knowledge base inspired by LLM wiki and GBrain patterns.</p>
               </div>
               <div class="method-steps">
-                <div class="method-row"><span>1</span><div><h4>Capture sources.</h4><p>Notes, reports, transcripts, links, decisions, and reusable prompts.</p></div></div>
-                <div class="method-row"><span>2</span><div><h4>Compile pages.</h4><p>Turn raw material into readable pages for concepts, decisions, workstreams, and methods.</p></div></div>
-                <div class="method-row"><span>3</span><div><h4>Review weekly.</h4><p>Ask Codex to find stale claims, contradictions, missing links, and useful updates.</p></div></div>
+                <div class="method-row"><span>1</span><div><h4>Capture sources.</h4><p>Notes, reports, transcripts, links, decisions, meeting outputs, and reusable prompts.</p></div></div>
+                <div class="method-row"><span>2</span><div><h4>Compile pages.</h4><p>Turn raw material into short pages for concepts, clients, sectors, workstreams, and methods.</p></div></div>
+                <div class="method-row"><span>3</span><div><h4>Link the system.</h4><p>Connect pages with relationships such as affects, supports, updates, contradicts, and owner.</p></div></div>
+                <div class="method-row"><span>4</span><div><h4>Review weekly.</h4><p>Ask Codex to find stale claims, contradictions, missing links, orphan pages, and useful updates.</p></div></div>
               </div>
             </article>
 
@@ -988,12 +1040,13 @@
               <div class="method-card-header">
                 <b>AI for work products</b>
                 <h3>Accelerate decks, documents, and spreadsheets.</h3>
-                <p>Use AI for structure, critique, cleanup, and first-pass synthesis.</p>
+                <p>Use AI for structure, critique, cleanup, and first-pass synthesis, not as the final owner of judgment.</p>
               </div>
               <div class="method-steps">
-                <div class="method-row"><span>1</span><div><h4>Presentation.</h4><p>Turn raw bullets into a storyline, insight titles, and suggested visuals.</p></div></div>
-                <div class="method-row"><span>2</span><div><h4>Documentation.</h4><p>Convert transcripts into decisions, actions, risks, and follow-up notes.</p></div></div>
-                <div class="method-row"><span>3</span><div><h4>Excel.</h4><p>Profile data, explain formulas, surface outliers, and prepare chart-ready insights.</p></div></div>
+                <div class="method-row"><span>1</span><div><h4>Presentation.</h4><p>Start with a decision memo, convert it to storyline, then create slide titles, evidence, and visual suggestions.</p></div></div>
+                <div class="method-row"><span>2</span><div><h4>Documentation.</h4><p>Convert transcripts into decisions, actions, risks, FAQ, standard operating notes, and follow-up emails.</p></div></div>
+                <div class="method-row"><span>3</span><div><h4>Excel.</h4><p>Profile data, explain formulas, identify outliers, draft checks, and translate analysis into executive insight.</p></div></div>
+                <div class="method-row"><span>4</span><div><h4>Quality control.</h4><p>Check formulas, source references, chart labels, definitions, and whether the conclusion follows the evidence.</p></div></div>
               </div>
             </article>
 
@@ -1001,12 +1054,41 @@
               <div class="method-card-header">
                 <b>Skill files</b>
                 <h3>Package a repeated workflow as instructions.</h3>
-                <p>A SKILL.md file makes quality portable across future Codex sessions.</p>
+                <p>A SKILL.md file makes quality portable across future Codex sessions and across teams.</p>
               </div>
               <div class="method-steps">
-                <div class="method-row"><span>1</span><div><h4>Define trigger conditions.</h4><p>When should this skill be used, and when should it not?</p></div></div>
-                <div class="method-row"><span>2</span><div><h4>Write the workflow.</h4><p>Inputs, steps, checks, expected artifacts, and safety boundaries.</p></div></div>
-                <div class="method-row"><span>3</span><div><h4>Attach examples.</h4><p>Add references, templates, and quality criteria so the skill improves the next run.</p></div></div>
+                <div class="method-row"><span>1</span><div><h4>Define trigger conditions.</h4><p>When should the skill be used, when should it not be used, and what words should trigger it?</p></div></div>
+                <div class="method-row"><span>2</span><div><h4>Write the workflow.</h4><p>Inputs, steps, checks, expected artifacts, safety boundaries, and what to do when information is missing.</p></div></div>
+                <div class="method-row"><span>3</span><div><h4>Attach references.</h4><p>Add templates, examples, schemas, and quality criteria so the skill improves the next run.</p></div></div>
+                <div class="method-row"><span>4</span><div><h4>Test the trigger.</h4><p>Ask Codex what skill it would use for sample tasks and tighten the description if it misfires.</p></div></div>
+              </div>
+            </article>
+
+            <article class="method-card">
+              <div class="method-card-header">
+                <b>Vibe coding</b>
+                <h3>Prototype the workflow before debating it.</h3>
+                <p>Use this when a team can learn faster from a clickable artifact than from a long explanation.</p>
+              </div>
+              <div class="method-steps">
+                <div class="method-row"><span>1</span><div><h4>Choose one workflow.</h4><p>Pick a painful repeat task, not a vague AI ambition.</p></div></div>
+                <div class="method-row"><span>2</span><div><h4>Mock the happy path.</h4><p>Build the smallest useful screen, form, dashboard, or generator that makes the idea tangible.</p></div></div>
+                <div class="method-row"><span>3</span><div><h4>Test with users.</h4><p>Watch where people hesitate, what they ask to change, and what they would trust.</p></div></div>
+                <div class="method-row"><span>4</span><div><h4>Decide the next step.</h4><p>Retire it, improve it, or turn it into a governed pilot with owners, data, controls, and metrics.</p></div></div>
+              </div>
+            </article>
+
+            <article class="method-card">
+              <div class="method-card-header">
+                <b>AI governance habit</b>
+                <h3>Scale use cases with controls, not wishful thinking.</h3>
+                <p>Use this for client-facing, regulated, confidential, or operational AI workflows.</p>
+              </div>
+              <div class="method-steps">
+                <div class="method-row"><span>1</span><div><h4>Classify the use case.</h4><p>Personal productivity, team workflow, client deliverable, regulated process, or autonomous action.</p></div></div>
+                <div class="method-row"><span>2</span><div><h4>Set data boundaries.</h4><p>Define what can be pasted, what must be masked, and what must stay inside approved systems.</p></div></div>
+                <div class="method-row"><span>3</span><div><h4>Retain evidence.</h4><p>Keep source links, assumptions, human approvals, and versioned outputs for auditability.</p></div></div>
+                <div class="method-row"><span>4</span><div><h4>Assign human ownership.</h4><p>Every AI-assisted deliverable needs a reviewer who owns correctness, tone, and risk.</p></div></div>
               </div>
             </article>
           </div>
@@ -1020,7 +1102,7 @@
               <p class="kicker">A new client debrief format</p>
               <h2 class="section-title">From workshop recap to living digital artifact.</h2>
             </div>
-            <p class="section-copy">Instead of sending a dense PDF after the session, this format gives the client a navigable memory of the workshop: what was discussed, how to apply it, and where to go next.</p>
+            <p class="section-copy">Instead of sending a dense PDF after the session, this format gives the client a navigable memory of the workshop: what was discussed, how to apply it, how to build on it, and where to go next.</p>
           </div>
 
           <div class="artifact">
@@ -1042,9 +1124,57 @@
               </div>
               <div class="artifact-row">
                 <b>How</b>
-                <span>Use the resource cards, copy the methods into Codex, and update each placeholder with final links.</span>
+                <span>Use the resource cards, copy the methods into Codex, and turn the strongest workflows into team-owned prompts, skills, and prototypes.</span>
               </div>
             </div>
+          </div>
+
+          <div class="artifact" style="margin-top: 20px;">
+            <div class="artifact-top">
+              <div>
+                <p class="kicker">Deloitte second-brain snapshot</p>
+                <h3 style="margin: 8px 0 0; font-size: 28px; line-height: 1.08;">A useful brain has personal, team, and enterprise value.</h3>
+              </div>
+              <span class="artifact-dot" aria-hidden="true"></span>
+            </div>
+            <div class="artifact-body">
+              <div class="artifact-row">
+                <b>Member</b>
+                <span>A personal Codex workspace for notes, prompts, client-safe templates, meeting outputs, reading lists, and weekly learning logs.</span>
+              </div>
+              <div class="artifact-row">
+                <b>Function</b>
+                <span>A department memory for methods, reusable analyses, standard checks, skill files, prompt packs, and source-backed playbooks.</span>
+              </div>
+              <div class="artifact-row">
+                <b>Firm</b>
+                <span>A governed knowledge layer where public signals, approved internal methods, prototypes, and audit trails can compound over time.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="signal-strip" aria-label="Second brain operating loops">
+            <article class="signal">
+              <b>01</b>
+              <div>
+                <h3>Capture source material.</h3>
+                <p>Save reports, notes, transcripts, links, decisions, examples, and reusable prompts with a clear owner and date.</p>
+              </div>
+            </article>
+            <article class="signal">
+              <b>02</b>
+              <div>
+                <h3>Compile the living page.</h3>
+                <p>Convert raw material into short current-state pages, then link them to related clients, sectors, risks, and methods.</p>
+              </div>
+            </article>
+            <article class="signal">
+              <b>03</b>
+              <div>
+                <h3>Review, prune, and promote.</h3>
+                <p>Ask Codex to find stale claims, missing sources, contradictions, and repeatable workflows worth turning into skills.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -1056,7 +1186,7 @@
               <p class="kicker">Resource library</p>
               <h2 class="section-title">Everything the team can revisit after the workshop.</h2>
             </div>
-            <p class="section-copy">The live links can be replaced as you send them. Two resources are already connected locally: the prompt bank and the second-brain demo/method.</p>
+            <p class="section-copy">This library combines the workshop artifacts, Futurelab routes, official product guidance, and source-backed reading. The only item still needed from Futurelab is the final WhatsApp invite link.</p>
           </div>
 
           <div class="resource-tools" aria-label="Resource controls">
@@ -1074,24 +1204,24 @@
               <p class="kicker">Recommended next step</p>
               <h2 class="section-title">Run a practical AI work sprint.</h2>
             </div>
-            <p class="section-copy">The most useful follow-up is a hands-on session where each participant brings one real work product and leaves with a reusable prompt, skill file, or prototype.</p>
+            <p class="section-copy">The most useful follow-up is a hands-on session where each participant brings one real work product and leaves with a reusable prompt, structured output schema, SKILL.md file, or prototype they can apply the same week.</p>
           </div>
 
           <div class="next-grid">
             <article class="next-card">
               <b>30 minutes</b>
               <h3>Pick one repeated workflow.</h3>
-              <p>Choose a task that happens every week: meeting notes, slide storyline, spreadsheet review, or status reporting.</p>
+              <p>Choose a weekly task: meeting notes, slide storyline, spreadsheet review, status reporting, risk scan, or client briefing.</p>
             </article>
             <article class="next-card">
               <b>One week</b>
               <h3>Turn it into a reusable system.</h3>
-              <p>Create a prompt, output schema, quality gate, and source folder so the workflow is repeatable.</p>
+              <p>Create a prompt, output schema, quality gate, source folder, and review checklist so the workflow is repeatable.</p>
             </article>
             <article class="next-card">
               <b>One month</b>
               <h3>Convert the best workflows into assets.</h3>
-              <p>Promote the strongest practices into a team prompt bank, skill pack, or applied AI lab prototype.</p>
+              <p>Promote the strongest practices into a team prompt bank, skill pack, applied AI lab prototype, or second-brain page.</p>
             </article>
           </div>
         </div>
@@ -1103,7 +1233,7 @@
         <img src="assets/logos/deloitte-official.svg" alt="Deloitte">
         <div>
           <strong style="color: var(--white);">Knowledge Handout for Deloitte USA by Futurelab Studios</strong>
-          <p style="margin: 6px 0 0;">A Deloitte-inspired working artifact for workshop debrief and enablement. External resource placeholders are ready to be populated with final Futurelab links.</p>
+          <p style="margin: 6px 0 0;">A Deloitte-inspired working artifact for workshop debrief and enablement. Built by Futurelab Studios for practical AI adoption, second-brain building, and prototype-led learning.</p>
         </div>
       </div>
     </footer>
@@ -1116,7 +1246,7 @@
       {
         title: "Prompt bank created for the team",
         type: "Ready",
-        category: "Prompting",
+        category: "Workshop assets",
         accent: "#86bc25",
         description: "Copy-ready prompts for executive summaries, meeting actions, storytelling, data insights, risk reviews, and JSON prompting.",
         href: "artifacts/deloitte-prompt-bank.html"
@@ -1124,41 +1254,126 @@
       {
         title: "Method to create a second brain",
         type: "Ready",
-        category: "Second brain",
+        category: "Workshop assets",
         accent: "#00abab",
         description: "A practical structure for creating a Codex-based memory system with sources, wiki pages, prompts, logs, and weekly review.",
         href: "artifacts/deloitte-india-second-brain/architecture.html"
       },
       {
-        title: "AI for presentations and Excel",
-        type: "Pending link",
+        title: "AI for presentations, docs, and Excel",
+        type: "Ready",
         category: "Work products",
         accent: "#00a3e0",
-        description: "Best practices for slide storylines, spreadsheet review, chart-ready insights, formulas, data quality checks, and executive output.",
-        href: "#replace-presentation-excel-link"
+        description: "A practical work-product stack: use AI to structure the storyline, clean the table, summarize the evidence, and review the final artifact.",
+        links: [
+          {
+            label: "Google Workspace prompting guide",
+            href: "https://services.google.com/fh/files/misc/gemini-for-google-workspace-prompting-guide-101.pdf"
+          },
+          {
+            label: "Microsoft Copilot prompt basics",
+            href: "https://www.microsoft.com/en-us/microsoft-copilot/for-individuals/do-more-with-ai/general-ai/learn-how-to-master-ai-prompting"
+          },
+          {
+            label: "Codex use cases for decks and data",
+            href: "https://developers.openai.com/codex/use-cases"
+          }
+        ]
       },
       {
         title: "How to create SKILL.md files",
-        type: "Pending link",
+        type: "Ready",
         category: "Codex skills",
         accent: "#ffcd00",
-        description: "A short guide to defining trigger conditions, workflows, templates, quality gates, and examples for repeatable Codex skills.",
-        href: "#replace-skill-md-link"
+        description: "Skills turn repeated workflows into portable Codex instructions with triggers, references, assets, scripts, and quality checks.",
+        links: [
+          {
+            label: "OpenAI Codex Agent Skills",
+            href: "https://developers.openai.com/codex/skills"
+          },
+          {
+            label: "AGENTS.md project guidance",
+            href: "https://developers.openai.com/codex/guides/agents-md"
+          },
+          {
+            label: "OpenAI skills examples",
+            href: "https://github.com/openai/skills"
+          }
+        ]
       },
       {
-        title: "Basics of vibe coding",
-        type: "Pending link",
+        title: "Basics of vibe coding and prototypes",
+        type: "Ready",
         category: "Prototypes",
         accent: "#f58220",
-        description: "How to move from idea to static prototype quickly, what to mock, what to validate, and how to avoid overbuilding too early.",
-        href: "#replace-vibe-coding-link"
+        description: "Move from idea to visible prototype quickly, then use the prototype to test workflow value, data needs, controls, and adoption friction.",
+        links: [
+          {
+            label: "Codex idea-to-POC use cases",
+            href: "https://developers.openai.com/codex/use-cases"
+          },
+          {
+            label: "Build responsive UI with Codex",
+            href: "https://developers.openai.com/codex/use-cases?category=front-end"
+          },
+          {
+            label: "QA apps with Computer Use",
+            href: "https://developers.openai.com/codex/use-cases?category=quality"
+          }
+        ]
+      },
+      {
+        title: "Deloitte AI adoption signals",
+        type: "Ready",
+        category: "Enterprise AI",
+        accent: "#86bc25",
+        description: "Current Deloitte research on AI scale, agentic AI, governance, fluency, and the shift from experimentation to measurable impact.",
+        links: [
+          {
+            label: "Deloitte State of AI 2026",
+            href: "https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html"
+          },
+          {
+            label: "Deloitte Tech Trends 2026",
+            href: "https://www.deloitte.com/nl/en/Industries/technology/perspectives/technology-trends.html"
+          },
+          {
+            label: "COSO controls for GenAI",
+            href: "https://dart.deloitte.com/USDART/home/publications/deloitte/heads-up/2026/coso-internal-controls-generative-ai"
+          }
+        ]
+      },
+      {
+        title: "Prompting and structured output references",
+        type: "Ready",
+        category: "Prompting",
+        accent: "#d0006f",
+        description: "Official references for better prompts, meta prompts, XML-style prompt structure, and schema-based structured outputs.",
+        links: [
+          {
+            label: "OpenAI prompt engineering",
+            href: "https://developers.openai.com/api/docs/guides/prompt-engineering"
+          },
+          {
+            label: "OpenAI prompt generation",
+            href: "https://developers.openai.com/api/docs/guides/prompt-generation"
+          },
+          {
+            label: "OpenAI structured outputs",
+            href: "https://developers.openai.com/api/docs/guides/structured-outputs"
+          },
+          {
+            label: "Anthropic prompt practices",
+            href: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+          }
+        ]
       },
       {
         title: "Further reading resources",
         type: "Ready",
         category: "Reading",
         accent: "#d0006f",
-        description: "A curated set of three foundational essays and two videos to help the team keep building AI intuition after the workshop.",
+        description: "Foundational essays and videos that help the team build AI intuition beyond tools and tactics.",
         links: [
           {
             label: "AI superintelligence primer",
@@ -1184,19 +1399,105 @@
       },
       {
         title: "AI School by Futurelab",
-        type: "Pending link",
-        category: "Learning",
+        type: "Ready",
+        category: "Futurelab",
         accent: "#86bc25",
-        description: "A structured learning path for practical prompting, AI workflows, prototype thinking, and day-to-day applied AI usage.",
-        href: "#replace-ai-school-link"
+        description: "Futurelab's practical learning path for AI literacy, prompt libraries, visual courses, webinars, knowledge hub, and community learning.",
+        links: [
+          {
+            label: "AI School landing page",
+            href: "https://futurelabstudios.com/ai-school"
+          },
+          {
+            label: "AI School platform",
+            href: "https://futureschool.futurelabstudios.com/"
+          },
+          {
+            label: "Futurelab Knowledge Hub",
+            href: "https://futurelabstudios.com/knowledge-hub"
+          }
+        ]
+      },
+      {
+        title: "Applied AI Lab suggestion",
+        type: "Ready",
+        category: "Futurelab",
+        accent: "#00abab",
+        description: "A suggested next engagement model: pick high-value workflows, build small prototypes, review them with users, then promote the best into governed assets.",
+        links: [
+          {
+            label: "Futurelab work and case studies",
+            href: "https://futurelabstudios.com/our-work"
+          },
+          {
+            label: "Futurelab product gallery",
+            href: "https://futurelabstudios.com/product-gallery"
+          },
+          {
+            label: "White-label AI products",
+            href: "https://futurelabstudios.com/white-label-products"
+          }
+        ]
+      },
+      {
+        title: "Futurelab Studios contact routes",
+        type: "Ready",
+        category: "Futurelab",
+        accent: "#00a3e0",
+        description: "Ways for Deloitte participants to reconnect with Futurelab after the workshop for help, pilots, learning, or collaboration.",
+        links: [
+          {
+            label: "Email hello@futurelabstudios.com",
+            href: "mailto:hello@futurelabstudios.com"
+          },
+          {
+            label: "Futurelab website",
+            href: "https://futurelabstudios.com/"
+          },
+          {
+            label: "Futurelab LinkedIn",
+            href: "https://www.linkedin.com/company/futurelabstudios"
+          },
+          {
+            label: "Futurelab on X",
+            href: "https://twitter.com/futurelabstudios"
+          }
+        ]
+      },
+      {
+        title: "Shabbir and Kuntal on LinkedIn",
+        type: "Ready",
+        category: "People",
+        accent: "#86bc25",
+        description: "Direct profile routes for participants who want to follow the people behind the workshop and continue the conversation.",
+        links: [
+          {
+            label: "Shabbir Haider",
+            href: "https://in.linkedin.com/in/shabbir7"
+          },
+          {
+            label: "Kuntal Sharma",
+            href: "https://in.linkedin.com/in/kuntal7"
+          }
+        ]
       },
       {
         title: "Futurelab WhatsApp community",
-        type: "Pending link",
+        type: "Invite link needed",
         category: "Community",
         accent: "#00abab",
-        description: "A professional community where AI practitioners across the world exchange workflows, tools, prompts, and useful patterns.",
-        href: "#replace-whatsapp-community-link"
+        description: "A professional community where AI practitioners across the world exchange workflows, tools, prompts, useful patterns, and field notes.",
+        links: [
+          {
+            label: "WhatsApp invite",
+            pendingLabel: "Send invite link",
+            href: "#replace-whatsapp-community-link"
+          },
+          {
+            label: "Use LinkedIn meanwhile",
+            href: "https://www.linkedin.com/company/futurelabstudios"
+          }
+        ]
       }
     ];
 
@@ -1237,20 +1538,21 @@
       grid.innerHTML = shown.map((item) => {
         const links = item.links || [{ label: "Open", href: item.href }];
         const pending = links.every((link) => isPending(link.href));
+        const hasPending = links.some((link) => isPending(link.href));
         return `
           <article class="resource-card" data-state="${pending ? "pending" : "ready"}">
             <div class="resource-meta">
               <span class="tag" style="--accent: ${item.accent}">${item.category}</span>
-              <span class="state ${pending ? "" : "ready"}">${item.type}</span>
+              <span class="state ${hasPending ? "" : "ready"}">${item.type}</span>
             </div>
-            <b>${pending ? "Link slot" : "Live resource"}</b>
+            <b>${pending ? "Link needed" : hasPending ? "Partially connected" : "Live resource"}</b>
             <h3>${item.title}</h3>
             <p>${item.description}</p>
             <div class="resource-actions">
               ${links.map((link) => {
                 const linkPending = isPending(link.href);
                 const target = linkPending ? "" : ' target="_blank" rel="noreferrer"';
-                return `<a class="button" data-variant="${linkPending ? "ghost" : "green"}" href="${link.href}"${target}>${linkPending ? "Add link later" : link.label}</a>`;
+                return `<a class="button" data-variant="${linkPending ? "ghost" : "green"}" href="${link.href}"${target}>${linkPending ? link.pendingLabel || "Send link" : link.label}</a>`;
               }).join("")}
             </div>
           </article>
@@ -1264,7 +1566,7 @@
       document.querySelectorAll('a[href^="#replace"]').forEach((link) => {
         link.addEventListener("click", (event) => {
           event.preventDefault();
-          showToast("Placeholder link. Send the final URL and this card can be connected.");
+          showToast("Final URL needed. Send the invite or resource link and this card can be connected.");
         });
       });
     }

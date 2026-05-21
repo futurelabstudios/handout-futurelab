@@ -163,6 +163,116 @@
       padding: 72px 0 46px;
     }
 
+    .hero-grid {
+      display: grid;
+      gap: 24px;
+      align-items: end;
+    }
+
+    .hero-copy {
+      min-width: 0;
+    }
+
+    .hero-panel {
+      display: grid;
+      gap: 16px;
+      border: 1px solid rgba(134, 188, 37, 0.65);
+      border-radius: 8px;
+      background: var(--green);
+      color: var(--ink);
+      padding: 18px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+    }
+
+    .hero-panel .eyebrow,
+    .hero-panel p {
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-panel h2 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .hero-steps {
+      display: grid;
+      gap: 8px;
+    }
+
+    .hero-step {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding-top: 10px;
+      border-top: 1px solid rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-step b {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 0, 0, 0.48);
+      border-radius: 50%;
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .hero-step span {
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .hero-use-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-use-card {
+      min-height: 96px;
+      display: grid;
+      align-content: space-between;
+      gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 13px;
+      background: var(--near);
+      color: var(--white);
+    }
+
+    .hero-use-card.green {
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--ink);
+    }
+
+    .hero-use-card.white {
+      border-color: rgba(255, 255, 255, 0.92);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .hero-use-card.graphite {
+      background: var(--charcoal);
+    }
+
+    .hero-use-card b {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .hero-use-card span {
+      color: currentColor;
+      font-size: 13px;
+      line-height: 1.32;
+      opacity: 0.78;
+    }
+
     .eyebrow {
       margin: 0 0 12px;
       color: var(--green);
@@ -470,6 +580,27 @@
       color: rgba(0, 0, 0, 0.68);
     }
 
+    .tile.graphite {
+      border-color: var(--charcoal);
+      background: var(--charcoal);
+      color: var(--white);
+    }
+
+    .tile.graphite p,
+    .tile.graphite li,
+    .tile.graphite .muted {
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .tile.graphite .label {
+      color: var(--white);
+    }
+
+    .tile.outline-green {
+      border: 2px solid var(--green);
+      background: #f8fbf3;
+    }
+
     .tile h2 {
       margin: 0;
       font-size: clamp(24px, 5vw, 38px);
@@ -488,6 +619,22 @@
       margin: 0;
       color: var(--graphite);
       font-size: 14px;
+    }
+
+    code {
+      border: 1px solid var(--line-soft);
+      border-radius: 4px;
+      background: var(--mist);
+      padding: 1px 4px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.92em;
+    }
+
+    .dark code,
+    .graphite code {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.09);
+      color: var(--white);
     }
 
     .muted {
@@ -640,6 +787,93 @@
     .resource-list {
       display: grid;
       gap: 10px;
+    }
+
+    .decision-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .decision-card {
+      display: grid;
+      gap: 7px;
+      border: 1px solid var(--line-soft);
+      border-radius: 8px;
+      padding: 13px;
+      background: var(--mist);
+    }
+
+    .decision-card b {
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.16;
+    }
+
+    .decision-card span {
+      color: var(--graphite);
+      font-size: 13px;
+      line-height: 1.34;
+    }
+
+    .method-flow {
+      display: grid;
+      gap: 9px;
+    }
+
+    .method-step {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: start;
+      border: 1px solid rgba(0, 0, 0, 0.24);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.36);
+      padding: 12px;
+    }
+
+    .method-step b {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--green);
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .method-step h4 {
+      margin: 0 0 4px;
+      font-size: 15px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .method-step p {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.72);
+      font-size: 13px;
+    }
+
+    .evidence-strip {
+      display: grid;
+      gap: 8px;
+      border-top: 1px solid var(--line-soft);
+      padding-top: 12px;
+    }
+
+    .evidence-strip span {
+      display: inline-flex;
+      width: fit-content;
+      min-height: 26px;
+      align-items: center;
+      border-radius: 999px;
+      background: var(--green);
+      color: var(--ink);
+      padding: 0 9px;
+      font-size: 11px;
+      font-weight: 900;
     }
 
     .link-row {
@@ -943,6 +1177,14 @@
         padding: 96px 0 58px;
       }
 
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) 360px;
+      }
+
+      .hero-use-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
       .magazine-toolbar {
         grid-template-columns: 1fr auto;
         align-items: center;
@@ -986,6 +1228,10 @@
       }
 
       .prompt-split {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .decision-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1048,6 +1294,10 @@
 
       .hero-lead {
         font-size: 15px;
+      }
+
+      .hero-use-grid {
+        margin-top: 14px;
       }
 
       .magazine-frame {
@@ -1145,12 +1395,34 @@
     <section class="hero" id="top">
       <img src="assets/deloitte-workshop-cover.png" alt="AI workshop visual from the Deloitte USI handout">
       <div class="shell hero-content">
-        <p class="eyebrow">Digital knowledge handout</p>
-        <h1>Knowledge Handout for Deloitte USI<span class="green-dot" aria-hidden="true"></span></h1>
-        <p class="hero-lead">A compact post-workshop artifact by Futurelab Studios: the critical AI adoption mental models, second-brain method, prototype direction, and resources the Deloitte USI team can come back to after the session.</p>
-        <div class="hero-actions">
-          <a class="button green" href="artifacts/deloitte-workshop-14th-may.pdf" target="_blank" rel="noreferrer">Open original PDF</a>
-          <a class="button" href="#resources">Jump to resources</a>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Digital knowledge handout</p>
+            <h1>Knowledge Handout for Deloitte USI<span class="green-dot" aria-hidden="true"></span></h1>
+            <p class="hero-lead">A post-workshop operating brief by Futurelab Studios: prompting habits, second-brain setup, applied AI prototypes, and evidence-ready resources the Deloitte USI team can reuse after the session.</p>
+            <div class="hero-actions">
+              <a class="button green" href="#second-brain">Build a second brain</a>
+              <a class="button" href="#resources">Open resources</a>
+            </div>
+          </div>
+          <aside class="hero-panel" aria-label="How to use this handout">
+            <div>
+              <p class="eyebrow">How to use this</p>
+              <h2>Turn workshop learning into a working AI system.</h2>
+            </div>
+            <div class="hero-steps">
+              <div class="hero-step"><b>01</b><span>Pick one Deloitte workflow where better context would improve quality or speed.</span></div>
+              <div class="hero-step"><b>02</b><span>Create a reusable <code>SKILL.md</code> that captures standards, sources, and outputs.</span></div>
+              <div class="hero-step"><b>03</b><span>Connect notes, documents, links, data checks, and decisions into a living knowledge base.</span></div>
+              <div class="hero-step"><b>04</b><span>Prototype the workflow, review the evidence trail, and scale what survives scrutiny.</span></div>
+            </div>
+          </aside>
+        </div>
+        <div class="hero-use-grid" aria-label="Primary use cases">
+          <div class="hero-use-card green"><b>Prompting</b><span>Move from one-off questions to structured requests with context, role, format, and review criteria.</span></div>
+          <div class="hero-use-card white"><b>Second brain</b><span>Build a source-backed memory system that can be queried, updated, and trusted over time.</span></div>
+          <div class="hero-use-card graphite"><b>Prototypes</b><span>Use small working demos to test adoption, governance, value, and workflow fit.</span></div>
+          <div class="hero-use-card"><b>Evidence</b><span>Preserve source trails, controls, exceptions, and human review when AI supports Deloitte work.</span></div>
         </div>
       </div>
     </section>
@@ -1158,8 +1430,8 @@
     <section class="page" id="reader">
       <div class="shell magazine-intro">
         <p class="eyebrow">Browse the issue</p>
-        <h2>A magazine-style debrief built to be opened, skimmed, and revisited.</h2>
-        <p>Use the page controls or chapter chips to move through the workshop story. Each spread keeps one decision-grade idea in focus.</p>
+        <h2>An AI adoption brief built for action, not recall.</h2>
+        <p>Use the page controls or chapter chips to move through the operating model. Each spread converts a workshop theme into a practical decision, method, or reusable asset.</p>
       </div>
 
       <div class="shell">
@@ -1188,32 +1460,32 @@
                 <span class="folio">01 / 05</span>
               </div>
               <h2 class="spread-title">The brief</h2>
-              <p class="spread-copy">The workshop's central message: AI adoption becomes real when teams turn tools into repeatable work systems.</p>
+              <p class="spread-copy">The workshop's central message: AI adoption becomes real when teams turn tools into repeatable, governed work systems.</p>
             </div>
             <div class="bento">
               <article class="tile dark span-7 tall">
                 <p class="eyebrow">Debrief</p>
-                <h2>The workshop was not about using more AI. It was about making AI useful inside real work.</h2>
-                <p>The core shift for Deloitte USI is moving from occasional tool use to repeatable work systems: better prompts, richer context, reusable knowledge, human review, and visible prototypes that prove value before scaling.</p>
+                <h2>This is the move: from AI as a side tab to AI as operating infrastructure.</h2>
+                <p>For Deloitte USI, the adoption question is not "which tool should I try?" It is "which recurring workflow can become more consistent, traceable, and decision-ready when AI has the right context?"</p>
                 <div class="micro-grid">
-                  <div class="micro-row"><span class="num">1</span><div><div class="label">Prompt like a manager, not like a search user.</div><p>Give the model role, context, evidence, output format, and review criteria.</p></div></div>
-                  <div class="micro-row"><span class="num">2</span><div><div class="label">Turn knowledge into infrastructure.</div><p>Notes, meetings, links, reports, decisions, and prompts should compound into a second brain.</p></div></div>
-                  <div class="micro-row"><span class="num">3</span><div><div class="label">Prototype before debating.</div><p>A small working artifact is the fastest way to test trust, usability, controls, and business value.</p></div></div>
+                  <div class="micro-row"><span class="num">1</span><div><div class="label">Prompt like a manager.</div><p>Give role, context, evidence, output format, constraints, and review criteria.</p></div></div>
+                  <div class="micro-row"><span class="num">2</span><div><div class="label">Make knowledge reusable.</div><p>Meeting notes, workpapers, links, reports, decisions, and prompts should compound into a living system.</p></div></div>
+                  <div class="micro-row"><span class="num">3</span><div><div class="label">Measure value through prototypes.</div><p>A small artifact reveals source gaps, adoption friction, control issues, and the business case.</p></div></div>
                 </div>
               </article>
               <article class="tile green span-5">
-                <p class="eyebrow">Capstone behavior</p>
-                <h2>Pick one workflow. Improve it with AI. Prove the delta.</h2>
-                <p class="muted">The PDF's capstone instruction is the right adoption unit: identify a real workflow and improve it using the methods shared through the cohort.</p>
+                <p class="eyebrow">Recommended next move</p>
+                <h2>Pick one workflow. Build the assistant around the work. Prove the delta.</h2>
+                <p class="muted">Start narrow: one process, one user group, one output standard, one review gate, one measurable before-after comparison.</p>
               </article>
-              <article class="tile span-12">
-                <p class="eyebrow">Cohort map</p>
-                <h3>Four learning blocks</h3>
-                <div class="resource-list">
-                  <div class="step-row"><span class="num">1</span><div><div class="label">AI landscape and prompting</div><p>Core tool categories and communication patterns.</p></div></div>
-                  <div class="step-row"><span class="num">2</span><div><div class="label">Workflows and productivity</div><p>Repeatable workflows and emerging agentic capabilities.</p></div></div>
-                  <div class="step-row"><span class="num">3</span><div><div class="label">Personalized office AI</div><p>Data analysis, visual communication, presentations, and daily work.</p></div></div>
-                  <div class="step-row"><span class="num">4</span><div><div class="label">Agentic AI and coding</div><p>AI-powered coding tools and personal automation systems.</p></div></div>
+              <article class="tile outline-green span-12">
+                <p class="eyebrow">Management lens</p>
+                <h3>What should change after the workshop</h3>
+                <div class="decision-grid">
+                  <div class="decision-card"><b>From prompts to playbooks</b><span>Capture the best way to ask, review, and reuse a task so quality does not depend on memory.</span></div>
+                  <div class="decision-card"><b>From files to knowledge systems</b><span>Let source documents, notes, decisions, and links become queryable institutional memory.</span></div>
+                  <div class="decision-card"><b>From demos to controlled prototypes</b><span>Build small AI workflows with named owners, evidence trails, and clear review gates.</span></div>
+                  <div class="decision-card"><b>From speed to trust</b><span>Preserve source quality, confidentiality, control totals, exception logic, and human accountability.</span></div>
                 </div>
               </article>
             </div>
@@ -1226,35 +1498,48 @@
                 <span class="folio">02 / 05</span>
               </div>
               <h2 class="spread-title">Mental models</h2>
-              <p class="spread-copy">The simplest ideas are the most reusable: context, vehicles, engines, and maturity.</p>
+              <p class="spread-copy">The useful shift is to treat prompting, structure, and review as management disciplines, not writing tricks.</p>
             </div>
             <div class="bento">
-              <article class="tile span-8">
+              <article class="tile green span-8">
                 <p class="eyebrow">Mental model 01</p>
                 <h3>Contextual prompting: from request to work contract</h3>
                 <div class="prompt-split">
                   <div class="prompt-box"><b>Naive prompt</b><p>"Summarize this."</p></div>
                   <div class="prompt-box strong"><b>Expert prompt</b><p>"You are a consulting manager preparing a board-level synthesis. Focus on strategic implications, differentiation, evidence quality, and executive readability."</p></div>
                 </div>
-                <p>The difference is not eloquence. It is context, audience, stakes, and review criteria.</p>
+                <p>The difference is not eloquence. It is role, context, audience, sources, constraints, format, and acceptance criteria.</p>
               </article>
-              <article class="tile span-4">
+              <article class="tile graphite span-4">
                 <p class="eyebrow">Mental model 02</p>
                 <h3>Engines versus vehicles</h3>
                 <div class="micro-grid">
-                  <div class="micro-row"><span class="num">E</span><div><div class="label">LLMs are engines.</div><p>Models such as ChatGPT, Gemini, DeepSeek, Sarvam, and tokenizers provide capability.</p></div></div>
-                  <div class="micro-row"><span class="num">V</span><div><div class="label">Apps are vehicles.</div><p>ChatGPT, Claude, Codex, Perplexity, Genspark, and NotebookLM package capability into workflows.</p></div></div>
+                  <div class="micro-row"><span class="num">E</span><div><div class="label">LLMs are engines.</div><p>Models provide reasoning, language, code, retrieval, and generation capability.</p></div></div>
+                  <div class="micro-row"><span class="num">V</span><div><div class="label">Apps are vehicles.</div><p>Codex, NotebookLM, ChatGPT, Claude, Perplexity, and internal tools package capability into workflows.</p></div></div>
                 </div>
               </article>
-              <article class="tile span-12">
-                <p class="eyebrow">Mental model 03</p>
-                <h3>AI maturity ladder</h3>
+              <article class="tile span-7">
+                <p class="eyebrow">Prompting stack</p>
+                <h3>The five layers that make AI output usable</h3>
                 <div class="resource-list">
-                  <div class="ladder-item"><span class="level">Level 1</span><p>Chatbots and conversational language.</p></div>
-                  <div class="ladder-item"><span class="level">Level 2</span><p>Reasoners for human-level problem solving.</p></div>
-                  <div class="ladder-item"><span class="level">Level 3</span><p>Agents that can take actions across workflows.</p></div>
-                  <div class="ladder-item"><span class="level">Level 4</span><p>Innovators that can aid invention.</p></div>
-                  <div class="ladder-item"><span class="level">Level 5</span><p>Organizations where AI can do the work of an org.</p></div>
+                  <div class="step-row"><span class="num">1</span><div><div class="label">Role and task</div><p>Who should the model behave as, and what decision or artifact should it produce?</p></div></div>
+                  <div class="step-row"><span class="num">2</span><div><div class="label">Context and source material</div><p>What files, notes, policies, data definitions, examples, or constraints should govern the answer?</p></div></div>
+                  <div class="step-row"><span class="num">3</span><div><div class="label">Output structure</div><p>Ask for a table, checklist, JSON object, slide outline, memo, or procedure so the result can be reused.</p></div></div>
+                  <div class="step-row"><span class="num">4</span><div><div class="label">Review criteria</div><p>Tell the model what good looks like: accuracy, evidence, executive clarity, risks, and next actions.</p></div></div>
+                  <div class="step-row"><span class="num">5</span><div><div class="label">Iteration loop</div><p>Ask the model to critique, improve, and expose assumptions before the human signs off.</p></div></div>
+                </div>
+              </article>
+              <article class="tile dark span-5">
+                <p class="eyebrow">JSON prompting</p>
+                <h3>Use structure when AI output becomes input.</h3>
+                <p>JSON prompting is useful when the result must flow into spreadsheets, trackers, apps, QA checklists, or downstream automation.</p>
+                <div class="pills">
+                  <span class="pill">Fields</span>
+                  <span class="pill">Types</span>
+                  <span class="pill">Confidence</span>
+                  <span class="pill">Source</span>
+                  <span class="pill">Owner</span>
+                  <span class="pill">Next step</span>
                 </div>
               </article>
             </div>
@@ -1267,38 +1552,51 @@
                 <span class="folio">03 / 05</span>
               </div>
               <h2 class="spread-title">The second brain</h2>
-              <p class="spread-copy">The point is not storage. It is a living knowledge base that reads, links, answers, and writes back.</p>
+              <p class="spread-copy">A Deloitte second brain should be source-backed, skill-guided, continuously refreshed, and easy to interrogate through AI.</p>
             </div>
             <div class="bento">
-              <article class="tile dark span-6">
-                <p class="eyebrow">Mental model 04</p>
-                <h3>Second brain architecture</h3>
-                <div class="micro-grid">
-                  <div class="micro-row"><span class="num">1</span><div><div class="label">Inputs</div><p>Documents, emails, meetings, notes, links, and decisions.</p></div></div>
-                  <div class="micro-row"><span class="num">2</span><div><div class="label">Knowledge engineer</div><p>AI reads, cleans, links, summarizes, deduplicates, and extracts insight.</p></div></div>
-                  <div class="micro-row"><span class="num">3</span><div><div class="label">Living knowledge base</div><p>People, projects, ideas, decisions, timelines, and open questions.</p></div></div>
-                  <div class="micro-row"><span class="num">4</span><div><div class="label">Writes back</div><p>Useful answers update pages instead of disappearing inside chat history.</p></div></div>
+              <article class="tile dark span-5 tall">
+                <p class="eyebrow">Core principle</p>
+                <h2>Build the brain before you ask the agent.</h2>
+                <p>The agent becomes useful when it has a stable operating manual, source-backed memory, and a refresh loop. Without that, every chat begins from scratch.</p>
+                <div class="evidence-strip">
+                  <span>Karpathy lens</span>
+                  <p>Distill what should survive into wiki-like pages: decisions, lessons, preferences, project context, and reusable notes.</p>
+                  <span>Garry Tan lens</span>
+                  <p>Treat the brain as a system of record: markdown pages, typed links, search, and a repo/database that can be updated over time.</p>
                 </div>
               </article>
-              <article class="tile span-6">
-                <p class="eyebrow">Mental model 05</p>
-                <h3>RAG as governed retrieval</h3>
-                <p>Retrieval augmented generation matters when answers need evidence. The practical loop is simple: source material, ingest and clean, retrieve the right context, answer with citations, then save validated learning back into the system.</p>
+              <article class="tile green span-7 tall">
+                <p class="eyebrow">Build method</p>
+                <h2>A simple second-brain build sequence.</h2>
+                <div class="method-flow">
+                  <div class="method-step"><b>01</b><div><h4>Create the <code>SKILL.md</code> first</h4><p>Define the role, scope, source rules, confidentiality constraints, output formats, examples, and review gates before loading knowledge.</p></div></div>
+                  <div class="method-step"><b>02</b><div><h4>Connect the source map</h4><p>Point the system to approved notes, PDFs, decks, workpapers, policies, prompts, decisions, and links. Keep raw sources separate from distilled pages.</p></div></div>
+                  <div class="method-step"><b>03</b><div><h4>Distill into wiki pages</h4><p>Create living pages for people, projects, processes, risks, decisions, definitions, and reusable methods so the model can retrieve the right context.</p></div></div>
+                  <div class="method-step"><b>04</b><div><h4>Create the refresh pipeline</h4><p>On a cadence, ingest new material, deduplicate, update stale pages, preserve source trails, and mark what needs human approval.</p></div></div>
+                  <div class="method-step"><b>05</b><div><h4>Attach the brain to an AI interface</h4><p>Use Codex or another approved AI surface to ask questions, generate outputs, and write validated learning back into the brain.</p></div></div>
+                </div>
+              </article>
+              <article class="tile outline-green span-6">
+                <p class="eyebrow">What goes inside SKILL.md</p>
+                <h3>The skill file is the operating manual.</h3>
+                <div class="resource-list">
+                  <div class="step-row"><span class="num">R</span><div><div class="label">Role</div><p>What kind of Deloitte expert should the AI behave like?</p></div></div>
+                  <div class="step-row"><span class="num">S</span><div><div class="label">Sources</div><p>Which folders, links, templates, and artifacts are trusted?</p></div></div>
+                  <div class="step-row"><span class="num">O</span><div><div class="label">Outputs</div><p>What should the AI produce: memo, slide outline, JSON, table, checklist, sample, or code?</p></div></div>
+                  <div class="step-row"><span class="num">Q</span><div><div class="label">Quality gates</div><p>What must be checked before the output is used: source trail, logic, confidentiality, owner, and assumptions?</p></div></div>
+                </div>
+              </article>
+              <article class="tile graphite span-6">
+                <p class="eyebrow">Governance lens</p>
+                <h3>Make the brain useful, but evidence-aware.</h3>
+                <p>For Deloitte work, the second brain should not hide uncertainty. It should show source files, extract dates, assumptions, control totals where relevant, exception criteria, and the human who approved the knowledge.</p>
                 <div class="pills">
                   <span class="pill">Source trail</span>
-                  <span class="pill">Context window</span>
-                  <span class="pill">Review gate</span>
+                  <span class="pill">Refresh date</span>
+                  <span class="pill">Owner</span>
+                  <span class="pill">Review status</span>
                   <span class="pill">Reusable answer</span>
-                </div>
-              </article>
-              <article class="tile green span-12">
-                <p class="eyebrow">Operating habit</p>
-                <h3>Prompt, structure, build, review</h3>
-                <div class="resource-list">
-                  <div class="step-row"><span class="num">P</span><div><div class="label">Prompt</div><p>Clarify role, audience, source, task, and output.</p></div></div>
-                  <div class="step-row"><span class="num">S</span><div><div class="label">Structure</div><p>Use JSON, schemas, tables, checklists, and skill files when work repeats.</p></div></div>
-                  <div class="step-row"><span class="num">B</span><div><div class="label">Build</div><p>Make a prototype or artifact quickly enough for reaction.</p></div></div>
-                  <div class="step-row"><span class="num">R</span><div><div class="label">Review</div><p>Check source quality, confidentiality, logic, and human ownership.</p></div></div>
                 </div>
               </article>
             </div>
@@ -1316,29 +1614,38 @@
             <div class="bento">
               <article class="tile dark span-7">
                 <p class="eyebrow">Prototype agenda</p>
-                <h2>Five prototypes worth testing for Deloitte's core workflows.</h2>
-                <p>The PDF's Applied AI Lab direction is strong because it makes AI adoption tangible. Start with prototypes that can be shown, tested, governed, and either retired or promoted.</p>
+                <h2>Build prototypes that make AI value observable.</h2>
+                <p>The Applied AI Lab should turn abstract AI interest into tested workflows: who uses it, what source data it touches, what it produces, what review gate exists, and how value is measured.</p>
                 <div class="pills">
-                  <span class="pill">RFP Copilot</span>
-                  <span class="pill">Controls Evidence Agent</span>
-                  <span class="pill">Excel Analyst</span>
-                  <span class="pill">Meeting-to-Deliverables Agent</span>
-                  <span class="pill">AI Red Team Arena</span>
+                  <span class="pill">Audit data profiler</span>
+                  <span class="pill">Controls evidence agent</span>
+                  <span class="pill">Excel analyst</span>
+                  <span class="pill">Presentation builder</span>
+                  <span class="pill">Meeting-to-deliverables agent</span>
                 </div>
               </article>
-              <article class="tile span-5">
+              <article class="tile green span-5">
                 <p class="eyebrow">Build discipline</p>
-                <h3>Prototype before debating.</h3>
-                <p>The smallest useful artifact can reveal adoption friction, trust issues, source gaps, controls, and business value faster than a long discussion.</p>
+                <h3>Prototype before debating. Govern before scaling.</h3>
+                <p class="muted">A good prototype is small enough to build quickly and serious enough to expose trust, evidence, ownership, and adoption issues.</p>
               </article>
-              <article class="tile span-12">
+              <article class="tile span-7">
                 <p class="eyebrow">Work-product playbook</p>
-                <h3>Where Deloitte USI teams can use AI this week</h3>
+                <h3>High-value places to apply AI this week</h3>
+                <div class="decision-grid">
+                  <div class="decision-card"><b>Presentations</b><span>Convert analysis into storyline, slide titles, executive messages, exhibits, and speaker notes.</span></div>
+                  <div class="decision-card"><b>Documentation</b><span>Turn meetings into decisions, risks, action logs, FAQs, SOP drafts, and review-ready summaries.</span></div>
+                  <div class="decision-card"><b>Spreadsheets</b><span>Explain formulas, profile data, flag outliers, draft checks, and convert tables into decision insight.</span></div>
+                  <div class="decision-card"><b>Prototype apps</b><span>Build thin workflow tools that test role clarity, input quality, output usefulness, and review gates.</span></div>
+                </div>
+              </article>
+              <article class="tile graphite span-5">
+                <p class="eyebrow">Audit and data lens</p>
+                <h3>When AI touches data, make the evidence trail visible.</h3>
                 <div class="resource-list">
-                  <div class="micro-row"><span class="num">D</span><div><div class="label">Documentation</div><p>Convert meetings into decisions, actions, risks, FAQs, SOPs, and follow-up notes.</p></div></div>
-                  <div class="micro-row"><span class="num">P</span><div><div class="label">Presentations</div><p>Move from raw bullets to decision memo, storyline, slide titles, and visual recommendations.</p></div></div>
-                  <div class="micro-row"><span class="num">X</span><div><div class="label">Spreadsheets</div><p>Profile data, explain formulas, identify outliers, draft checks, and convert analysis into insight.</p></div></div>
-                  <div class="micro-row"><span class="num">A</span><div><div class="label">AI apps and agents</div><p>Prototype small workflow tools with clear boundaries, human approvals, and measurable outcomes.</p></div></div>
+                  <div class="step-row"><span class="num">1</span><div><div class="label">Preserve source files</div><p>Keep raw extracts read-only and record file names, dates, row counts, and sheet names.</p></div></div>
+                  <div class="step-row"><span class="num">2</span><div><div class="label">Profile before testing</div><p>Identify keys, nulls, duplicates, amount/date fields, ranges, and obvious quality flags.</p></div></div>
+                  <div class="step-row"><span class="num">3</span><div><div class="label">Reconcile and explain</div><p>Tie filtered populations back to control totals and document thresholds, exclusions, and exceptions.</p></div></div>
                 </div>
               </article>
             </div>
@@ -1359,7 +1666,7 @@
                   <div>
                     <p class="eyebrow">Always-on library</p>
                     <h2>Open these when you want to apply the workshop, not just remember it.</h2>
-                    <p>Start with the artifacts made for Deloitte USI, then use the references and community links when a workflow needs a prompt, a prototype, a skill file, or a deeper mental model.</p>
+                    <p>Start with the artifacts made for Deloitte USI, then use the references when a workflow needs a prompt, a <code>SKILL.md</code>, a second-brain refresh loop, a prototype, or a deeper mental model.</p>
                   </div>
                   <span class="resource-count">Resources for ongoing usage</span>
                 </div>
@@ -1368,7 +1675,7 @@
                   <div>
                     <p class="eyebrow">Start here</p>
                     <h3>The three core workshop assets.</h3>
-                    <p>Use the PDF for the session recap, the prompt library for day-to-day prompting, and the second-brain method when setting up Codex as a reusable knowledge system.</p>
+                    <p>Use the PDF for the session recap, the prompt library for day-to-day prompting, and the second-brain method to turn Codex into an always-fresh knowledge interface.</p>
                   </div>
                   <div class="resource-actions" aria-label="Primary workshop resources">
                     <a href="artifacts/deloitte-workshop-14th-may.pdf" target="_blank" rel="noreferrer">Open PDF</a>
@@ -1399,7 +1706,7 @@
                       <a class="resource-item" href="artifacts/deloitte-india-second-brain/architecture.html" target="_blank" rel="noreferrer">
                         <span class="resource-type">Method</span>
                         <h4>Second brain method</h4>
-                        <p>The Codex knowledge-base architecture and reference implementation for a living second brain.</p>
+                        <p>The Codex architecture for <code>SKILL.md</code>, connected sources, refresh pipelines, and a living knowledge base.</p>
                         <span class="resource-link">Open</span>
                       </a>
                       <a class="resource-item" href="#applied-ai-lab">
@@ -1430,7 +1737,7 @@
                     <a class="resource-item" href="https://developers.openai.com/codex/skills" target="_blank" rel="noreferrer">
                       <span class="resource-type">Skills</span>
                       <h4>Codex skills</h4>
-                      <p>How to package repeatable workflows as reusable instructions and `SKILL.md` files.</p>
+                      <p>How to package repeatable workflows as reusable instructions and <code>SKILL.md</code> files.</p>
                       <span class="resource-link">Read</span>
                     </a>
                     <a class="resource-item" href="https://developers.openai.com/api/docs/guides/structured-outputs" target="_blank" rel="noreferrer">

@@ -1014,7 +1014,18 @@
       color: var(--white);
     }
 
+    .tile.dark .resource-actions a {
+      border-color: rgba(255, 255, 255, 0.24);
+      color: var(--white);
+    }
+
     .resource-spotlight .resource-actions a:first-child {
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--ink);
+    }
+
+    .tile.dark .resource-actions a:first-child {
       border-color: var(--green);
       background: var(--green);
       color: var(--ink);
@@ -1028,6 +1039,12 @@
     }
 
     .resource-spotlight .resource-actions a:hover {
+      border-color: var(--white);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .tile.dark .resource-actions a:hover {
       border-color: var(--white);
       background: var(--white);
       color: var(--ink);
@@ -1408,7 +1425,7 @@
             <p class="hero-lead">A post-workshop operating brief by Futurelab Studios: prompting habits, second-brain setup, applied AI prototypes, and evidence-ready resources the Deloitte USI team can reuse after the session.</p>
             <div class="hero-actions">
               <a class="button green" href="#second-brain">Build a second brain</a>
-              <a class="button white" href="artifacts/deloitte-skill-repository.html" target="_blank" rel="noreferrer">Open skill files</a>
+              <a class="button white" href="#skill-files">Open skill files</a>
               <a class="button" href="#resources">Open resources</a>
             </div>
           </div>
@@ -1449,9 +1466,10 @@
             <button class="chapter-btn" type="button" data-page="2">Second brain</button>
             <button class="chapter-btn" type="button" data-page="3">Applied AI Lab</button>
             <button class="chapter-btn" type="button" data-page="4">Resources</button>
+            <button class="chapter-btn" type="button" data-page="5">Skill files</button>
           </nav>
           <div class="reader-controls">
-            <span class="page-status" id="pageStatus">Page 1 of 5 - Debrief</span>
+            <span class="page-status" id="pageStatus">Page 1 of 6 - Debrief</span>
             <div class="turn-group">
               <button class="turn-btn" type="button" id="prevPage">Previous</button>
               <button class="turn-btn primary" type="button" id="nextPage">Next page</button>
@@ -1464,7 +1482,7 @@
             <div class="spread-head">
               <div class="spread-head-row">
                 <p class="eyebrow">Issue 01</p>
-                <span class="folio">01 / 05</span>
+                <span class="folio">01 / 06</span>
               </div>
               <h2 class="spread-title">The brief</h2>
               <p class="spread-copy">The workshop's central message: AI adoption becomes real when teams turn tools into repeatable, governed work systems.</p>
@@ -1502,7 +1520,7 @@
             <div class="spread-head">
               <div class="spread-head-row">
                 <p class="eyebrow">Issue 01</p>
-                <span class="folio">02 / 05</span>
+                <span class="folio">02 / 06</span>
               </div>
               <h2 class="spread-title">Mental models</h2>
               <p class="spread-copy">The useful shift is to treat prompting, structure, and review as management disciplines, not writing tricks.</p>
@@ -1556,7 +1574,7 @@
             <div class="spread-head">
               <div class="spread-head-row">
                 <p class="eyebrow">Issue 01</p>
-                <span class="folio">03 / 05</span>
+                <span class="folio">03 / 06</span>
               </div>
               <h2 class="spread-title">The second brain</h2>
               <p class="spread-copy">A Deloitte second brain should be source-backed, skill-guided, continuously refreshed, and easy to interrogate through AI.</p>
@@ -1613,7 +1631,7 @@
             <div class="spread-head">
               <div class="spread-head-row">
                 <p class="eyebrow">Issue 01</p>
-                <span class="folio">04 / 05</span>
+                <span class="folio">04 / 06</span>
               </div>
               <h2 class="spread-title">Applied AI Lab</h2>
               <p class="spread-copy">AI feels concrete when a team can touch a prototype, test the workflow, and decide whether to promote it.</p>
@@ -1662,7 +1680,7 @@
             <div class="spread-head">
               <div class="spread-head-row">
                 <p class="eyebrow">Issue 01</p>
-                <span class="folio">05 / 05</span>
+                <span class="folio">05 / 06</span>
               </div>
               <h2 class="spread-title">Resources for ongoing usage</h2>
               <p class="spread-copy">The workshop artifacts, prompt references, further reading, and Futurelab access points the Deloitte USI team can return to after the session.</p>
@@ -1688,7 +1706,8 @@
                     <a href="artifacts/deloitte-workshop-14th-may.pdf" target="_blank" rel="noreferrer">Open PDF</a>
                     <a href="artifacts/deloitte-prompt-bank.html" target="_blank" rel="noreferrer">Prompt library</a>
                     <a href="artifacts/deloitte-india-second-brain/architecture.html" target="_blank" rel="noreferrer">Second brain</a>
-                    <a href="artifacts/deloitte-skill-repository.html" target="_blank" rel="noreferrer">Skill repository</a>
+                    <a href="#skill-files">Skill files</a>
+                    <a href="artifacts/deloitte-usi-skill-files.zip" download>Download skill kit</a>
                   </div>
                 </div>
 
@@ -1717,11 +1736,11 @@
                         <p>The Codex architecture for <code>SKILL.md</code>, connected sources, refresh pipelines, and a living knowledge base.</p>
                         <span class="resource-link">Open</span>
                       </a>
-                      <a class="resource-item" href="artifacts/deloitte-skill-repository.html" target="_blank" rel="noreferrer">
+                      <a class="resource-item" href="#skill-files">
                         <span class="resource-type">Skill repository</span>
                         <h4>10 sample SKILL.md files</h4>
-                        <p>Reusable Deloitte USI skill templates for briefing, meetings, decks, spreadsheets, audit data, research, proposals, SOPs, second brain upkeep, and risk review.</p>
-                        <span class="resource-link">Open</span>
+                        <p>Downloadable Deloitte USI skill templates for briefing, meetings, decks, spreadsheets, audit data, research, proposals, SOPs, second brain upkeep, and risk review.</p>
+                        <span class="resource-link">Open downloads</span>
                       </a>
                       <a class="resource-item" href="#applied-ai-lab">
                         <span class="resource-type">Prototype agenda</span>
@@ -1855,6 +1874,122 @@
                     </div>
                   </div>
                   </section>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="spread" id="skill-files" data-title="Skill Files" data-hash="skill-files">
+            <div class="spread-head">
+              <div class="spread-head-row">
+                <p class="eyebrow">Issue 01</p>
+                <span class="folio">06 / 06</span>
+              </div>
+              <h2 class="spread-title">Skill files</h2>
+              <p class="spread-copy">A downloadable Deloitte USI skill kit: ten reusable <code>SKILL.md</code> files that turn common workflows into repeatable AI operating instructions.</p>
+            </div>
+            <div class="bento">
+              <article class="tile dark span-7 tall">
+                <p class="eyebrow">Downloadable kit</p>
+                <h2>Start with the skill file, then let the second brain compound.</h2>
+                <p>Each skill is deliberately small: problem, workflow, output, and quality gate. The Deloitte USI team can use them as personal working instructions, project playbooks, or department-level starting points.</p>
+                <div class="resource-actions" aria-label="Skill kit downloads">
+                  <a href="artifacts/deloitte-usi-skill-files.zip" download>Download all skills</a>
+                  <a href="artifacts/deloitte-skill-repository.html" target="_blank" rel="noreferrer">Open full repository</a>
+                  <a href="artifacts/deloitte-skill-repository.md" target="_blank" rel="noreferrer">Open markdown index</a>
+                </div>
+                <div class="pills">
+                  <span class="pill">Briefing</span>
+                  <span class="pill">Meetings</span>
+                  <span class="pill">Decks</span>
+                  <span class="pill">Excel</span>
+                  <span class="pill">Audit data</span>
+                  <span class="pill">Research</span>
+                  <span class="pill">Risk review</span>
+                </div>
+              </article>
+              <article class="tile green span-5 tall">
+                <p class="eyebrow">Simple usage method</p>
+                <h3>How a Deloitte USI professional should use this kit</h3>
+                <div class="method-flow">
+                  <div class="method-step"><b>01</b><div><h4>Download the kit</h4><p>Keep the folder structure intact so each workflow has its own <code>SKILL.md</code>.</p></div></div>
+                  <div class="method-step"><b>02</b><div><h4>Pick one workflow</h4><p>Choose the skill closest to the work: briefing, meetings, deck building, spreadsheets, audit data, or risk review.</p></div></div>
+                  <div class="method-step"><b>03</b><div><h4>Customize the rules</h4><p>Add approved sources, templates, review criteria, confidentiality notes, and team-specific examples.</p></div></div>
+                  <div class="method-step"><b>04</b><div><h4>Use it inside Codex</h4><p>Place the skill in the skills folder or project repo, then ask Codex to follow that skill for the task.</p></div></div>
+                  <div class="method-step"><b>05</b><div><h4>Refresh after use</h4><p>Write improvements back into the skill so the workflow gets sharper with every engagement.</p></div></div>
+                </div>
+              </article>
+              <article class="resource-hub span-12">
+                <div class="resource-hub-head">
+                  <div>
+                    <p class="eyebrow">Skill repository</p>
+                    <h2>Download individual Deloitte USI skills.</h2>
+                    <p>Each card gives a plain-English use case and a direct download link for the underlying <code>SKILL.md</code> file.</p>
+                  </div>
+                  <span class="resource-count">10 files</span>
+                </div>
+
+                <div class="resource-grid">
+                  <div class="resource-item">
+                    <span class="resource-type">01 / Leadership</span>
+                    <h4>Executive Briefing</h4>
+                    <p>Turns reports, notes, and analysis into a crisp leadership-ready decision brief.</p>
+                    <a class="resource-link" href="artifacts/skill-files/executive-briefing/SKILL.md" download>Download SKILL.md</a>
+                  </div>
+                  <div class="resource-item">
+                    <span class="resource-type">02 / Meetings</span>
+                    <h4>Meeting To Action</h4>
+                    <p>Converts meeting notes into decisions, action owners, risks, blockers, and follow-ups.</p>
+                    <a class="resource-link" href="artifacts/skill-files/meeting-to-action/SKILL.md" download>Download SKILL.md</a>
+                  </div>
+                  <div class="resource-item">
+                    <span class="resource-type">03 / Decks</span>
+                    <h4>Presentation Storyline</h4>
+                    <p>Transforms rough thinking into a consulting storyline, slide plan, and exhibit logic.</p>
+                    <a class="resource-link" href="artifacts/skill-files/presentation-storyline/SKILL.md" download>Download SKILL.md</a>
+                  </div>
+                  <div class="resource-item">
+                    <span class="resource-type">04 / Spreadsheets</span>
+                    <h4>Spreadsheet Insight</h4>
+                    <p>Profiles workbook structure, formulas, data quality, outliers, and business implications.</p>
+                    <a class="resource-link" href="artifacts/skill-files/spreadsheet-insight/SKILL.md" download>Download SKILL.md</a>
+                  </div>
+                  <div class="resource-item">
+                    <span class="resource-type">05 / Audit data</span>
+                    <h4>Audit Data Profiler</h4>
+                    <p>Creates an evidence-aware first pass on audit extracts, field quality, and control totals.</p>
+                    <a class="resource-link" href="artifacts/skill-files/audit-data-profiler/SKILL.md" download>Download SKILL.md</a>
+                  </div>
+                  <div class="resource-item">
+                    <span class="resource-type">06 / Research</span>
+                    <h4>Research Synthesis</h4>
+                    <p>Turns articles, websites, reports, and notes into a sourced consulting memo.</p>
+                    <a class="resource-link" href="artifacts/skill-files/research-synthesis/SKILL.md" download>Download SKILL.md</a>
+                  </div>
+                  <div class="resource-item">
+                    <span class="resource-type">07 / Proposals</span>
+                    <h4>Proposal Response</h4>
+                    <p>Structures RFP responses, win themes, approach, assumptions, risks, and review checks.</p>
+                    <a class="resource-link" href="artifacts/skill-files/proposal-response/SKILL.md" download>Download SKILL.md</a>
+                  </div>
+                  <div class="resource-item">
+                    <span class="resource-type">08 / SOPs</span>
+                    <h4>Process Documentation</h4>
+                    <p>Converts process knowledge into SOPs, RACI, control points, evidence, and training material.</p>
+                    <a class="resource-link" href="artifacts/skill-files/process-documentation/SKILL.md" download>Download SKILL.md</a>
+                  </div>
+                  <div class="resource-item">
+                    <span class="resource-type">09 / Knowledge</span>
+                    <h4>Second Brain Curator</h4>
+                    <p>Keeps a source-backed knowledge base fresh, linked, reviewable, and AI-ready.</p>
+                    <a class="resource-link" href="artifacts/skill-files/second-brain-curator/SKILL.md" download>Download SKILL.md</a>
+                  </div>
+                  <div class="resource-item">
+                    <span class="resource-type">10 / Governance</span>
+                    <h4>Risk And Control Review</h4>
+                    <p>Reviews outputs for evidence gaps, assumptions, confidentiality, controls, and readiness.</p>
+                    <a class="resource-link" href="artifacts/skill-files/risk-control-review/SKILL.md" download>Download SKILL.md</a>
+                  </div>
                 </div>
               </article>
             </div>

@@ -322,6 +322,28 @@
       font-size: 14px;
     }
 
+    .download-link {
+      width: fit-content;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ink);
+      border-radius: 4px;
+      background: var(--ink);
+      color: var(--white);
+      padding: 0 10px;
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .skill-card.featured .download-link {
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--ink);
+    }
+
     details {
       border-top: 1px solid var(--line-soft);
       padding-top: 12px;
@@ -405,16 +427,17 @@
         <div>
           <p class="eyebrow">Skill Repository</p>
           <h1>Ten sample SKILL.md files for Deloitte USI<span class="green-dot" aria-hidden="true"></span></h1>
-          <p class="lead">A starter repository of reusable AI operating instructions for common Deloitte workflows: briefing, meetings, decks, spreadsheets, audit data, research, proposals, process documentation, second brain maintenance, and risk review.</p>
+          <p class="lead">A downloadable repository of reusable AI operating instructions for common Deloitte workflows: briefing, meetings, decks, spreadsheets, audit data, research, proposals, process documentation, second brain maintenance, and risk review.</p>
           <div class="actions">
-            <a class="button green" href="deloitte-skill-repository.md" target="_blank" rel="noreferrer">Open markdown source</a>
-            <a class="button" href="#repository">Browse samples</a>
+            <a class="button green" href="deloitte-usi-skill-files.zip" download>Download all skills</a>
+            <a class="button" href="#repository">Browse and download</a>
+            <a class="button" href="deloitte-skill-repository.md" target="_blank" rel="noreferrer">Open markdown index</a>
           </div>
         </div>
         <aside class="hero-card">
           <p class="eyebrow">How to use</p>
-          <h2>Each sample is a starting point, not a policy.</h2>
-          <p>Copy a sample into its own folder as <code>SKILL.md</code>, then add approved sources, templates, confidentiality rules, and review gates for your team.</p>
+          <h2>Download one file, then make it specific.</h2>
+          <p>Add approved sources, templates, confidentiality rules, examples, and review gates before using any skill in real Deloitte USI work.</p>
         </aside>
       </div>
     </section>
@@ -424,7 +447,7 @@
         <div class="summary-card green"><b>Problem-led</b><span>Each skill starts with the recurring problem it solves.</span></div>
         <div class="summary-card"><b>Workflow-ready</b><span>Each sample includes steps, output shape, and quality gates.</span></div>
         <div class="summary-card dark"><b>Evidence-aware</b><span>Audit and risk examples preserve source trails and review discipline.</span></div>
-        <div class="summary-card"><b>Reusable</b><span>Teams can adapt these into personal, project, or department second brains.</span></div>
+        <div class="summary-card"><b>Downloadable</b><span>Each skill is available as a real SKILL.md file, plus one complete zip kit.</span></div>
       </div>
     </section>
 
@@ -433,7 +456,7 @@
         <div class="repo-head">
           <p class="eyebrow">Sample library</p>
           <h2>Ten reusable skills for everyday Deloitte work.</h2>
-          <p>Use these as sample structures. Before using them in real client work, replace generic references with approved Deloitte/team sources and apply the relevant confidentiality, review, and governance standards.</p>
+          <p>Use these as practical starting points. Download the closest skill, customize it with approved Deloitte/team sources, then place it in the relevant Codex skills folder or project repository.</p>
         </div>
         <div class="skill-grid">
           <article class="skill-card featured">
@@ -441,6 +464,7 @@
               <span class="skill-number">01</span>
               <h3>Executive Briefing</h3>
               <p class="problem">Problem it solves: scattered inputs become a leadership-ready decision brief.</p>
+              <a class="download-link" href="skill-files/executive-briefing/SKILL.md" download>Download SKILL.md</a>
             </div>
             <details>
               <summary>View sample SKILL.md</summary>
@@ -483,6 +507,7 @@ Flag missing source evidence, unclear assumptions, numbers that need validation,
               <span class="skill-number">02</span>
               <h3>Meeting To Action</h3>
               <p class="problem">Problem it solves: meetings become decisions, owners, risks, and follow-ups.</p>
+              <a class="download-link" href="skill-files/meeting-to-action/SKILL.md" download>Download SKILL.md</a>
             </div>
             <details>
               <summary>View sample SKILL.md</summary>
@@ -516,6 +541,7 @@ Do not invent owners or due dates. Mark missing values as TBD. Flag sensitive cl
               <span class="skill-number">03</span>
               <h3>Presentation Storyline</h3>
               <p class="problem">Problem it solves: raw thinking becomes a deck narrative and slide plan.</p>
+              <a class="download-link" href="skill-files/presentation-storyline/SKILL.md" download>Download SKILL.md</a>
             </div>
             <details>
               <summary>View sample SKILL.md</summary>
@@ -549,6 +575,7 @@ Check that the deck has a clear opening answer, logical flow, no duplicated slid
               <span class="skill-number">04</span>
               <h3>Spreadsheet Insight</h3>
               <p class="problem">Problem it solves: spreadsheets become explainable analysis and decisions.</p>
+              <a class="download-link" href="skill-files/spreadsheet-insight/SKILL.md" download>Download SKILL.md</a>
             </div>
             <details>
               <summary>View sample SKILL.md</summary>
@@ -582,6 +609,7 @@ Do not change source data unless explicitly asked. Preserve assumptions, filters
               <span class="skill-number">05</span>
               <h3>Audit Data Profiler</h3>
               <p class="problem">Problem it solves: audit extracts get profiled before testing, with source trails and control totals.</p>
+              <a class="download-link" href="skill-files/audit-data-profiler/SKILL.md" download>Download SKILL.md</a>
             </div>
             <details>
               <summary>View sample SKILL.md</summary>
@@ -615,6 +643,7 @@ Do not expose sensitive row-level data unnecessarily. Treat red flags as items f
               <span class="skill-number">06</span>
               <h3>Research Synthesis</h3>
               <p class="problem">Problem it solves: multiple sources become a sourced research memo.</p>
+              <a class="download-link" href="skill-files/research-synthesis/SKILL.md" download>Download SKILL.md</a>
             </div>
             <details>
               <summary>View sample SKILL.md</summary>
@@ -648,6 +677,7 @@ Flag outdated sources, weak evidence, unsupported claims, and areas requiring pr
               <span class="skill-number">07</span>
               <h3>Proposal Response</h3>
               <p class="problem">Problem it solves: proposal inputs become a structured response and win themes.</p>
+              <a class="download-link" href="skill-files/proposal-response/SKILL.md" download>Download SKILL.md</a>
             </div>
             <details>
               <summary>View sample SKILL.md</summary>
@@ -681,6 +711,7 @@ Do not invent credentials, case studies, pricing, or commitments. Mark missing p
               <span class="skill-number">08</span>
               <h3>Process Documentation</h3>
               <p class="problem">Problem it solves: workflow knowledge becomes SOP, RACI, controls, and training material.</p>
+              <a class="download-link" href="skill-files/process-documentation/SKILL.md" download>Download SKILL.md</a>
             </div>
             <details>
               <summary>View sample SKILL.md</summary>
@@ -714,6 +745,7 @@ Flag ambiguous ownership, missing approvals, unclear evidence, and steps requiri
               <span class="skill-number">09</span>
               <h3>Second Brain Curator</h3>
               <p class="problem">Problem it solves: knowledge stays fresh, linked, source-backed, and AI-ready.</p>
+              <a class="download-link" href="skill-files/second-brain-curator/SKILL.md" download>Download SKILL.md</a>
             </div>
             <details>
               <summary>View sample SKILL.md</summary>
@@ -748,6 +780,7 @@ Do not overwrite human-approved pages without flagging the change. Separate sour
               <span class="skill-number">10</span>
               <h3>Risk And Control Review</h3>
               <p class="problem">Problem it solves: outputs are reviewed for risk, evidence, and readiness before sharing.</p>
+              <a class="download-link" href="skill-files/risk-control-review/SKILL.md" download>Download SKILL.md</a>
             </div>
             <details>
               <summary>View sample SKILL.md</summary>

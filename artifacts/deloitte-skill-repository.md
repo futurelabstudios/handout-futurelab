@@ -1,6 +1,20 @@
 # Deloitte USI Skill Repository
 
-Ten sample `SKILL.md` files for common Deloitte USI workflows. Each sample is meant to be copied into its own skill folder as `SKILL.md`, then customized with approved team sources, templates, review rules, and confidentiality constraints.
+Ten downloadable `SKILL.md` files for common Deloitte USI workflows. Each sample is meant to be copied into its own skill folder as `SKILL.md`, then customized with approved team sources, templates, review rules, and confidentiality constraints.
+
+## Download Links
+
+- [Download complete skill kit](deloitte-usi-skill-files.zip)
+- [Executive Briefing](skill-files/executive-briefing/SKILL.md)
+- [Meeting To Action](skill-files/meeting-to-action/SKILL.md)
+- [Presentation Storyline](skill-files/presentation-storyline/SKILL.md)
+- [Spreadsheet Insight](skill-files/spreadsheet-insight/SKILL.md)
+- [Audit Data Profiler](skill-files/audit-data-profiler/SKILL.md)
+- [Research Synthesis](skill-files/research-synthesis/SKILL.md)
+- [Proposal Response](skill-files/proposal-response/SKILL.md)
+- [Process Documentation](skill-files/process-documentation/SKILL.md)
+- [Second Brain Curator](skill-files/second-brain-curator/SKILL.md)
+- [Risk And Control Review](skill-files/risk-control-review/SKILL.md)
 
 ## 01. Executive Briefing Skill
 

@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skill Repository for Deloitte USI</title>
+  <meta name="description" content="Ten sample SKILL.md files for Deloitte USI workflows.">
+  <link rel="icon" href="../assets/logos/deloitte-dot.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --ink: #000;
+      --near: #111;
+      --charcoal: #2e2e2e;
+      --graphite: #53565a;
+      --line: #d0d4d0;
+      --line-soft: #e7eae4;
+      --mist: #f4f6f3;
+      --white: #fff;
+      --green: #86bc25;
+      --electric: #a4d65e;
+      --font: Inter, Aptos, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--ink);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+        linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+        var(--mist);
+      background-size: 40px 40px;
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--near);
+      color: var(--white);
+    }
+
+    .topbar-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-lockup {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-lockup img {
+      width: 116px;
+      display: block;
+    }
+
+    .divider {
+      width: 1px;
+      height: 26px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .studio-mark {
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 850;
+      line-height: 1.05;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .topbar a {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .hero {
+      background: var(--ink);
+      color: var(--white);
+      padding: 72px 0 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 26px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(42px, 9vw, 92px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .green-dot {
+      display: inline-block;
+      width: 0.28em;
+      height: 0.28em;
+      margin-left: 0.06em;
+      border-radius: 50%;
+      background: var(--green);
+      vertical-align: baseline;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: clamp(17px, 2vw, 22px);
+    }
+
+    .hero-card {
+      display: grid;
+      gap: 14px;
+      border-radius: 8px;
+      background: var(--green);
+      color: var(--ink);
+      padding: 18px;
+    }
+
+    .hero-card .eyebrow,
+    .hero-card p {
+      color: rgba(0, 0, 0, 0.72);
+    }
+
+    .hero-card h2 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .button {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 4px;
+      padding: 0 12px;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .button.green {
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--ink);
+    }
+
+    .summary {
+      padding: 22px 0;
+    }
+
+    .summary-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .summary-card {
+      min-height: 120px;
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      padding: 14px;
+    }
+
+    .summary-card.green {
+      border-color: var(--green);
+      background: var(--green);
+    }
+
+    .summary-card.dark {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .summary-card b {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .summary-card span {
+      color: currentColor;
+      font-size: 13px;
+      opacity: 0.76;
+    }
+
+    .repository {
+      padding: 8px 0 48px;
+    }
+
+    .repo-head {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .repo-head h2 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(30px, 5vw, 56px);
+      line-height: 1;
+    }
+
+    .repo-head p {
+      max-width: 760px;
+      color: var(--graphite);
+    }
+
+    .skill-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .skill-card {
+      display: grid;
+      gap: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      padding: 16px;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+    }
+
+    .skill-card.featured {
+      border-color: var(--green);
+      background: #f8fbf3;
+    }
+
+    .skill-top {
+      display: grid;
+      gap: 8px;
+      border-bottom: 1px solid var(--line-soft);
+      padding-bottom: 12px;
+    }
+
+    .skill-number {
+      width: fit-content;
+      min-height: 26px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--green);
+      border-radius: 999px;
+      color: var(--green);
+      padding: 0 9px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .skill-card.featured .skill-number {
+      background: var(--green);
+      color: var(--ink);
+    }
+
+    .skill-top h3 {
+      margin: 0;
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.05;
+    }
+
+    .problem {
+      margin: 0;
+      color: var(--graphite);
+      font-size: 14px;
+    }
+
+    details {
+      border-top: 1px solid var(--line-soft);
+      padding-top: 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    pre {
+      overflow: auto;
+      margin: 12px 0 0;
+      border-radius: 8px;
+      background: var(--ink);
+      color: var(--white);
+      padding: 14px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    .footer {
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.68);
+      padding: 26px 0 38px;
+      font-size: 12px;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 850;
+    }
+
+    @media (min-width: 760px) {
+      .hero-grid {
+        grid-template-columns: 1fr 360px;
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .skill-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .skill-card.featured {
+        grid-column: span 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="logo-lockup" aria-label="Deloitte and Futurelab Studios">
+        <img src="../assets/logos/deloitte-official.svg" alt="Deloitte">
+        <span class="divider" aria-hidden="true"></span>
+        <span class="studio-mark">Futurelab<br>Studios</span>
+      </div>
+      <a href="../index.html#resources">Back to handout</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Skill Repository</p>
+          <h1>Ten sample SKILL.md files for Deloitte USI<span class="green-dot" aria-hidden="true"></span></h1>
+          <p class="lead">A starter repository of reusable AI operating instructions for common Deloitte workflows: briefing, meetings, decks, spreadsheets, audit data, research, proposals, process documentation, second brain maintenance, and risk review.</p>
+          <div class="actions">
+            <a class="button green" href="deloitte-skill-repository.md" target="_blank" rel="noreferrer">Open markdown source</a>
+            <a class="button" href="#repository">Browse samples</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <p class="eyebrow">How to use</p>
+          <h2>Each sample is a starting point, not a policy.</h2>
+          <p>Copy a sample into its own folder as <code>SKILL.md</code>, then add approved sources, templates, confidentiality rules, and review gates for your team.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="summary">
+      <div class="shell summary-grid">
+        <div class="summary-card green"><b>Problem-led</b><span>Each skill starts with the recurring problem it solves.</span></div>
+        <div class="summary-card"><b>Workflow-ready</b><span>Each sample includes steps, output shape, and quality gates.</span></div>
+        <div class="summary-card dark"><b>Evidence-aware</b><span>Audit and risk examples preserve source trails and review discipline.</span></div>
+        <div class="summary-card"><b>Reusable</b><span>Teams can adapt these into personal, project, or department second brains.</span></div>
+      </div>
+    </section>
+
+    <section class="repository" id="repository">
+      <div class="shell">
+        <div class="repo-head">
+          <p class="eyebrow">Sample library</p>
+          <h2>Ten reusable skills for everyday Deloitte work.</h2>
+          <p>Use these as sample structures. Before using them in real client work, replace generic references with approved Deloitte/team sources and apply the relevant confidentiality, review, and governance standards.</p>
+        </div>
+        <div class="skill-grid">
+          <article class="skill-card featured">
+            <div class="skill-top">
+              <span class="skill-number">01</span>
+              <h3>Executive Briefing</h3>
+              <p class="problem">Problem it solves: scattered inputs become a leadership-ready decision brief.</p>
+            </div>
+            <details>
+              <summary>View sample SKILL.md</summary>
+              <pre><code>---
+name: executive-briefing
+description: Create concise executive briefs from notes, reports, emails, transcripts, analyses, and source documents. Use when the user needs a leadership-ready summary, decision memo, client update, board-style note, or one-page synthesis with implications, evidence, risks, and next actions.
+---
+
+# Executive Briefing
+
+## Workflow
+
+1. Confirm audience, decision context, time horizon, and desired length.
+2. Inventory the source material and separate facts from interpretation.
+3. Extract the core issue, recommendation, evidence, risks, dependencies, and open questions.
+4. Write in a consulting style: direct headline, short sections, quantified evidence where possible.
+5. Include source references or filenames when available.
+6. End with decisions needed, owner, and next action.
+
+## Output
+
+Use this structure:
+
+- Situation
+- So what
+- Recommendation
+- Evidence
+- Risks and mitigations
+- Decisions needed
+- Next actions
+
+## Quality Gate
+
+Flag missing source evidence, unclear assumptions, numbers that need validation, and any content that may be confidential or client-sensitive.</code></pre>
+            </details>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-number">02</span>
+              <h3>Meeting To Action</h3>
+              <p class="problem">Problem it solves: meetings become decisions, owners, risks, and follow-ups.</p>
+            </div>
+            <details>
+              <summary>View sample SKILL.md</summary>
+              <pre><code>---
+name: meeting-to-action
+description: Convert meeting notes, transcripts, recordings, or rough bullets into decisions, action items, risks, blockers, open questions, and stakeholder follow-ups. Use for internal team meetings, client workshops, governance forums, project check-ins, and post-meeting documentation.
+---
+
+# Meeting To Action
+
+## Workflow
+
+1. Identify meeting purpose, date, attendees, and business context.
+2. Separate confirmed decisions from discussion points and assumptions.
+3. Extract actions with owner, due date, dependency, and expected output.
+4. Capture risks, blockers, unresolved questions, and escalation items.
+5. Produce a concise follow-up note ready to send or paste into a tracker.
+
+## Output
+
+Return meeting summary, decisions made, action register, risks and blockers, open questions, and suggested follow-up message.
+
+## Quality Gate
+
+Do not invent owners or due dates. Mark missing values as TBD. Flag sensitive client, employee, or financial details before sharing.</code></pre>
+            </details>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-number">03</span>
+              <h3>Presentation Storyline</h3>
+              <p class="problem">Problem it solves: raw thinking becomes a deck narrative and slide plan.</p>
+            </div>
+            <details>
+              <summary>View sample SKILL.md</summary>
+              <pre><code>---
+name: presentation-storyline
+description: Build consulting-style presentation storylines from raw notes, analyses, data points, workshop outputs, or draft bullets. Use when the user needs a slide outline, executive narrative, section flow, slide titles, exhibit recommendations, or speaker notes.
+---
+
+# Presentation Storyline
+
+## Workflow
+
+1. Clarify audience, objective, decision to influence, and meeting length.
+2. Create a storyline with one message per slide.
+3. Convert vague section labels into action-oriented slide titles.
+4. Recommend exhibits: chart, table, process flow, operating model, timeline, or decision matrix.
+5. Add speaker notes only where they clarify the argument.
+
+## Output
+
+Use a table with slide number, slide title, core message, suggested visual, source or input needed, and speaker note.
+
+## Quality Gate
+
+Check that the deck has a clear opening answer, logical flow, no duplicated slides, and a specific close or decision ask.</code></pre>
+            </details>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-number">04</span>
+              <h3>Spreadsheet Insight</h3>
+              <p class="problem">Problem it solves: spreadsheets become explainable analysis and decisions.</p>
+            </div>
+            <details>
+              <summary>View sample SKILL.md</summary>
+              <pre><code>---
+name: spreadsheet-insight
+description: Analyze spreadsheets, tables, CSVs, and Excel-style workbooks for structure, data quality, formulas, outliers, summaries, and business insights. Use when the user needs spreadsheet profiling, formula explanation, data cleanup suggestions, pivot logic, exception checks, or an insight summary from tabular data.
+---
+
+# Spreadsheet Insight
+
+## Workflow
+
+1. Identify sheets, tables, row counts, column names, and key fields.
+2. Profile missing values, duplicates, date ranges, numeric ranges, and unusual categories.
+3. Explain formulas and dependencies in plain language.
+4. Identify outliers, breaks, reconciliation issues, or inconsistent labels.
+5. Convert findings into business implications and next checks.
+
+## Output
+
+Return dataset overview, data quality observations, key calculations, outliers or exceptions, cleanup steps, and executive insight summary.
+
+## Quality Gate
+
+Do not change source data unless explicitly asked. Preserve assumptions, filters, and any rows excluded from analysis.</code></pre>
+            </details>
+          </article>
+
+          <article class="skill-card featured">
+            <div class="skill-top">
+              <span class="skill-number">05</span>
+              <h3>Audit Data Profiler</h3>
+              <p class="problem">Problem it solves: audit extracts get profiled before testing, with source trails and control totals.</p>
+            </div>
+            <details>
+              <summary>View sample SKILL.md</summary>
+              <pre><code>---
+name: audit-data-profiler
+description: Profile audit datasets such as general ledger, journal entries, trial balance, AP, AR, revenue, inventory, payroll, fixed assets, vendors, customers, and workpaper extracts. Use when the user needs completeness checks, row counts, control totals, field profiling, candidate keys, duplicates, exception criteria, or audit-ready data observations.
+---
+
+# Audit Data Profiler
+
+## Workflow
+
+1. Preserve raw files and record filenames, extract dates, sheet names, row counts, and column counts.
+2. Identify candidate keys, amount fields, date fields, status fields, user fields, and reference numbers.
+3. Profile nulls, duplicates, ranges, unusual values, and low-frequency categories.
+4. Tie totals to control totals, trial balance, subledger, or prior workpaper references where available.
+5. Separate observations from audit conclusions.
+
+## Output
+
+Return scope and source files, population overview, control totals, field quality observations, candidate tests, exception criteria, limitations, and follow-up.
+
+## Quality Gate
+
+Do not expose sensitive row-level data unnecessarily. Treat red flags as items for audit follow-up, not final conclusions.</code></pre>
+            </details>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-number">06</span>
+              <h3>Research Synthesis</h3>
+              <p class="problem">Problem it solves: multiple sources become a sourced research memo.</p>
+            </div>
+            <details>
+              <summary>View sample SKILL.md</summary>
+              <pre><code>---
+name: research-synthesis
+description: Synthesize research from articles, websites, reports, market scans, interview notes, and internal documents into a sourced consulting memo. Use when the user needs an industry brief, competitor summary, technology landscape, trend analysis, source comparison, or implications for a client or internal team.
+---
+
+# Research Synthesis
+
+## Workflow
+
+1. Clarify research question, audience, geography, sector, and decision context.
+2. Separate facts, source claims, assumptions, and implications.
+3. Compare sources for agreement, disagreement, recency, and credibility.
+4. Extract implications for strategy, risk, operating model, talent, technology, and next actions.
+5. Provide citations or links for all material claims.
+
+## Output
+
+Return executive answer, key findings, evidence table, contradictions or uncertainty, implications, and recommended next research.
+
+## Quality Gate
+
+Flag outdated sources, weak evidence, unsupported claims, and areas requiring primary validation.</code></pre>
+            </details>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-number">07</span>
+              <h3>Proposal Response</h3>
+              <p class="problem">Problem it solves: proposal inputs become a structured response and win themes.</p>
+            </div>
+            <details>
+              <summary>View sample SKILL.md</summary>
+              <pre><code>---
+name: proposal-response
+description: Draft and improve proposals, RFP responses, client pitches, capability statements, and solution narratives. Use when the user needs win themes, response structure, executive summary, scope, approach, timeline, assumptions, risks, differentiators, or review comments for a client-facing proposal.
+---
+
+# Proposal Response
+
+## Workflow
+
+1. Identify client need, decision criteria, scope, timeline, and must-answer questions.
+2. Create win themes tied to client outcomes.
+3. Draft a response structure with clear sections and proof points.
+4. Map capabilities, methodology, deliverables, team roles, risks, and assumptions.
+5. Review for executive clarity, differentiation, and compliance with RFP instructions.
+
+## Output
+
+Return executive summary, win themes, response outline, approach, deliverables, assumptions, risks, mitigations, and review checklist.
+
+## Quality Gate
+
+Do not invent credentials, case studies, pricing, or commitments. Mark missing proof points and approvals required.</code></pre>
+            </details>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-number">08</span>
+              <h3>Process Documentation</h3>
+              <p class="problem">Problem it solves: workflow knowledge becomes SOP, RACI, controls, and training material.</p>
+            </div>
+            <details>
+              <summary>View sample SKILL.md</summary>
+              <pre><code>---
+name: process-documentation
+description: Convert rough workflow notes, interviews, process maps, screenshots, policies, and operating knowledge into SOPs, RACI tables, control points, checklists, and training documentation. Use when the user needs a repeatable process document or process improvement summary.
+---
+
+# Process Documentation
+
+## Workflow
+
+1. Identify process objective, trigger, inputs, systems, roles, outputs, and frequency.
+2. Map current-state steps in sequence.
+3. Capture handoffs, approvals, controls, exceptions, and decision points.
+4. Convert into SOP language with clear owners and evidence requirements.
+5. Identify gaps, risks, improvement ideas, and automation candidates.
+
+## Output
+
+Return process objective, scope, trigger, RACI, step-by-step SOP, controls, evidence, exceptions, escalations, and improvements.
+
+## Quality Gate
+
+Flag ambiguous ownership, missing approvals, unclear evidence, and steps requiring policy confirmation.</code></pre>
+            </details>
+          </article>
+
+          <article class="skill-card featured">
+            <div class="skill-top">
+              <span class="skill-number">09</span>
+              <h3>Second Brain Curator</h3>
+              <p class="problem">Problem it solves: knowledge stays fresh, linked, source-backed, and AI-ready.</p>
+            </div>
+            <details>
+              <summary>View sample SKILL.md</summary>
+              <pre><code>---
+name: second-brain-curator
+description: Maintain a source-backed second brain by ingesting notes, links, documents, decisions, prompts, and project updates into structured markdown pages. Use when the user needs to create, refresh, deduplicate, link, summarize, or query a living knowledge base for a person, team, project, function, or department.
+---
+
+# Second Brain Curator
+
+## Workflow
+
+1. Start from the team SKILL.md: role, sources, confidentiality rules, output formats, and review gates.
+2. Ingest approved sources and preserve raw source references.
+3. Distill into durable wiki pages: projects, people, decisions, risks, processes, definitions, and reusable prompts.
+4. Link related pages using consistent names and backlinks.
+5. Mark freshness: last updated date, source, owner, confidence, and review status.
+6. Write validated learnings back into the brain after each useful AI interaction.
+
+## Output
+
+Return new or updated pages, source trail, links created, stale pages needing review, open questions, and suggested next refresh.
+
+## Quality Gate
+
+Do not overwrite human-approved pages without flagging the change. Separate source facts from AI synthesis.</code></pre>
+            </details>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-number">10</span>
+              <h3>Risk And Control Review</h3>
+              <p class="problem">Problem it solves: outputs are reviewed for risk, evidence, and readiness before sharing.</p>
+            </div>
+            <details>
+              <summary>View sample SKILL.md</summary>
+              <pre><code>---
+name: risk-control-review
+description: Review drafts, analyses, AI outputs, workpapers, presentations, emails, and proposed automations for risks, assumptions, controls, confidentiality, evidence quality, and stakeholder readiness. Use before sharing client-facing, leadership-facing, audit-supporting, or decision-critical material.
+---
+
+# Risk And Control Review
+
+## Workflow
+
+1. Identify audience, decision impact, confidentiality level, and whether the output is client-facing.
+2. Check claims against available sources.
+3. Identify assumptions, missing evidence, unsupported numbers, and overstatements.
+4. Review confidentiality, personal data, client-sensitive data, and inappropriate disclosure risk.
+5. Check ownership, approvals, review status, and next action.
+6. Recommend edits in priority order.
+
+## Output
+
+Return readiness rating, critical issues, assumptions to validate, evidence gaps, confidentiality risks, required approvals, and suggested edits.
+
+## Quality Gate
+
+Be conservative. When source evidence is missing or sensitive data may be exposed, recommend review before use.</code></pre>
+            </details>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <strong>Skill Repository for Deloitte USI by Futurelab Studios</strong>
+      <p style="margin: 6px 0 0;">Use these as sample operating instructions and adapt them to approved team context before production use. <a href="../index.html#resources">Return to handout.</a></p>
+    </div>
+  </footer>
+</body>
+</html>
